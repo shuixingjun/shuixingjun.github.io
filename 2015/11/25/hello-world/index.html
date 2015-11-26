@@ -85,13 +85,13 @@ Quick">
                 <li class="navigation__item"><a href="/about" title="" class="">About</a></li>
               
                 
-                <li class="navigation__item"><a href="/categories" title="" class="">categories</a></li>
+                <li class="navigation__item"><a href="/#categories" title="" class="">categories</a></li>
               
                 
-                <li class="navigation__item"><a href="/blogroll" title="" class="">Blogroll</a></li>
+                <li class="navigation__item"><a href="/#blogroll" title="" class="">Blogroll</a></li>
               
                 
-                <li class="navigation__item"><a href="tags" title="" class="">tags</a></li>
+                <li class="navigation__item"><a href="/#tags" title="" class="">tags</a></li>
               
 
             </ul>
@@ -206,22 +206,29 @@ classes that you can use:
 
     </section>
 
-    
+     
 
-<section class="post-comments">
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-      var disqus_shortname = 'shuixingjun'; 
-      /* * * DON'T EDIT BELOW THIS LINE * * */
+ 
+  <section id="comments">
+    <div class="ds-thread" data-thread-key="post-hello-world" data-title="Hello World" data-url="http://shuixingjun.github.io/2015/11/25/hello-world/"></div>
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shuixingjun"};
       (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
       })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</section>
+      </script>
+  </section>
+
+  
+
+
+
+
 
 
   </article>
@@ -229,7 +236,7 @@ classes that you can use:
 
             <footer class="footer">
     <span class="footer__copyright">&copy; 2014. All rights reserved.</span>
-    <span class="footer__copyright"><a href="http://uno.daleanthony.com" title="link to page for Uno Ghost theme">Uno theme</a> by <a href="http://daleanthony.com" title="link to website for Dale-Anthony">Dale-Anthony</a> | Redesign by <a href="http://letiantian.me" title="">樂天</a></span>
+    <span class="footer__copyright"></span>
 </footer>
         </div>
     </div>
