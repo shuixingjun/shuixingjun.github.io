@@ -7,7 +7,7 @@
     
 
     <title>
-      something | 水朝宗于海 
+      javascript模式 | 水朝宗于海 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,27 +15,25 @@
       <meta name="author" content="忍冬">
     
     
-      <meta name="description" content="说法萨芬萨发说法萨芬">
-    
 
-    <meta name="description" content="说法萨芬萨发说法萨芬">
+    <meta name="description" content="基本值包装类型javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数Number(),String(),Boolean()创建包装类型。对象主要有两种类型，1是原生的native，包括内置对象（如数组和日期），以及用户自定义的对象。2是主机的host，包含wi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="something | 水朝宗于海">
+<meta property="og:title" content="javascript模式 | 水朝宗于海">
 <meta property="og:url" content="http://shuixingjun.github.io/2015/11/25/qqqqaaaaa/index.html">
 <meta property="og:site_name" content="水朝宗于海">
-<meta property="og:description" content="说法萨芬萨发说法萨芬">
-<meta property="og:updated_time" content="2015-11-26T09:39:20.524Z">
+<meta property="og:description" content="基本值包装类型javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数Number(),String(),Boolean()创建包装类型。对象主要有两种类型，1是原生的native，包括内置对象（如数组和日期），以及用户自定义的对象。2是主机的host，包含wi">
+<meta property="og:updated_time" content="2015-12-01T08:07:50.026Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="something | 水朝宗于海">
-<meta name="twitter:description" content="说法萨芬萨发说法萨芬">
+<meta name="twitter:title" content="javascript模式 | 水朝宗于海">
+<meta name="twitter:description" content="基本值包装类型javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数Number(),String(),Boolean()创建包装类型。对象主要有两种类型，1是原生的native，包括内置对象（如数组和日期），以及用户自定义的对象。2是主机的host，包含wi">
     
     
     
       <link rel="icon" type="image/x-icon" href="/images/yu.jpg">
     
     <link rel="stylesheet" href="/css/uno.css" type="text/css">
-
-    <script src="/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
 
 </head>
 <body>
@@ -50,7 +48,6 @@
 <header class="panel-cover panel-cover--collapsed">
 
 
-
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">
@@ -61,12 +58,14 @@
         
 
         <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">水朝宗于海</a></h1>
-
         <hr class="panel-cover__divider" />
+
+        
         <p class="panel-cover__description">
           博客正在搭建中，此间只为临时笔记。
         </p>
         <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
 
         <div class="navigation-wrapper">
 
@@ -75,19 +74,13 @@
 
               
                 
-                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Blog</a></li>
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
               
                 
-                <li class="navigation__item"><a href="/about" title="" class="">About</a></li>
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
               
                 
-                <li class="navigation__item"><a href="/#categories" title="" class="">categories</a></li>
-              
-                
-                <li class="navigation__item"><a href="/#blogroll" title="" class="">Blogroll</a></li>
-              
-                
-                <li class="navigation__item"><a href="/#tags" title="" class="">tags</a></li>
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
               
 
             </ul>
@@ -137,21 +130,32 @@ classes that you can use:
     icon-social-zerply
     icon-mail
 
------------------------------- -->
+-------------------------------->
+
+
+
+
 
 <nav class="cover-navigation navigation--social">
   <ul class="navigation">
 
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/shuixingjun" title="shuixingjun">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
 
-  <!-- Github -->
-  <li class="navigation__item">
-    <a href="https://github.com/shuixingjun" title="github">
-      <i class='icon icon-social-github'></i>
-      <span class="label">GitHub</span>
-    </a>
-  </li>
+    
+
   </ul>
 </nav>
+
+
+
+
 
         </div>
 
@@ -167,129 +171,159 @@ classes that you can use:
         <div class="content-wrapper__inner entry">
             
 
-  <article class="post-container post-container--single">
+<article class="post-container post-container--single">
 
-    <header class="post-header">
+  <header class="post-header">
     
-      
-      <div class="post-meta">
-        <time datetime="2015-11-25" class="post-meta__date date">2015-11-25</time> &#8226; 
+    <h1 class="post-title">javascript模式</h1>
 
-        <span class="post-meta__tags tags">
+    
 
+    <div class="post-meta">
+         <span class="arr">&nbsp;</span>
+         <time datetime="2015-11-25" class="post-meta__date date">2015-11-25</time> 
+      <span class="post-meta__tags tags">
+
+          
             <font class="categories">
-              <a class="categories-link" href="/categories/Font-End/">Font-End</a>
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Font-End/">Font-End</a>
             </font>
-            
-              <font class="tags">
-                <a class="tags-link" href="/tags/javascript/">javascript</a>
-              </font>
-            
+          
 
-        </span>
-      </div>
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/javascript/">javascript</a>
+            </font>
+          
+
+      </span>
+          <span id="busuanzi_container_page_pv"> &#8226; 阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
       
+    </div>
+    
+    
 
-      <h1 class="post-title">something</h1>
-    </header>
+  </header>
 
-    <section class="post">
-      <p>说法萨芬萨发说法萨芬</p>
+  <section id="post-content" class="article-content post">
+    <h3 id="基本值包装类型">基本值包装类型</h3><p>javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数Number(),String(),Boolean()创建包装类型。<br>对象主要有两种类型，1是原生的native，包括内置对象（如数组和日期），以及用户自定义的对象。2是主机的host，包含windows对象和所有dom对象。<br>通常使用包装对象的原因之一，是有扩充值以及持久保存状态的需要。这是由于基本值类型并不是对象，他们不可能扩充属性。</p>
+<h3 id="尽量使用局部变量，而不是全局变量。">尽量使用局部变量，而不是全局变量。</h3><p>javascript有两个特性，1是可以使用变量不用声明，2是有暗示的全局变量。例如，在一个函数内有未经声明的变量，在调用该函数后，全局命名空间使用了另外的该变量，就会被覆盖住。另外一个原因是代码移植，如果代码运行在不同的环境，很可能导致不存在与原环境，但存在于其他环境的主机变量就被覆盖了。</p>
+<h3 id="变量释放的副作用。">变量释放的副作用。</h3><p>通过var声明的全局变量，不可以用delete删除，而在函数内部的全局变量，则不能用delete删除。这就表明，隐含全局变量并不是真正的变量，而是全局对象的属性，属性可以用delete操作符删除，而变量不可以。</p>
+<h3 id="只使用1个var进行变量声明。">只使用1个var进行变量声明。</h3><h3 id="不增加内置构造函数（object(),array()，function()等）的原型，影响可维护性。">不增加内置构造函数（object(),array()，function()等）的原型，影响可维护性。</h3><p>以下情形是例外：1.未来可能将该功能作为一个统一的内置方法中。2.自定义属性或方法未存在时。3.进行文档记录。<br>给原型添加的属性在没有使用haswonproperty()，时可能会在循环中出现，导致混乱。</p>
+<h3 id="避免使用eval()">避免使用eval()</h3><ol>
+<li>eval()可以将任意字符串当做js代码执行。</li>
+<li>包含一些安全隐患，有可能执行被篡改的代码。</li>
+<li>影响到作用域链。</li>
+</ol>
+<ul>
+<li>使用parseInt(),可以从一个字符串中获取数值，最好不要忽略第二个参数，否则解析的字符串是0开始就会错误。</li>
+<li>使用JSON.parse()解析字符串，JSON.stringify()可以采用任意的对象或数组（或基本数据类型）,并且将其序列化为一个JSON字符串。</li>
+</ul>
+<h3 id="关于正则">关于正则</h3><h6 id="两种方法创建正则表达式，优先使用字面量模式。">两种方法创建正则表达式，优先使用字面量模式。</h6><ol>
+<li>正则表达式的字面量<br>var re = /\/gm;</li>
+<li>构造函数<br>var re = new RegExp(“\\“, “gm”);</li>
+</ol>
+<h6 id="字面量法第二个斜杠后，可将该模式改为不加引号的字母形式。">字面量法第二个斜杠后，可将该模式改为不加引号的字母形式。</h6><ul>
+<li>g—全局匹配</li>
+<li>m—多行</li>
+<li>i—大小写敏感的匹配</li>
+</ul>
+<h3 id="函数表达式">函数表达式</h3><p>如果跳过函数表达式中的名称，将会得到一个未命名的函数表达式，即匿名函数。这并不影响函数的定义以及后续的调用，唯一的区别在于该函数对象的name属性将会成为一个空字符串。<br>就语法而言，函数表达式与函数声明很相似。<br>函数声明不需要用分号结尾，而函数表达式需要，且总是使用分号。</p>
 
-    </section>
-
-     
-
- 
-  <section id="comments">
-    <div class="ds-thread" data-thread-key="post-qqqqaaaaa" data-title="something" data-url="http://shuixingjun.github.io/2015/11/25/qqqqaaaaa/"></div>
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"shuixingjun"};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol ) + '/js/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
   </section>
 
   
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2015/11/25/qqqqaaaaa/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"shuixingjun"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
 
 
-
-
-
-
-  </article>
+</article>
 
 
             <footer class="footer">
-    <span class="footer__copyright">&copy; 2014. All rights reserved.</span>
-    <span class="footer__copyright"></span>
+	
+    <span class="footer__copyright">&copy; 2015. <a href="#about" class="rend">忍冬</a></span>
+
+    <p class="no-indent">
+	    <span>
+		    <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+	 	</span>&emsp;|&emsp;
+    	本页点击 <span id="busuanzi_value_page_pv"></span>次 &emsp;|&emsp;
+    	本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+		&emsp;|&emsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+    </p>
+    
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    
 </footer>
         </div>
     </div>
 
-    <!-- The main JavaScript file for Casper -->
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/scale.fix.js"></script>
-    <script src="/js/jquery.imagesloaded.min.js"></script>
-    <script src="/js/gallery.js"></script>
-    <script src="/js/jquery.githubRepoWidget.min.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config"> 
-      MathJax.Hub.Config({ 
-        tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
-    }); 
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
     </script>
 
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+     <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+    
     <!--kill ie6 -->
-    <!--[if IE 6]>
-      <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-    <![endif]-->
-
-    <!--  google analytics -->
-    <script>
-      // add your google analytics code here
-    </script>
-
-    <!-- totop -->
-    <div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
-    <a title="back to top"><img style="width:30px;height:30px;" src="/images/totop.png"/></a>
-    </div>
-    <script>
-    (function($) { 
-      var upperLimit = 100;
-      var scrollElem = $('#totop');
-      var scrollSpeed = 500; 
-      scrollElem.hide();
-      $(window).scroll(function () {            
-        var scrollTop = $(document).scrollTop();       
-        if ( scrollTop > upperLimit ) {
-          $(scrollElem).stop().fadeTo(300, 1); // fade back in           
-        }else{       
-          $(scrollElem).stop().fadeTo(300, 0); // fade out
-        }
-      });
-      $(scrollElem).click(function(){
-        $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
-      });
-    })(jQuery);
-    </script>
-
-    <!-- fancybox -->
-    
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-    <script src="/fancybox/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript">
-      (function($){
-        $('.fancybox').fancybox();
-      })(jQuery);
-    </script>
-    
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
 
 </body>
 </html>

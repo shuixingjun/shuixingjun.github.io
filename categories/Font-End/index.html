@@ -31,8 +31,8 @@
       <link rel="icon" type="image/x-icon" href="/images/yu.jpg">
     
     <link rel="stylesheet" href="/css/uno.css" type="text/css">
-
-    <script src="/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
 
 </head>
 <body>
@@ -47,7 +47,6 @@
 <header class="panel-cover panel-cover--collapsed">
 
 
-
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">
@@ -58,12 +57,14 @@
         
 
         <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">水朝宗于海</a></h1>
-
         <hr class="panel-cover__divider" />
+
+        
         <p class="panel-cover__description">
           博客正在搭建中，此间只为临时笔记。
         </p>
         <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
 
         <div class="navigation-wrapper">
 
@@ -72,19 +73,13 @@
 
               
                 
-                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Blog</a></li>
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
               
                 
-                <li class="navigation__item"><a href="/about" title="" class="">About</a></li>
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
               
                 
-                <li class="navigation__item"><a href="/#categories" title="" class="">categories</a></li>
-              
-                
-                <li class="navigation__item"><a href="/#blogroll" title="" class="">Blogroll</a></li>
-              
-                
-                <li class="navigation__item"><a href="/#tags" title="" class="">tags</a></li>
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
               
 
             </ul>
@@ -134,21 +129,32 @@ classes that you can use:
     icon-social-zerply
     icon-mail
 
------------------------------- -->
+-------------------------------->
+
+
+
+
 
 <nav class="cover-navigation navigation--social">
   <ul class="navigation">
 
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/shuixingjun" title="shuixingjun">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
 
-  <!-- Github -->
-  <li class="navigation__item">
-    <a href="https://github.com/shuixingjun" title="github">
-      <i class='icon icon-social-github'></i>
-      <span class="label">GitHub</span>
-    </a>
-  </li>
+    
+
   </ul>
 </nav>
+
+
+
+
 
         </div>
 
@@ -175,27 +181,17 @@ classes that you can use:
     
     <li>
 
-      <h2 class="post-list__post-title post-title"><a href="/2015/11/25/qqqqaaaaa/" title="link to something">something</a></h2>
-
-      <p class="excerpt">
-        
-      </p>
+      <h2 class="post-list__post-title post-title">
+        <a href="/2015/11/25/qqqqaaaaa/" title="link to javascript模式">javascript模式</a>
+      </h2>
 
       <div class="post-list__meta">
 
-        <time datetime="2015-11-25" class="post-list__meta--date date">2015-11-25</time> &#8226; 
+        <time datetime="2015-11-25" class="post-list__meta--date date">2015-11-25</time> 
+      </div>
 
-        <span class="post-list__meta--tags tags">
-          <font class="categories">
-            <a class="categories-link" href="/categories/Font-End/">Font-End</a>
-          </font>
-          
-            <font class="tags">
-              <a class="tags-link" href="/tags/javascript/">javascript</a>
-            </font>
-          
-
-        </span>
+      <div class="excerpt">
+        
       </div>
 
       <hr class="post-list__divider" />
@@ -208,7 +204,7 @@ classes that you can use:
 <nav class="pagination" role="navigation">
     
 
-    <span class="pagination__page-number">Page 1 of 1</span>
+    <span class="pagination__page-number"> 1 / 1</span>
     
     
 </nav>
@@ -216,69 +212,58 @@ classes that you can use:
 
 </div>
             <footer class="footer">
-    <span class="footer__copyright">&copy; 2014. All rights reserved.</span>
-    <span class="footer__copyright"></span>
+	
+    <span class="footer__copyright">&copy; 2015. <a href="#about" class="rend">忍冬</a></span>
+
+    <p class="no-indent">
+	    <span>
+		    <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+	 	</span>&emsp;|&emsp;
+    	本页点击 <span id="busuanzi_value_page_pv"></span>次 &emsp;|&emsp;
+    	本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+		&emsp;|&emsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+    </p>
+    
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    
 </footer>
         </div>
     </div>
 
-    <!-- The main JavaScript file for Casper -->
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/scale.fix.js"></script>
-    <script src="/js/jquery.imagesloaded.min.js"></script>
-    <script src="/js/gallery.js"></script>
-    <script src="/js/jquery.githubRepoWidget.min.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config"> 
-      MathJax.Hub.Config({ 
-        tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
-    }); 
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
     </script>
 
+
+    
+     <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+    
     <!--kill ie6 -->
-    <!--[if IE 6]>
-      <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-    <![endif]-->
-
-    <!--  google analytics -->
-    <script>
-      // add your google analytics code here
-    </script>
-
-    <!-- totop -->
-    <div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
-    <a title="back to top"><img style="width:30px;height:30px;" src="/images/totop.png"/></a>
-    </div>
-    <script>
-    (function($) { 
-      var upperLimit = 100;
-      var scrollElem = $('#totop');
-      var scrollSpeed = 500; 
-      scrollElem.hide();
-      $(window).scroll(function () {            
-        var scrollTop = $(document).scrollTop();       
-        if ( scrollTop > upperLimit ) {
-          $(scrollElem).stop().fadeTo(300, 1); // fade back in           
-        }else{       
-          $(scrollElem).stop().fadeTo(300, 0); // fade out
-        }
-      });
-      $(scrollElem).click(function(){
-        $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
-      });
-    })(jQuery);
-    </script>
-
-    <!-- fancybox -->
-    
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-    <script src="/fancybox/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript">
-      (function($){
-        $('.fancybox').fancybox();
-      })(jQuery);
-    </script>
-    
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
 
 </body>
 </html>

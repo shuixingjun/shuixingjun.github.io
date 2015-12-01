@@ -15,9 +15,6 @@
       <meta name="author" content="忍冬">
     
     
-      <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-    
 
     <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick">
@@ -38,8 +35,8 @@ Quick">
       <link rel="icon" type="image/x-icon" href="/images/yu.jpg">
     
     <link rel="stylesheet" href="/css/uno.css" type="text/css">
-
-    <script src="/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
 
 </head>
 <body>
@@ -54,7 +51,6 @@ Quick">
 <header class="panel-cover panel-cover--collapsed">
 
 
-
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">
@@ -65,12 +61,14 @@ Quick">
         
 
         <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">水朝宗于海</a></h1>
-
         <hr class="panel-cover__divider" />
+
+        
         <p class="panel-cover__description">
           博客正在搭建中，此间只为临时笔记。
         </p>
         <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
 
         <div class="navigation-wrapper">
 
@@ -79,19 +77,13 @@ Quick">
 
               
                 
-                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Blog</a></li>
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
               
                 
-                <li class="navigation__item"><a href="/about" title="" class="">About</a></li>
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
               
                 
-                <li class="navigation__item"><a href="/#categories" title="" class="">categories</a></li>
-              
-                
-                <li class="navigation__item"><a href="/#blogroll" title="" class="">Blogroll</a></li>
-              
-                
-                <li class="navigation__item"><a href="/#tags" title="" class="">tags</a></li>
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
               
 
             </ul>
@@ -141,21 +133,32 @@ classes that you can use:
     icon-social-zerply
     icon-mail
 
------------------------------- -->
+-------------------------------->
+
+
+
+
 
 <nav class="cover-navigation navigation--social">
   <ul class="navigation">
 
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/shuixingjun" title="shuixingjun">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
 
-  <!-- Github -->
-  <li class="navigation__item">
-    <a href="https://github.com/shuixingjun" title="github">
-      <i class='icon icon-social-github'></i>
-      <span class="label">GitHub</span>
-    </a>
-  </li>
+    
+
   </ul>
 </nav>
+
+
+
+
 
         </div>
 
@@ -171,30 +174,34 @@ classes that you can use:
         <div class="content-wrapper__inner entry">
             
 
-  <article class="post-container post-container--single">
+<article class="post-container post-container--single">
 
-    <header class="post-header">
+  <header class="post-header">
     
+    <h1 class="post-title">Hello World</h1>
+
+    
+
+    <div class="post-meta">
+         <span class="arr">&nbsp;</span>
+         <time datetime="2015-11-25" class="post-meta__date date">2015-11-25</time> 
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+          <span id="busuanzi_container_page_pv"> &#8226; 阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
       
-      <div class="post-meta">
-        <time datetime="2015-11-25" class="post-meta__date date">2015-11-25</time> &#8226; 
+    </div>
+    
+    
 
-        <span class="post-meta__tags tags">
+  </header>
 
-            <font class="categories">
-              
-            </font>
-            
-
-        </span>
-      </div>
-      
-
-      <h1 class="post-title">Hello World</h1>
-    </header>
-
-    <section class="post">
-      <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+  <section id="post-content" class="article-content post">
+    <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -204,100 +211,98 @@ classes that you can use:
 <h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-    </section>
-
-     
-
- 
-  <section id="comments">
-    <div class="ds-thread" data-thread-key="post-hello-world" data-title="Hello World" data-url="http://shuixingjun.github.io/2015/11/25/hello-world/"></div>
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"shuixingjun"};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol ) + '/js/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
   </section>
 
   
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2015/11/25/hello-world/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"shuixingjun"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
 
 
-
-
-
-
-  </article>
+</article>
 
 
             <footer class="footer">
-    <span class="footer__copyright">&copy; 2014. All rights reserved.</span>
-    <span class="footer__copyright"></span>
+	
+    <span class="footer__copyright">&copy; 2015. <a href="#about" class="rend">忍冬</a></span>
+
+    <p class="no-indent">
+	    <span>
+		    <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+	 	</span>&emsp;|&emsp;
+    	本页点击 <span id="busuanzi_value_page_pv"></span>次 &emsp;|&emsp;
+    	本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+		&emsp;|&emsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+    </p>
+    
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    
 </footer>
         </div>
     </div>
 
-    <!-- The main JavaScript file for Casper -->
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/scale.fix.js"></script>
-    <script src="/js/jquery.imagesloaded.min.js"></script>
-    <script src="/js/gallery.js"></script>
-    <script src="/js/jquery.githubRepoWidget.min.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config"> 
-      MathJax.Hub.Config({ 
-        tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
-    }); 
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
     </script>
 
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+     <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+    
     <!--kill ie6 -->
-    <!--[if IE 6]>
-      <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-    <![endif]-->
-
-    <!--  google analytics -->
-    <script>
-      // add your google analytics code here
-    </script>
-
-    <!-- totop -->
-    <div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
-    <a title="back to top"><img style="width:30px;height:30px;" src="/images/totop.png"/></a>
-    </div>
-    <script>
-    (function($) { 
-      var upperLimit = 100;
-      var scrollElem = $('#totop');
-      var scrollSpeed = 500; 
-      scrollElem.hide();
-      $(window).scroll(function () {            
-        var scrollTop = $(document).scrollTop();       
-        if ( scrollTop > upperLimit ) {
-          $(scrollElem).stop().fadeTo(300, 1); // fade back in           
-        }else{       
-          $(scrollElem).stop().fadeTo(300, 0); // fade out
-        }
-      });
-      $(scrollElem).click(function(){
-        $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
-      });
-    })(jQuery);
-    </script>
-
-    <!-- fancybox -->
-    
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-    <script src="/fancybox/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript">
-      (function($){
-        $('.fancybox').fancybox();
-      })(jQuery);
-    </script>
-    
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
 
 </body>
 </html>
