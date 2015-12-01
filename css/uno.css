@@ -1792,3 +1792,7 @@ a.rend:hover {
     color: #C19E9E;
     font-size: 13p
 }
+.panel-cover__logo { 
+  width: 100px;
+  height: 100px;
+}
