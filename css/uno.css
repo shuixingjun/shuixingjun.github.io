@@ -1720,9 +1720,10 @@ blockquote
 {
     position: relative;
     margin: 40px 0;
-    padding: 0 10px;
+    padding: 5px 10px;
     border-left: none;
     font-style: normal;
+    background: #FEF5F5;
 }
 blockquote:before {
     top: -20px;
@@ -1795,4 +1796,7 @@ a.rend:hover {
 .panel-cover__logo { 
   width: 100px;
   height: 100px;
+}
+code {
+  color: #CE8396;
 }

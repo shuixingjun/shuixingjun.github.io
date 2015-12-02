@@ -137,7 +137,7 @@ function os(e) {
 //显UA结束//管理员判断开始
 function sskadmin(e) {
     var ssk = '';
-    if (e.user_id == 14198272) {
+    if (e.user_id == 6221373719651025666) {
         if (checkMobile()) {
             ssk = '<span class="ua"><span class="sskadmin">博主</span></span><br><br>';
         } else {
