@@ -28,7 +28,7 @@
 
 是原生的native，包括内置对象（如数组和日期），以及用户自定义的对象。
 是主机的host，包含w">
-<meta property="og:updated_time" content="2015-12-02T02:18:38.235Z">
+<meta property="og:updated_time" content="2015-12-03T03:00:10.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript模式 | 水朝宗于海">
 <meta name="twitter:description" content="基本值包装类型javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数Number(),String(),Boolean()创建包装类型。对象主要有两种类型：
@@ -229,7 +229,18 @@ classes that you can use:
 <ol>
 <li>未来可能将该功能作为一个统一的内置方法中。</li>
 <li>自定义属性或方法未存在时。</li>
-<li>进行文档记录。<br>给原型添加的属性在没有使用<code>haswonproperty()</code>，时可能会在循环中出现，导致混乱。</li>
+<li>进行文档记录。</li>
+</ol>
+<p>给原型添加的属性在没有使用<code>hasOwnProperty()</code>时，可能会在循环中出现，导致混乱。</p>
+<ol>
+<li>for-in循环<br> for (var i in man ) {<pre><code><span class="keyword">if</span> ( <span class="keyword">man</span>.hasOwnProperty(i)) {
+    console.<span class="literal">log</span>(i, <span class="string">":"</span>, <span class="keyword">man</span>[i]);
+}
+</code></pre> }</li>
+<li>在Object.prototype中调用该函数<br> if (var i in man) {<pre><code><span class="keyword">if</span> (Object.prototype.hasOwnProperty.call(<span class="keyword">man</span>,i)) {
+    console.<span class="literal">log</span>(i, <span class="string">":"</span>, <span class="keyword">man</span>[i]);
+}
+</code></pre> }</li>
 </ol>
 <h3 id="避免使用eval()">避免使用eval()</h3><ol>
 <li><code>eval()</code>可以将任意字符串当做js代码执行。</li>
@@ -250,6 +261,11 @@ classes that you can use:
 <li>i—大小写敏感的匹配</li>
 </ul>
 <h3 id="函数表达式">函数表达式</h3><p>如果跳过函数表达式中的名称，将会得到一个未命名的函数表达式，即匿名函数。这并不影响函数的定义以及后续的调用，唯一的区别在于该函数对象的name属性将会成为一个空字符串。<br>就语法而言，函数表达式与函数声明很相似。<br>函数声明不需要用分号结尾，而函数表达式需要，且总是使用分号。</p>
+<p>###<br>js中函数有两个特征</p>
+<ul>
+<li>它们都是对象。</li>
+<li>他们提供局部作用域。</li>
+</ul>
 
   </section>
 
