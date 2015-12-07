@@ -7,7 +7,7 @@
     
 
     <title>
-      mokuai | 水朝宗于海 
+      模块模式 | 水朝宗于海 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,43 +16,37 @@
     
     
 
-    <meta name="description" content="##模块模式
-###是以下模式的组合：
-
+    <meta name="description" content="以下是模式的组合：
 命名空间
 即时函数
 私有和特权成员
 声明依赖
 
 1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。MYAPP.namespace(&apos;MYAPP.utilities.array&apos;);
-2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周">
+2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周期的私有和状态。MYA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mokuai | 水朝宗于海">
+<meta property="og:title" content="模块模式 | 水朝宗于海">
 <meta property="og:url" content="http://shuixingjun.github.io/2015/12/07/mokuai/index.html">
 <meta property="og:site_name" content="水朝宗于海">
-<meta property="og:description" content="##模块模式
-###是以下模式的组合：
-
+<meta property="og:description" content="以下是模式的组合：
 命名空间
 即时函数
 私有和特权成员
 声明依赖
 
 1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。MYAPP.namespace(&apos;MYAPP.utilities.array&apos;);
-2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周">
-<meta property="og:updated_time" content="2015-12-07T05:46:48.770Z">
+2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周期的私有和状态。MYA">
+<meta property="og:updated_time" content="2015-12-07T09:52:35.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mokuai | 水朝宗于海">
-<meta name="twitter:description" content="##模块模式
-###是以下模式的组合：
-
+<meta name="twitter:title" content="模块模式 | 水朝宗于海">
+<meta name="twitter:description" content="以下是模式的组合：
 命名空间
 即时函数
 私有和特权成员
 声明依赖
 
 1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。MYAPP.namespace(&apos;MYAPP.utilities.array&apos;);
-2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周">
+2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周期的私有和状态。MYA">
     
     
     
@@ -202,7 +196,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">mokuai</h1>
+    <h1 class="post-title">模块模式</h1>
 
     
 
@@ -235,15 +229,13 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>##模块模式</p>
-<p>###是以下模式的组合：</p>
-<ul>
+    <h3 id="以下是模式的组合：">以下是模式的组合：</h3><ul>
 <li>命名空间</li>
 <li>即时函数</li>
 <li>私有和特权成员</li>
 <li>声明依赖</li>
 </ul>
-<h4 id="1-_建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。">1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。</h4><pre><code>MYAPP.<span class="keyword">namespace</span>(<span class="string">'MYAPP.utilities.array'</span>);
+<h4 id="1-_建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。">1. 建立一个命名空间。本例中使用<code>namespace()</code>函数，并启动可以提供有用数组方法的工具模块。</h4><pre><code>MYAPP.<span class="keyword">namespace</span>(<span class="string">'MYAPP.utilities.array'</span>);
 </code></pre><h4 id="2-_定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周期的私有和状态。">2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周期的私有和状态。</h4><pre><code>MYAPP.utilities.<span class="keyword">array</span> = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
     <span class="keyword">return</span> {
         <span class="comment">//to do</span>
@@ -293,9 +285,17 @@ MYAPP.utilities.array = (<span class="function"><span class="keyword">function</
     }
     };
 }());
-</code></pre><p>###引入全局<br>JavaScript有个特性，称为隐性全局。使用变量名称时，解释器会从作用域向后寻找变量声明。如果没找到，变量会被假定入全局（以后可以全局调用）。如果会被分配使用，在还不存在时全局创建它。这意味着在匿名函数里使用全局变量很简单。不幸的是，这会导致代码难以管理，文件中不容易区分（对人而言）哪个变量是全局的。<br>幸好，匿名函数还有一个不错的选择。全局变量作为参数传递给匿名函数。将它们引入我们的代码中，既更清晰，又比使用隐性全局更快。下面是一个例子：<br>    MYAPP.utilities.module = (function (app, global)) {<br>        //引用全局对象<br>        //以及现在被转换成局部变量的全局应用程序命名空间对象<br>    }</p>
-<h3 id="模块出口">模块出口</h3><p>有时你不只想用全局变量，但你需要先声明他们（模块的全局调用）。我们用匿名函数的返回值，很容易输出他们。这样做就完成了基本的模块模式。以下是一个完整例子：<br>    var MODULE = (function () {<br>            var my = {},<br>                    privateVariable = 1;</p>
-<pre><code>        <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span><span class="params">()</span> </span>{
+</code></pre><h3 id="引入全局">引入全局</h3><p>JavaScript有个特性，称为隐性全局。使用变量名称时，解释器会从作用域向后寻找变量声明。如果没找到，变量会被假定入全局（以后可以全局调用）。如果会被分配使用，在还不存在时全局创建它。这意味着在匿名函数里使用全局变量很简单。不幸的是，这会导致代码难以管理，文件中不容易区分（对人而言）哪个变量是全局的。<br>幸好，匿名函数还有一个不错的选择。全局变量作为参数传递给匿名函数。将它们引入我们的代码中，既更清晰，又比使用隐性全局更快。下面是一个例子：</p>
+<pre><code>MYAPP.utilities.<span class="keyword">module</span> = (<span class="function"><span class="keyword">function</span> <span class="params">(app, global)</span>) {</span>
+    <span class="comment">//引用全局对象</span>
+    <span class="comment">//以及现在被转换成局部变量的全局应用程序命名空间对象</span>
+}
+</code></pre><h3 id="模块出口">模块出口</h3><p>有时你不只想用全局变量，但你需要先声明他们（模块的全局调用）。我们用匿名函数的返回值，很容易输出他们。这样做就完成了基本的模块模式。以下是一个完整例子：</p>
+<pre><code><span class="keyword">var</span> MODULE = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+        <span class="keyword">var</span> my = {},
+                privateVariable = <span class="number">1</span>;
+
+        <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span><span class="params">()</span> </span>{
                 <span class="comment">// ...</span>
         }
 
@@ -306,20 +306,33 @@ MYAPP.utilities.array = (<span class="function"><span class="keyword">function</
 
         <span class="keyword">return</span> my;
 }());     
-</code></pre><p>注意，我们声明了一个全局模块MODULE，有两个公开属性：方法MODULE.moduleMethod和属性MODULE.moduleProperty。而且，匿名函数的闭包还维持了私有内部状态。    </p>
-<h3 id="扩充">扩充</h3><p>模块模式的一个限制是整个模块必须在一个文件里。任何人都了解长代码分割到不同文件的必要。还好，我们有很好的办法扩充模块。（在扩充文件）首先我们引入模块（从全局），给他添加属性，再输出他。下面是一个例子扩充模块：<br>    var MODULE = (function (my) {<br>            my.anotherMethod = function () {<br>                    // 此前的MODULE返回my对象作为全局输出，因此这个匿名函数的参数MODULE就是上面MODULE匿名函数里的my<br>            };<br>            return my;<br>    }(MODULE));<br>代码执行后，模块获得一个新公开方法MODULE.anotherMethod。扩充文件没有影响模块的私有内部状态。</p>
-<h4 id="1-_松耦合扩充">1. 松耦合扩充</h4><p>上面的例子需要我们首先创建模块，然后扩充它，这并不总是必要的。提升JavaScript应用性能最好的操作就是异步加载脚本。因而我们可以创建灵活多部分的模块，可以将他们无顺序加载，以松耦合扩充。每个文件应有如下的结构：<br>    var MODULE = (function (my) {<br>            // add capabilities…</p>
-<pre><code><span class="command">        return</span> <span class="keyword">my</span>;
-}(MODULE || {}));
+</code></pre><p>注意，我们声明了一个全局模<code>MODULE</code>，有两个公开属性：方法<code>MODULE.moduleMethod</code>和属性<code>MODULE.moduleProperty</code>。而且，匿名函数的闭包还维持了私有内部状态。    </p>
+<h3 id="扩充">扩充</h3><p>模块模式的一个限制是整个模块必须在一个文件里。任何人都了解长代码分割到不同文件的必要。还好，我们有很好的办法扩充模块。（在扩充文件）首先我们引入模块（从全局），给他添加属性，再输出他。下面是一个例子扩充模块：</p>
+<pre><code>var <span class="keyword">MODULE</span> = (<span class="function"><span class="keyword">function</span></span> (my) {
+        my.anotherMethod = <span class="function"><span class="keyword">function</span></span> () {
+                // 此前的<span class="keyword">MODULE</span>返回my对象作为全局输出，因此这个匿名函数的参数<span class="keyword">MODULE</span>就是上面<span class="keyword">MODULE</span>匿名函数里的my
+        };
+        <span class="keyword">return</span> my;
+}(<span class="keyword">MODULE</span>));
+</code></pre><p>代码执行后，模块获得一个新公开方法<code>MODULE.anotherMethod</code>。扩充文件没有影响模块的私有内部状态。</p>
+<h4 id="1-_松耦合扩充">1. 松耦合扩充</h4><p>上面的例子需要我们首先创建模块，然后扩充它，这并不总是必要的。提升JavaScript应用性能最好的操作就是异步加载脚本。因而我们可以创建灵活多部分的模块，可以将他们无顺序加载，以松耦合扩充。每个文件应有如下的结构：</p>
+<pre><code>var MODULE = <span class="list">(<span class="keyword">function</span> <span class="list">(<span class="keyword">my</span>)</span> {
+        // add capabilities...
+
+        return my<span class="comment">;</span>
+}<span class="list">(<span class="keyword">MODULE</span> || {})</span>)</span><span class="comment">;</span>
 </code></pre><p>这个模式里，var语句是必须的，以标记引入时不存在会创建。这意味着你可以像LABjs一样同时加载所有模块文件而不被阻塞。</p>
-<h4 id="2-_紧耦合扩充">2. 紧耦合扩充</h4><p>虽然松耦合很不错，但模块上也有些限制。最重要的，你不能安全的覆写模块属性（因为没有加载顺序）。初始化时也无法使用其他文件定义的模块属性（但你可以在初始化后运行）。紧耦合扩充意味着一组加载顺序，但是允许覆写。下面是一个例子（扩充最初定义的MODULE）：<br>    var MODULE = (function (my) {<br>            var old_moduleMethod = my.moduleMethod;</p>
-<pre><code>        my.moduleMethod = function () {
+<h4 id="2-_紧耦合扩充">2. 紧耦合扩充</h4><p>虽然松耦合很不错，但模块上也有些限制。最重要的，你不能安全的覆写模块属性（因为没有加载顺序）。初始化时也无法使用其他文件定义的模块属性（但你可以在初始化后运行）。紧耦合扩充意味着一组加载顺序，但是允许覆写。下面是一个例子（扩充最初定义的MODULE）：</p>
+<pre><code><span class="keyword">var</span> <span class="type">MODULE</span> = (function (my) {
+        <span class="keyword">var</span> old_moduleMethod = my.moduleMethod;
+
+        my.moduleMethod = function () {
                 // <span class="keyword">method</span> override, has access to old through old_moduleMethod...
         };
 
         <span class="keyword">return</span> my;
 }(<span class="type">MODULE</span>));
-</code></pre><p>我们覆写的MODULE.moduleMethod，但依旧保持着私有内部状态。</p>
+</code></pre><p>我们覆写的<code>MODULE.moduleMethod</code>，但依旧保持着私有内部状态。</p>
 <h3 id="克隆和继承">克隆和继承</h3><pre><code><span class="keyword">var</span> MODULE_TWO = (<span class="function"><span class="keyword">function</span> <span class="params">(old)</span> </span>{
         <span class="keyword">var</span> my = {},
                 key;
@@ -337,13 +350,26 @@ MYAPP.utilities.array = (<span class="function"><span class="keyword">function</
 
         <span class="keyword">return</span> my;
 }(MODULE));
-</code></pre><p>这种方式也许最不灵活。他可以实现巧妙的组合，但是牺牲了灵活性。正如我写的，对象的属性或方法不是拷贝，而是一个对象的两个引用。修改一个会影响其他。这可能可以保持递归克隆对象的属性固定，但无法固定方法，除了带eval的方法。不过，我已经完整的包含了模块。（其实就是做了一次浅拷贝）。    </p>
-<h3 id="跨文件私有状态">跨文件私有状态</h3><p>一个模块分割成几个文件有一个严重缺陷。每个文件都有自身的私有状态，且无权访问别的文件的私有状态。这可以修复的。下面是一个松耦合扩充的例子，不同扩充文件之间保持了私有状态：<br>    var MODULE = (function (my) {<br>            var _private = my._private = my._private || {},<br>                    _seal = my._seal = my._seal || function () {<br>                            delete my._private;<br>                            delete my._seal;<br>                            delete my._unseal;<br>                    },//模块加载后，调用以移除对_private的访问权限<br>                    _unseal = my._unseal = my._unseal || function () {<br>                            my._private = _private;<br>                            my._seal = _seal;<br>                            my._unseal = _unseal;<br>                    };//模块加载前，开启对_private的访问，以实现扩充部分对私有内容的操作</p>
-<pre><code>        // permanent access <span class="keyword">to</span> _private, _seal, <span class="literal">and</span> _unseal
+</code></pre><p>这种方式也许最不灵活。他可以实现巧妙的组合，但是牺牲了灵活性。正如我写的，对象的属性或方法不是拷贝，而是一个对象的两个引用。修改一个会影响其他。这可能可以保持递归克隆对象的属性固定，但无法固定方法，除了带<code>eval</code>的方法。不过，我已经完整的包含了模块。（其实就是做了一次浅拷贝）。    </p>
+<h3 id="跨文件私有状态">跨文件私有状态</h3><p>一个模块分割成几个文件有一个严重缺陷。每个文件都有自身的私有状态，且无权访问别的文件的私有状态。这可以修复的。下面是一个松耦合扩充的例子，不同扩充文件之间保持了私有状态：</p>
+<pre><code>var MODULE = (function (<span class="keyword">my</span>) {
+        var _private = <span class="keyword">my</span>._private = <span class="keyword">my</span>._private || {},
+                _seal = <span class="keyword">my</span>._seal = <span class="keyword">my</span>._seal || function () {
+                        <span class="keyword">delete</span> <span class="keyword">my</span>._private;
+                        <span class="keyword">delete</span> <span class="keyword">my</span>._seal;
+                        <span class="keyword">delete</span> <span class="keyword">my</span>._unseal;
+                },<span class="regexp">//</span>模块加载后，调用以移除对_private的访问权限
+                _unseal = <span class="keyword">my</span>._unseal = <span class="keyword">my</span>._unseal || function () {
+                        <span class="keyword">my</span>._private = _private;
+                        <span class="keyword">my</span>._seal = _seal;
+                        <span class="keyword">my</span>._unseal = _unseal;
+                };<span class="regexp">//</span>模块加载前，开启对_private的访问，以实现扩充部分对私有内容的操作
 
-        <span class="keyword">return</span> my;
-}(<span class="keyword">MODULE</span> || {}));
-</code></pre><p>任何文件都可以在本地的变量_private中设置属性，他会对别的扩充立即生效（即初始化时所有扩充的私有状态都保存在_private变量，并被my._private输出）。模块完全加载了，应用调用MODULE._seal()方法阻止对私有属性的读取（干掉my._private输出)。如果此后模块又需要扩充，带有一个私有方法。加载扩充文件前调用MODULE._unseal()方法（恢复my._private，外部恢复操作权限）。加载后调用再seal()。</p>
+        // permanent access to _private, _seal, <span class="keyword">and</span> _unseal
+
+        <span class="keyword">return</span> <span class="keyword">my</span>;
+}(MODULE || {}));
+</code></pre><p>任何文件都可以在本地的变量_private中设置属性，他会对别的扩充立即生效（即初始化时所有扩充的私有状态都保存在<code>_private</code>变量，并被<code>my._private</code>输出）。模块完全加载了，应用调用<code>MODULE._seal()</code>方法阻止对私有属性的读取（干掉<code>my._private</code>输出)。如果此后模块又需要扩充，带有一个私有方法。加载扩充文件前调用<code>MODULE._unseal()</code>方法（恢复<code>my._private</code>，外部恢复操作权限）。加载后调用再<code>seal()</code>。</p>
 <h3 id="子模块">子模块</h3><pre><code>MODULE.sub = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
         <span class="keyword">var</span> my = {};
         <span class="comment">// 就是多一级命名空间</span>
@@ -351,15 +377,18 @@ MYAPP.utilities.array = (<span class="function"><span class="keyword">function</
         <span class="keyword">return</span> my;
 }());
 </code></pre><p>子模块有所有正常模块的功能，包括扩充和私有状态。</p>
-<h3 id="总结">总结</h3><p>大多数高级模式可以互相组合成更多有用的模式。如果要我提出一个复杂应用的设计模式，我会组合松耦合、私有状态和子模块。<br>这里我还没有涉及性能，不过我有个小建议：模块模式是性能增益的。他简化了许多，加快代码下载。松耦合可以无阻塞并行下载，等价于提高下载速度。可能初始化比别的方法慢一点，但值得权衡。只要全局正确的引入，运行性能不会有任何损失，可能还因为局部变量和更少的引用，加快子模块的加载。<br>最后，一个例子动态加载子模块到父模块（动态创建）中。这里就不用私有状态了，其实加上也很简单。这段代码允许整个复杂分成的代码核心及其子模块等平行加载完全。<br>    var UTIL = (function (parent, $) {<br>            var my = parent.ajax = parent.ajax || {};</p>
-<pre><code>        my.<span class="keyword">get</span> = <span class="function"><span class="keyword">function</span> <span class="params">(url, params, callback)</span> </span>{
+<h3 id="总结">总结</h3><p>大多数高级模式可以互相组合成更多有用的模式。如果要我提出一个复杂应用的设计模式，我会组合松耦合、私有状态和子模块。<br>这里我还没有涉及性能，不过我有个小建议：模块模式是性能增益的。他简化了许多，加快代码下载。松耦合可以无阻塞并行下载，等价于提高下载速度。可能初始化比别的方法慢一点，但值得权衡。只要全局正确的引入，运行性能不会有任何损失，可能还因为局部变量和更少的引用，加快子模块的加载。<br>最后，一个例子动态加载子模块到父模块（动态创建）中。这里就不用私有状态了，其实加上也很简单。这段代码允许整个复杂分成的代码核心及其子模块等平行加载完全。</p>
+<pre><code><span class="keyword">var</span> UTIL = (<span class="function"><span class="keyword">function</span> <span class="params">(parent, $)</span> </span>{
+        <span class="keyword">var</span> my = <span class="keyword">parent</span>.ajax = <span class="keyword">parent</span>.ajax || {};
+
+        my.get = <span class="function"><span class="keyword">function</span> <span class="params">(url, params, callback)</span> </span>{
                 <span class="comment">// ok, so I'm cheating a bit :)</span>
                 <span class="keyword">return</span> $.getJSON(url, params, callback);
         };
 
         <span class="comment">// etc...</span>
 
-        <span class="keyword">return</span> parent;
+        <span class="keyword">return</span> <span class="keyword">parent</span>;
 }(UTIL || {}, jQuery));
 </code></pre>
   </section>
