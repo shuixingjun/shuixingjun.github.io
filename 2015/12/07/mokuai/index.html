@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      mokuai | 水朝宗于海 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="忍冬">
+    
+    
+
+    <meta name="description" content="##模块模式
+###是以下模式的组合：
+
+命名空间
+即时函数
+私有和特权成员
+声明依赖
+
+1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。MYAPP.namespace(&apos;MYAPP.utilities.array&apos;);
+2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mokuai | 水朝宗于海">
+<meta property="og:url" content="http://shuixingjun.github.io/2015/12/07/mokuai/index.html">
+<meta property="og:site_name" content="水朝宗于海">
+<meta property="og:description" content="##模块模式
+###是以下模式的组合：
+
+命名空间
+即时函数
+私有和特权成员
+声明依赖
+
+1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。MYAPP.namespace(&apos;MYAPP.utilities.array&apos;);
+2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周">
+<meta property="og:updated_time" content="2015-12-07T05:46:48.770Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mokuai | 水朝宗于海">
+<meta name="twitter:description" content="##模块模式
+###是以下模式的组合：
+
+命名空间
+即时函数
+私有和特权成员
+声明依赖
+
+1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。MYAPP.namespace(&apos;MYAPP.utilities.array&apos;);
+2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/yu.jpg">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 水朝宗于海"><img src="/images/u.png" width="80" alt="水朝宗于海 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">水朝宗于海</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          君子终日乾乾，反复道也。
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/shuixingjun" title="shuixingjun">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+
+    
+
+  </ul>
+</nav>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">mokuai</h1>
+
+    
+
+    <div class="post-meta">
+         <span class="arr">&nbsp;</span>
+         <time datetime="2015-12-07" class="post-meta__date date">2015-12-07</time> 
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Font-End/">Font-End</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/javascript/">javascript</a>
+            </font>
+          
+
+      </span>
+          <span id="busuanzi_container_page_pv"> &#8226; 阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+      
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>##模块模式</p>
+<p>###是以下模式的组合：</p>
+<ul>
+<li>命名空间</li>
+<li>即时函数</li>
+<li>私有和特权成员</li>
+<li>声明依赖</li>
+</ul>
+<h4 id="1-_建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。">1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。</h4><pre><code>MYAPP.<span class="keyword">namespace</span>(<span class="string">'MYAPP.utilities.array'</span>);
+</code></pre><h4 id="2-_定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周期的私有和状态。">2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周期的私有和状态。</h4><pre><code>MYAPP.utilities.<span class="keyword">array</span> = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+    <span class="keyword">return</span> {
+        <span class="comment">//to do</span>
+    }
+}());
+</code></pre><h4 id="3-_向公共接口添加一些方法">3. 向公共接口添加一些方法</h4><pre><code>MYAPP.utilities.<span class="keyword">array</span> = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+    <span class="keyword">return</span> {
+        inArray: <span class="function"><span class="keyword">function</span> <span class="params">(needle, haystack)</span></span>{
+            <span class="comment">//...</span>
+        },
+        inArray: <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> </span>{
+            <span class="comment">//...</span>
+        }
+    }
+}());
+</code></pre><h4 id="4-_这个由即时函数返回的对象，也包含了模块中的公共API">4. 这个由即时函数返回的对象，也包含了模块中的公共API</h4><pre><code>MYAPP.<span class="keyword">namespace</span>(<span class="string">'MYAPP.utilities.array'</span>);
+MYAPP.utilities.array = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+    <span class="comment">//依赖</span>
+    <span class="keyword">var</span> uobj = MYAPP.utilities.object,
+        ulang = MYAPP.utilities.lang,
+
+        <span class="comment">//私有属性</span>
+        array_string = <span class="string">"[object Array]"</span>,
+        ops = object.prototype.toString;
+
+        <span class="comment">//私有方法</span>
+        ...
+    <span class="comment">//可选的一次性初始化过程</span>
+    <span class="comment">//</span>
+
+    <span class="comment">//公有API</span>
+    <span class="keyword">return</span> {
+        inArray: <span class="function"><span class="keyword">function</span> <span class="params">(needle, haystack)</span></span>{
+            <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, max = haystack.length; i &lt; max; i += <span class="number">1</span>) {
+                <span class="keyword">if</span>(haystack[i] === needle) {
+                    <span class="keyword">return</span> <span class="literal">true</span>;
+                }
+            }
+        },
+        inArray: <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> </span>{
+            <span class="keyword">return</span> ops.call(a) === array_string;
+        };
+    <span class="comment">//揭示公有API    </span>
+    <span class="keyword">return</span> {
+        isArray: isArray,
+        indexOf: inArray
+    }
+    };
+}());
+</code></pre><p>###引入全局<br>JavaScript有个特性，称为隐性全局。使用变量名称时，解释器会从作用域向后寻找变量声明。如果没找到，变量会被假定入全局（以后可以全局调用）。如果会被分配使用，在还不存在时全局创建它。这意味着在匿名函数里使用全局变量很简单。不幸的是，这会导致代码难以管理，文件中不容易区分（对人而言）哪个变量是全局的。<br>幸好，匿名函数还有一个不错的选择。全局变量作为参数传递给匿名函数。将它们引入我们的代码中，既更清晰，又比使用隐性全局更快。下面是一个例子：<br>    MYAPP.utilities.module = (function (app, global)) {<br>        //引用全局对象<br>        //以及现在被转换成局部变量的全局应用程序命名空间对象<br>    }</p>
+<h3 id="模块出口">模块出口</h3><p>有时你不只想用全局变量，但你需要先声明他们（模块的全局调用）。我们用匿名函数的返回值，很容易输出他们。这样做就完成了基本的模块模式。以下是一个完整例子：<br>    var MODULE = (function () {<br>            var my = {},<br>                    privateVariable = 1;</p>
+<pre><code>        <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span><span class="params">()</span> </span>{
+                <span class="comment">// ...</span>
+        }
+
+        my.moduleProperty = <span class="number">1</span>;
+        my.moduleMethod = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+                <span class="comment">// ...</span>
+        };
+
+        <span class="keyword">return</span> my;
+}());     
+</code></pre><p>注意，我们声明了一个全局模块MODULE，有两个公开属性：方法MODULE.moduleMethod和属性MODULE.moduleProperty。而且，匿名函数的闭包还维持了私有内部状态。    </p>
+<h3 id="扩充">扩充</h3><p>模块模式的一个限制是整个模块必须在一个文件里。任何人都了解长代码分割到不同文件的必要。还好，我们有很好的办法扩充模块。（在扩充文件）首先我们引入模块（从全局），给他添加属性，再输出他。下面是一个例子扩充模块：<br>    var MODULE = (function (my) {<br>            my.anotherMethod = function () {<br>                    // 此前的MODULE返回my对象作为全局输出，因此这个匿名函数的参数MODULE就是上面MODULE匿名函数里的my<br>            };<br>            return my;<br>    }(MODULE));<br>代码执行后，模块获得一个新公开方法MODULE.anotherMethod。扩充文件没有影响模块的私有内部状态。</p>
+<h4 id="1-_松耦合扩充">1. 松耦合扩充</h4><p>上面的例子需要我们首先创建模块，然后扩充它，这并不总是必要的。提升JavaScript应用性能最好的操作就是异步加载脚本。因而我们可以创建灵活多部分的模块，可以将他们无顺序加载，以松耦合扩充。每个文件应有如下的结构：<br>    var MODULE = (function (my) {<br>            // add capabilities…</p>
+<pre><code><span class="command">        return</span> <span class="keyword">my</span>;
+}(MODULE || {}));
+</code></pre><p>这个模式里，var语句是必须的，以标记引入时不存在会创建。这意味着你可以像LABjs一样同时加载所有模块文件而不被阻塞。</p>
+<h4 id="2-_紧耦合扩充">2. 紧耦合扩充</h4><p>虽然松耦合很不错，但模块上也有些限制。最重要的，你不能安全的覆写模块属性（因为没有加载顺序）。初始化时也无法使用其他文件定义的模块属性（但你可以在初始化后运行）。紧耦合扩充意味着一组加载顺序，但是允许覆写。下面是一个例子（扩充最初定义的MODULE）：<br>    var MODULE = (function (my) {<br>            var old_moduleMethod = my.moduleMethod;</p>
+<pre><code>        my.moduleMethod = function () {
+                // <span class="keyword">method</span> override, has access to old through old_moduleMethod...
+        };
+
+        <span class="keyword">return</span> my;
+}(<span class="type">MODULE</span>));
+</code></pre><p>我们覆写的MODULE.moduleMethod，但依旧保持着私有内部状态。</p>
+<h3 id="克隆和继承">克隆和继承</h3><pre><code><span class="keyword">var</span> MODULE_TWO = (<span class="function"><span class="keyword">function</span> <span class="params">(old)</span> </span>{
+        <span class="keyword">var</span> my = {},
+                key;
+
+        <span class="keyword">for</span> (key <span class="keyword">in</span> old) {
+                <span class="keyword">if</span> (old.hasOwnProperty(key)) {
+                        my[key] = old[key];
+                }
+        }
+
+        <span class="keyword">var</span> super_moduleMethod = old.moduleMethod;
+        my.moduleMethod = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+                <span class="comment">// override method on the clone, access to super through super_moduleMethod</span>
+        };
+
+        <span class="keyword">return</span> my;
+}(MODULE));
+</code></pre><p>这种方式也许最不灵活。他可以实现巧妙的组合，但是牺牲了灵活性。正如我写的，对象的属性或方法不是拷贝，而是一个对象的两个引用。修改一个会影响其他。这可能可以保持递归克隆对象的属性固定，但无法固定方法，除了带eval的方法。不过，我已经完整的包含了模块。（其实就是做了一次浅拷贝）。    </p>
+<h3 id="跨文件私有状态">跨文件私有状态</h3><p>一个模块分割成几个文件有一个严重缺陷。每个文件都有自身的私有状态，且无权访问别的文件的私有状态。这可以修复的。下面是一个松耦合扩充的例子，不同扩充文件之间保持了私有状态：<br>    var MODULE = (function (my) {<br>            var _private = my._private = my._private || {},<br>                    _seal = my._seal = my._seal || function () {<br>                            delete my._private;<br>                            delete my._seal;<br>                            delete my._unseal;<br>                    },//模块加载后，调用以移除对_private的访问权限<br>                    _unseal = my._unseal = my._unseal || function () {<br>                            my._private = _private;<br>                            my._seal = _seal;<br>                            my._unseal = _unseal;<br>                    };//模块加载前，开启对_private的访问，以实现扩充部分对私有内容的操作</p>
+<pre><code>        // permanent access <span class="keyword">to</span> _private, _seal, <span class="literal">and</span> _unseal
+
+        <span class="keyword">return</span> my;
+}(<span class="keyword">MODULE</span> || {}));
+</code></pre><p>任何文件都可以在本地的变量_private中设置属性，他会对别的扩充立即生效（即初始化时所有扩充的私有状态都保存在_private变量，并被my._private输出）。模块完全加载了，应用调用MODULE._seal()方法阻止对私有属性的读取（干掉my._private输出)。如果此后模块又需要扩充，带有一个私有方法。加载扩充文件前调用MODULE._unseal()方法（恢复my._private，外部恢复操作权限）。加载后调用再seal()。</p>
+<h3 id="子模块">子模块</h3><pre><code>MODULE.sub = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+        <span class="keyword">var</span> my = {};
+        <span class="comment">// 就是多一级命名空间</span>
+
+        <span class="keyword">return</span> my;
+}());
+</code></pre><p>子模块有所有正常模块的功能，包括扩充和私有状态。</p>
+<h3 id="总结">总结</h3><p>大多数高级模式可以互相组合成更多有用的模式。如果要我提出一个复杂应用的设计模式，我会组合松耦合、私有状态和子模块。<br>这里我还没有涉及性能，不过我有个小建议：模块模式是性能增益的。他简化了许多，加快代码下载。松耦合可以无阻塞并行下载，等价于提高下载速度。可能初始化比别的方法慢一点，但值得权衡。只要全局正确的引入，运行性能不会有任何损失，可能还因为局部变量和更少的引用，加快子模块的加载。<br>最后，一个例子动态加载子模块到父模块（动态创建）中。这里就不用私有状态了，其实加上也很简单。这段代码允许整个复杂分成的代码核心及其子模块等平行加载完全。<br>    var UTIL = (function (parent, $) {<br>            var my = parent.ajax = parent.ajax || {};</p>
+<pre><code>        my.<span class="keyword">get</span> = <span class="function"><span class="keyword">function</span> <span class="params">(url, params, callback)</span> </span>{
+                <span class="comment">// ok, so I'm cheating a bit :)</span>
+                <span class="keyword">return</span> $.getJSON(url, params, callback);
+        };
+
+        <span class="comment">// etc...</span>
+
+        <span class="keyword">return</span> parent;
+}(UTIL || {}, jQuery));
+</code></pre>
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2015/12/07/mokuai/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"shuixingjun"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+	
+    <span class="footer__copyright">&copy; 2015. <a href="#about" class="rend">忍冬</a></span>
+
+    <p class="no-indent">
+	    <span>
+		    <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+	 	</span>&emsp;|&emsp;
+    	本页点击 <span id="busuanzi_value_page_pv"></span>次 &emsp;|&emsp;
+    	本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+		&emsp;|&emsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+    </p>
+    
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+     <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
