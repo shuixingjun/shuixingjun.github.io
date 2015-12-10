@@ -28,7 +28,7 @@
 
 是原生的native，包括内置对象（如数组和日期），以及用户自定义的对象。
 是主机的host，包含w">
-<meta property="og:updated_time" content="2015-12-10T03:49:50.737Z">
+<meta property="og:updated_time" content="2015-12-10T05:20:18.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript模式 | 水朝宗于海">
 <meta name="twitter:description" content="基本值包装类型javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数Number(),String(),Boolean()创建包装类型。对象主要有两种类型：
@@ -472,7 +472,10 @@ s.constructor === <span class="built_in">String</span>;    <span class="comment"
 b.constructor === <span class="built_in">Boolean</span>;    <span class="comment">//true</span>
 </code></pre><h4 id="3-_迭代器模式">3. 迭代器模式</h4><p>对象需要提供一个<code>next()</code>方法。<br><code>hasNext()</code>方法，该对象的用户可以使用该方法来确定是否已经到达了数据的末尾。<br>额外的便利方法：<br><code>rewind()</code>，重置指针到初始位置<br><code>current()</code>，返回当前元素，因为不可能在不前进指针的的情况下使用<code>next()</code>执行该操作。</p>
 <h4 id="4-_装饰者模式">4. 装饰者模式</h4><p>动态添加福佳功能到对象中，一个比较方便的特征在于其预期行为的可定制和可配置。</p>
-<h5 id="*_使每个装饰者成为一个对象，并且该对象包含应该被重载的方法。">* 使每个装饰者成为一个对象，并且该对象包含应该被重载的方法。</h5><h5 id="*_使用列表去实现。">* 使用列表去实现。</h5><p>该方法不需要继承，并不是每个装饰方法调用链中前面的方法，可以简单讲前面的方法结果作为参数传递到下一个方法。</p>
+<ul>
+<li><h5 id="使每个装饰者成为一个对象，并且该对象包含应该被重载的方法。">使每个装饰者成为一个对象，并且该对象包含应该被重载的方法。</h5></li>
+<li><h5 id="使用列表去实现。">使用列表去实现。</h5>该方法不需要继承，并不是每个装饰方法调用链中前面的方法，可以简单讲前面的方法结果作为参数传递到下一个方法。</li>
+</ul>
 
   </section>
 
