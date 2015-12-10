@@ -28,7 +28,7 @@
 
 是原生的native，包括内置对象（如数组和日期），以及用户自定义的对象。
 是主机的host，包含w">
-<meta property="og:updated_time" content="2015-12-09T03:59:50.363Z">
+<meta property="og:updated_time" content="2015-12-10T03:49:50.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript模式 | 水朝宗于海">
 <meta name="twitter:description" content="基本值包装类型javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数Number(),String(),Boolean()创建包装类型。对象主要有两种类型：
@@ -217,7 +217,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="基本值包装类型">基本值包装类型</h3><p>javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数Number(),String(),Boolean()创建包装类型。<br>对象主要有两种类型：</p>
+    <h3 id="基本值包装类型">基本值包装类型</h3><p>javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数<code>Number()</code>,<code>String()</code>,<code>Boolean()</code>创建包装类型。<br>对象主要有两种类型：</p>
 <ol>
 <li>是原生的native，包括内置对象（如数组和日期），以及用户自定义的对象。</li>
 <li>是主机的host，包含windows对象和所有dom对象。</li>
@@ -226,7 +226,7 @@ classes that you can use:
 <p><br></p>
 <h3 id="尽量使用局部变量，而不是全局变量。">尽量使用局部变量，而不是全局变量。</h3><p>javascript有两个特性，1是可以使用变量不用声明，2是有暗示的全局变量。例如，在一个函数内有未经声明的变量，在调用该函数后，全局命名空间使用了另外的该变量，就会被覆盖住。另外一个原因是代码移植，如果代码运行在不同的环境，很可能导致不存在与原环境，但存在于其他环境的主机变量就被覆盖了。</p>
 <p><br></p>
-<h3 id="变量释放的副作用。">变量释放的副作用。</h3><p>通过var声明的全局变量，不可以用delete删除，而在函数内部的全局变量，则不能用delete删除。这就表明，隐含全局变量并不是真正的变量，而是全局对象的属性，属性可以用delete操作符删除，而变量不可以。</p>
+<h3 id="变量释放的副作用。">变量释放的副作用。</h3><p>通过var声明的全局变量，不可以用<code>delete</code>删除，而在函数内部的全局变量，则不能用<code>delete</code>删除。这就表明，隐含全局变量并不是真正的变量，而是全局对象的属性，属性可以用delete操作符删除，而变量不可以。</p>
 <p><br></p>
 <h3 id="只使用1个var进行变量声明。">只使用1个var进行变量声明。</h3><p><br></p>
 <h3 id="不增加内置构造函数（object()，array()，function()等）的原型，影响可维护性。">不增加内置构造函数（<code>object()</code>，<code>array()</code>，<code>function()</code>等）的原型，影响可维护性。</h3><p>以下情形是例外：</p>
@@ -393,7 +393,7 @@ uni === uni2; <span class="comment">//true</span>
     instance.bang = <span class="string">"Big"</span>;
     <span class="keyword">return</span> instance;        
  }
-</code></pre><p><strong>利用即时函数，第一次创建对象，使私有instance指向该对象，在第二次调用之后，构造函数仅返回该私有变量。</strong></p>
+</code></pre><p><strong>利用即时函数，第一次创建对象，使私有instance指向该对象，在第二次调用之后，构造函数仅返回该私有变量。</strong>    </p>
 <pre><code><span class="keyword">var</span> Universe;
 (<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
     <span class="keyword">var</span> instance;
@@ -406,9 +406,73 @@ uni === uni2; <span class="comment">//true</span>
         <span class="keyword">this</span>.start_time = <span class="number">0</span>;
         <span class="keyword">this</span>.bang = <span class="string">"Big"</span>;
     }
-})     
+})
 </code></pre></li>
 </ul>
+<h4 id="2-_工厂模式">2. 工厂模式</h4><p>在函数内创建一个对象，给对象赋予属性及方法，再将对象返回，能够解决创建多个相似对象的问题。 </p>
+<pre><code><span class="comment">//父构造函数</span>
+<span class="function"><span class="keyword">function</span> <span class="title">CarMaker</span><span class="params">()</span> </span>{}
+<span class="comment">//a method of the parent</span>
+CarMaker.prototype.drive = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> <span class="string">"Vroom,I have "</span> + <span class="keyword">this</span>.doors + <span class="string">" doors"</span>;
+}
+<span class="comment">//静态工厂方法</span>
+CarMaker.factory = <span class="function"><span class="keyword">function</span><span class="params">(type)</span> </span>{
+    <span class="keyword">var</span> constr = type,
+    newcar;
+    <span class="comment">//如果构造函数不存在 ，则发生错误</span>
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> CarMaker[constr] !== <span class="string">'function'</span>) {
+        <span class="keyword">throw</span> {
+            name:<span class="string">"Error"</span>,
+            message:constr + <span class="string">" doesn't exist"</span>
+        }
+    };
+    <span class="comment">//在这里，构造函数是已知存在的，使原型继承父类，但只继承一次</span>
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> CarMaker[constr].prototype.drive !== <span class="string">'function'</span>) {
+        CarMaker[constr].prototype = <span class="keyword">new</span> CarMaker();
+    };
+    <span class="comment">//创建一个新的实例</span>
+    newcar = <span class="keyword">new</span> CarMaker[constr]();
+    <span class="comment">//可选择行的调用一些方法然后返回</span>
+    <span class="keyword">return</span> newcar;
+}
+<span class="comment">//定义特定的汽车制造商</span>
+CarMaker.Compact = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.doors = <span class="number">4</span>;
+};
+CarMaker.Convertible = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.doors = <span class="number">2</span>;
+};
+CarMaker.SUV = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.doors = <span class="number">24</span>;
+};
+<span class="comment">//实现</span>
+<span class="keyword">var</span> corolla = CarMaker.factory(<span class="string">'Compact'</span>);
+<span class="keyword">var</span> solstice = CarMaker.factory(<span class="string">'Convertible'</span>);
+<span class="keyword">var</span> cherokee = CarMaker.factory(<span class="string">'SUV'</span>);
+corolla.drive(); <span class="comment">// Vroom,I have 4 doors</span>
+solstice.drive(); <span class="comment">// Vroom,I have 2 doors</span>
+cherokee.drive(); <span class="comment">// Vroom,I have 24 doors</span>
+</code></pre><h5 id="工厂模式使用场合">工厂模式使用场合</h5><ol>
+<li>动态实现<br>例如例子，创建一些用不同方式实现统一接口的对象，那么可以使用一个工厂方法或者简单工厂对象来简化实现过程。选择可以是明确进行的也可以是隐含的。</li>
+<li>节省设置开销<br>如果对象要进行复杂的并且彼此相关的设置的时候，那么工厂模式可以很显著的减少每种对象的代码量。将特定的设置代码提取出来会使得代码有极大地提升。并且能优化结构便于维护。</li>
+<li>用于许多小型对象组成一个大对象。</li>
+<li>工厂模式之利<br>主要好处就是可以消除对象间的耦合，通过使用工程方法而不是new关键字。将所有实例化的代码集中在一个位子防止代码重复。</li>
+<li>工厂模式之弊<br>大多数类最好使用new关键字和构造函数，可以让代码更加简单易读。而不必去查看工厂方法来知道。</li>
+</ol>
+<p>由于无从识别对象的类型，因为全部都是<code>Object</code>，不像<code>Date</code>，<code>Array</code>等，因此可以在内置的全局<code>Object()</code>构造函数。在这种内置对象工厂模式下，无论使用<code>new</code>操作符与否，都可以调用<code>Object()</code>。</p>
+<pre><code><span class="keyword">var</span> <span class="number">0</span> = <span class="keyword">new</span> <span class="built_in">Object</span>(),
+    n = <span class="keyword">new</span> <span class="built_in">Object</span>(<span class="number">1</span>),
+    s = <span class="built_in">Object</span>(<span class="string">'1'</span>),
+    b = <span class="built_in">Object</span>(<span class="literal">true</span>);
+<span class="comment">//test</span>
+o.constructor === <span class="built_in">Object</span>;    <span class="comment">//true</span>
+n.constructor === <span class="built_in">Number</span>;    <span class="comment">//true</span>
+s.constructor === <span class="built_in">String</span>;    <span class="comment">//true</span>
+b.constructor === <span class="built_in">Boolean</span>;    <span class="comment">//true</span>
+</code></pre><h4 id="3-_迭代器模式">3. 迭代器模式</h4><p>对象需要提供一个<code>next()</code>方法。<br><code>hasNext()</code>方法，该对象的用户可以使用该方法来确定是否已经到达了数据的末尾。<br>额外的便利方法：<br><code>rewind()</code>，重置指针到初始位置<br><code>current()</code>，返回当前元素，因为不可能在不前进指针的的情况下使用<code>next()</code>执行该操作。</p>
+<h4 id="4-_装饰者模式">4. 装饰者模式</h4><p>动态添加福佳功能到对象中，一个比较方便的特征在于其预期行为的可定制和可配置。</p>
+<h5 id="*_使每个装饰者成为一个对象，并且该对象包含应该被重载的方法。">* 使每个装饰者成为一个对象，并且该对象包含应该被重载的方法。</h5><h5 id="*_使用列表去实现。">* 使用列表去实现。</h5><p>该方法不需要继承，并不是每个装饰方法调用链中前面的方法，可以简单讲前面的方法结果作为参数传递到下一个方法。</p>
 
   </section>
 
