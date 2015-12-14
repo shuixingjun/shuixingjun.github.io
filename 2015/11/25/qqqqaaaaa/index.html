@@ -28,7 +28,8 @@
 
 是原生的native，包括内置对象（如数组和日期），以及用户自定义的对象。
 是主机的host，包含w">
-<meta property="og:updated_time" content="2015-12-10T05:20:18.899Z">
+<meta property="og:image" content="http://7xp5x8.com1.z0.glb.clouddn.com/img/qqqqaaaaa/zhongj1.png">
+<meta property="og:updated_time" content="2015-12-14T03:59:52.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript模式 | 水朝宗于海">
 <meta name="twitter:description" content="基本值包装类型javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数Number(),String(),Boolean()创建包装类型。对象主要有两种类型：
@@ -476,6 +477,37 @@ b.constructor === <span class="built_in">Boolean</span>;    <span class="comment
 <li><h5 id="使每个装饰者成为一个对象，并且该对象包含应该被重载的方法。">使每个装饰者成为一个对象，并且该对象包含应该被重载的方法。</h5></li>
 <li><h5 id="使用列表去实现。">使用列表去实现。</h5>该方法不需要继承，并不是每个装饰方法调用链中前面的方法，可以简单讲前面的方法结果作为参数传递到下一个方法。</li>
 </ul>
+<h4 id="5-_策略模式">5. 策略模式</h4><p>根据客户正在试图执行任务的上下文，从多个算法中选择用于处理特定任务的算法。可用于做表单验证。</p>
+<h4 id="6-_外观模式">6. 外观模式</h4><p>为对象提供了一个可供选择的接口。</p>
+<ul>
+<li>两个或更多方法普遍的被一起调用时，创建一个方法以包装重复的方法调用。</li>
+<li>适用于浏览器的脚本处理，将浏览器之间的差异隐藏在外观之后。<br>  var myevent = {<pre><code><span class="comment">//</span>
+stop: <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    <span class="comment">//其他</span>
+    <span class="keyword">if</span> (typeop e.preventDefault === '<span class="function"><span class="keyword">function</span>') {</span>
+        e.preventDefault();
+    }
+    <span class="keyword">if</span> (typeop e.stopPropagation === '<span class="function"><span class="keyword">function</span>') {</span>
+        e.stopPropagation();
+    }
+    <span class="comment">//IE 浏览器</span>
+    <span class="keyword">if</span> (typeop e.returnValue === '<span class="function"><span class="keyword">function</span>') {</span>
+        e.returnValue = <span class="literal">false</span>;
+    }
+    <span class="keyword">if</span> (typeop e.cancelBubble === '<span class="function"><span class="keyword">function</span>') {</span>
+        e.cancelBubble = <span class="literal">false</span>;
+    }
+}
+</code></pre>  }</li>
+<li>应用于重新设计和重构。例如：<br>当需要替换一个具有不同实现的对象时，用外观模式，可首先考虑新对象<code>api</code>，然后继续在原有对象的前面创建一个外观。</li>
+</ul>
+<h4 id="7-_代理模式">7. 代理模式</h4><p>一个对象充当另一个对象的接口。代理介于对象的客户端和对象本身之间，并且对该对象的访问进行保护。</p>
+<ul>
+<li>延迟初始化。通过替换本体对象的接口，解决应用程序实际并未使用客户端初始化对象的问题，只有在客户端明显需要本体对象完成一些工作时，代理才将两个消息一起传递。</li>
+<li>合并网络请求</li>
+</ul>
+<h4 id="8-_中介者模式">8. 中介者模式</h4><p>缓解紧耦合时改变单个对象的同时影响其他多个对象的问题，促进形成松耦合，且有助于提高可维护性。<br>在这种模式中，独立的对象之间并不直接通信，而是通过<code>mediator</code>对象，当其中的一个<code>colleague</code>对象改变状态后，它将会通知该<code>mediator</code>，而<code>mediator</code>将会把该变化传达到任意其他应该知道此变化的<code>colleague</code>对象。<br><img src="http://7xp5x8.com1.z0.glb.clouddn.com/img/qqqqaaaaa/zhongj1.png" alt=""> </p>
+<h4 id="9-_观察者模式">9. 观察者模式</h4><p>即自定义事件，订阅/发布模式。可促进形成松散耦合。</p>
 
   </section>
 
