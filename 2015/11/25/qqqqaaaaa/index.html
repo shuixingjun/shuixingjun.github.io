@@ -29,7 +29,7 @@
 是原生的native，包括内置对象（如数组和日期），以及用户自定义的对象。
 是主机的host，包含w">
 <meta property="og:image" content="http://7xp5x8.com1.z0.glb.clouddn.com/img/qqqqaaaaa/zhongj1.png">
-<meta property="og:updated_time" content="2015-12-14T03:59:52.214Z">
+<meta property="og:updated_time" content="2015-12-15T03:40:31.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript模式 | 水朝宗于海">
 <meta name="twitter:description" content="基本值包装类型javascript是一项面相对象语言，只有五种基本类型不是对象：数值类型，字符串类型，布尔类型，空类型和未定义得性，其中前三个类型有对应的以基本类型封装形式体现的对象表示。可以使用内置构造函数Number(),String(),Boolean()创建包装类型。对象主要有两种类型：
@@ -508,7 +508,15 @@ stop: <span class="function"><span class="keyword">function</span><span class="p
 </ul>
 <h4 id="8-_中介者模式">8. 中介者模式</h4><p>缓解紧耦合时改变单个对象的同时影响其他多个对象的问题，促进形成松耦合，且有助于提高可维护性。<br>在这种模式中，独立的对象之间并不直接通信，而是通过<code>mediator</code>对象，当其中的一个<code>colleague</code>对象改变状态后，它将会通知该<code>mediator</code>，而<code>mediator</code>将会把该变化传达到任意其他应该知道此变化的<code>colleague</code>对象。<br><img src="http://7xp5x8.com1.z0.glb.clouddn.com/img/qqqqaaaaa/zhongj1.png" alt=""> </p>
 <h4 id="9-_观察者模式">9. 观察者模式</h4><p>即自定义事件，订阅/发布模式。可促进形成松散耦合。</p>
+<p><br></p>
+<h3 id="Dom和浏览器模式">Dom和浏览器模式</h3><h4 id="1-_操作DOM">1. 操作DOM</h4><p>减少更新DOM，尽量分批处理。<br>当需要创建一个相对比较大的子树，应该在子树完全创建之后再将子树添加到DOM树中。可采用<em>文档碎片</em>技术来容纳所有节点。该技术在DOM树添加新结点时非常重要，在更新DOM现有部分时，仍然可以批处理提交修改：为需要修改的子树的根节点建立一个克隆镜像，然后对该克隆镜像做所有的修改操作，在完成修改操作后用克隆镜像替换原来的子树。</p>
+<pre><code><span class="keyword">var</span> oldnode = document.getElementById('<span class="literal">result</span>'),
+    clone = oldnode.cloneNode(<span class="literal">true</span>);
+//处理克隆对象...
 
+//完成后
+oldnode.parentNode.replaceChild(clone,oldnode);    
+</code></pre><h4 id="2-_跨浏览器时间处理和使用时间授权来减少时间监听器的数量，以改进性能。">2. 跨浏览器时间处理和使用时间授权来减少时间监听器的数量，以改进性能。</h4>
   </section>
 
   
