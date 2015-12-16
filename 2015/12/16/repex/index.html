@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      正则表达 | 水朝宗于海 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="忍冬">
+    
+    
+
+    <meta name="description" content="各种操作符的运算优先级相同优先级的从左到右进行运算，不同优先级的运算先高后低。各种操作符的优先级如下:
+
+\  转移符
+(),(?:),(?=),[]   圆括号和方括号
+*,+,?,{n},{n,},{n,m}限定符
+^,$,]anymetacharacter    位置和顺序
+|   “或”操作
+
+符号释义常用正则1. 校验数字的表达式说明正则表达式数字^[0-9]$  n位的数字    ^\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达 | 水朝宗于海">
+<meta property="og:url" content="http://shuixingjun.github.io/2015/12/16/repex/index.html">
+<meta property="og:site_name" content="水朝宗于海">
+<meta property="og:description" content="各种操作符的运算优先级相同优先级的从左到右进行运算，不同优先级的运算先高后低。各种操作符的优先级如下:
+
+\  转移符
+(),(?:),(?=),[]   圆括号和方括号
+*,+,?,{n},{n,},{n,m}限定符
+^,$,]anymetacharacter    位置和顺序
+|   “或”操作
+
+符号释义常用正则1. 校验数字的表达式说明正则表达式数字^[0-9]$  n位的数字    ^\">
+<meta property="og:updated_time" content="2015-12-16T06:24:11.998Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达 | 水朝宗于海">
+<meta name="twitter:description" content="各种操作符的运算优先级相同优先级的从左到右进行运算，不同优先级的运算先高后低。各种操作符的优先级如下:
+
+\  转移符
+(),(?:),(?=),[]   圆括号和方括号
+*,+,?,{n},{n,},{n,m}限定符
+^,$,]anymetacharacter    位置和顺序
+|   “或”操作
+
+符号释义常用正则1. 校验数字的表达式说明正则表达式数字^[0-9]$  n位的数字    ^\">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/yu.jpg">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 水朝宗于海"><img src="/images/u.png" width="80" alt="水朝宗于海 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">水朝宗于海</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          君子终日乾乾，反复道也。
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/shuixingjun" title="shuixingjun">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+
+    
+
+  </ul>
+</nav>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">正则表达</h1>
+
+    
+
+    <div class="post-meta">
+         <span class="arr">&nbsp;</span>
+         <time datetime="2015-12-16" class="post-meta__date date">2015-12-16</time> 
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Font-End/">Font-End</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/正则/">正则</a>
+            </font>
+          
+
+      </span>
+          <span id="busuanzi_container_page_pv"> &#8226; 阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+      
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="各种操作符的运算优先级">各种操作符的运算优先级</h2><p>相同优先级的从左到右进行运算，不同优先级的运算先高后低。各种操作符的优先级如下:</p>
+<ol>
+<li><code>\</code>  转移符</li>
+<li><code>()</code>,<code>(?:)</code>,<code>(?=)</code>,<code>[]</code>   圆括号和方括号</li>
+<li><code>*</code>,<code>+</code>,<code>?</code>,<code>{n}</code>,<code>{n,}</code>,<code>{n,m}</code>限定符</li>
+<li><code>^</code>,<code>$</code>,<code>]anymetacharacter</code>    位置和顺序</li>
+<li><code>|</code>   “或”操作</li>
+</ol>
+<h2 id="符号释义">符号释义</h2><h2 id="常用正则">常用正则</h2><h3 id="1-_校验数字的表达式">1. 校验数字的表达式</h3><table class="ta_left"><tr><th>说明</th><th>正则表达式</th></tr><tr><td>数字</td><td>^[0-9]<em>$  </em></td></tr><tr><td>n位的数字    </td><td>^\d{n}$ </td></tr><tr><td>至少n位的数字</td><td>^\d{n,}$  </td></tr><tr><td>m-n位的数字  </td><td>^\d{m,n}$  </td></tr><tr><td>零和非零开头的数字  </td><td>^(0|[1-9][0-9])$ </td></tr><tr><td>非零开头的最多带两位小数的数字  </td><td>^([1-9][0-9]<em>)+(.[0-9]{1,2})?$</em></td></tr><tr><td>带1-2位小数的正数或负数 </td><td>^(-)?\d+(.\d{1,2})?$    </td></tr><tr><td>正数、负数、和小数     </td><td>^(-|+)?\d+(.\d+)?$     </td></tr><tr><td>有两位小数的正实数    </td><td>^[0-9]+(.[0-9]{2})?$ </td></tr><tr><td>有1~3位小数的正实数   </td><td>^[0-9]+(.[0-9]{1,3})?$     </td></tr><tr><td>非零的正整数    </td><td>^[1-9]\d$</td></tr><tr><td>非零的负整数   </td><td>^-[1-9]\d<em>$ </em></td></tr><tr><td>非负整数  </td><td>^[1-9]\d|0$    </td></tr><tr><td>非正整数  </td><td>^-[1-9]\d<em>|0$ 或 ^((-\d+)|(0+))$ </em></td></tr><tr><td>非负浮点数  </td><td>^\d+(.\d+)?$ 或 ^[1-9]\d.\d<em>|0.\d</em>[1-9]\d<em>|0?.0+|0$</em></td></tr><tr><td>非正浮点数  </td><td>^((-\d+(.\d+)?)|(0+(.0+)?))$         </td></tr><tr><td>正浮点数  </td><td>^[1-9]\d.\d<em>|0.\d</em>[1-9]\d<em>$ </em></td></tr><tr><td>负浮点数</td><td>^-([1-9]\d.\d<em>|0.\d</em>[1-9]\d<em>)$ </em></td></tr><tr><td>浮点数 </td><td>^(-?\d+)(.\d+)?$ 或 ^-?([1-9]\d.\d<em>|0.\d</em>[1-9]\d*|0?.0+|0)$</td></tr><br></table>
+
+<h3 id="2-_校验字符的表达式">2. 校验字符的表达式</h3><table class="ta_left"><tr><th>说明</th><th>正则表达式</th></tr><tr><td>汉字:</td><td>^[\u4e00-\u9fa5]{0,}$</td></tr><tr><td>英文和数字：</td><td>^[A-Za-z0-9]+$</td></tr><tr><td>长度为3-20的所有字符：</td><td>^.{3,20}$</td></tr><tr><td>由数字和26个英文字母组成的字符串：</td><td>^[A-Za-z0-9]+$</td></tr><tr><td>由数字、26个英文字母或者下划线组成的字符串：</td><td>^\w+$</td></tr><tr><td>中文、英文、数字包括下划线：</td><td>^[\u4E00-\u9FA5A-Za-z0-9_]+$</td></tr><tr><td>中文、英文、数字但不包括下划线等符号：</td><td>^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$</td></tr><tr><td>可以输入含有^%&amp;’,;=?$\”等字符：</td><td>[^%&amp;’,;=?$\x22]+</td></tr><br></table>
+
+<h3 id="3-_特殊需求表达式">3. 特殊需求表达式</h3><table class="ta_left"><tr><th>说明</th><th>正则表达式</th></tr><tr><td>Email地址：</td><td>^\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)<em>$</em></td></tr><tr><td>域名：</td><td>[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?</td></tr><tr><td>InternetURL：</td><td>[a-zA-z]+://[^\s] <br>或 ^<a href="http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$" target="_blank" rel="external">http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</a></td></tr><tr><td>手机号码：</td><td>^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$</td></tr><tr><td>电话号码(“XXX-XXXXXXX”、”XXXX-XXXXXXXX”、”XXX-XXXXXXX”、”XXX-XXXXXXXX”、”XXXXXXX”和”XXXXXXXX)：</td><td>^($$\d{3,4}-)|\d{3.4}-)?\d{7,8}$</td></tr><tr><td>国内电话号码(0511-4405222、021-87888822)：</td><td>\d{3}-\d{8}|\d{4}-\d{7}</td></tr><tr><td>身份证号(15位、18位数字)：</td><td>^\d{15}|\d{18}$</td></tr><tr><td>短身份证号码(数字、字母x结尾)：</td><td>^([0-9]){7,18}(x|X)?$ 或 ^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$</td></tr><tr><td>帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：</td><td>^[a-zA-Z][a-zA-Z0-9_]{4,15}$</td></tr><tr><td>密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：</td><td>^[a-zA-Z]\w{5,17}$</td></tr><tr><td>强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：</td><td>^(?=.<em>\d)(?=.</em>[a-z])(?=.<em>[A-Z]).{8,10}$</em></td></tr><tr><td>日期格式：</td><td>^\d{4}-\d{1,2}-\d{1,2}</td></tr><tr><td>一年的12个月(01～09和1～12)：</td><td>^(0?[1-9]|1[0-2])$</td></tr><tr><td>一个月的31天(01～09和1～31)：</td><td>^((0?[1-9])|((1|2)[0-9])|30|31)$</td></tr><tr><td>钱的输入格式：<br>“10000.00” 和 “10,000.00”,<br> 和没有 “分” 的 “10000″ 和 “10,000″：</td><td>^([0-9]+|[0-9]{1,3}(,[0-9]{3}))(.[0-9]{1,2})?$</td></tr><tr><td>xml文件：</td><td>^([a-zA-Z]+-?)+[a-zA-Z0-9]+\.[x|X][m|M][l|L]$</td></tr><tr><td>双字节字符：</td><td>[^\x00-\xff] (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</td></tr><tr><td>空白行的正则表达式：</td><td>\n\s<em>\r (可以用来删除空白行)</em></td></tr><tr><td>HTML标记的正则表达式：</td><td>&lt;(\S?)[^&gt;]<em>&gt;.</em>?&lt;/\1&gt;|&lt;.<em>? /&gt;(复杂的嵌套标记仍旧无力)</em></td></tr><tr><td>首尾空白字符的正则表达式：</td><td>^\s|\s<em>$或(^\s</em>)|(\s*$)删除行首行尾的空白字符(包括空格、制表符、换页符等等) </td></tr><tr><td>腾讯QQ号：</td><td>[1-9][0-9]{4,} (腾讯QQ号从10000开始)</td></tr><tr><td>中国邮政编码：</td><td>[1-9]\d{5}(?!\d) (中国邮政编码为6位数字)</td></tr><tr><td>IP地址：</td><td>\d+.\d+.\d+.\d+ 或((?:(?:25[0-5]|2[0-4]\d|[01]?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d?\d)) (提取IP地址时有用)</td></tr><br></table>
+
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2015/12/16/repex/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"shuixingjun"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+	
+    <span class="footer__copyright">&copy; 2015. <a href="#about" class="rend">忍冬</a></span>
+
+    <p class="no-indent">
+	    <span>
+		    <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+	 	</span>&emsp;|&emsp;
+    	本页点击 <span id="busuanzi_value_page_pv"></span>次 &emsp;|&emsp;
+    	本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+		&emsp;|&emsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+    </p>
+    
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+     <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
