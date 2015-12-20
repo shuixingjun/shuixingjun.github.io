@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://shuixingjun.github.io/2015/12/17/arguments/index.html">
 <meta property="og:site_name" content="水朝宗于海">
 <meta property="og:description" content="arguments1. arguments在js中arguments是一个内置对象，所有主要的js函数库都利用了arguments对象。类似数组，但是实质上只是有些像数组的对象。arguments对象的长度是由实参个数而不是形参个数决定的。形参是函数内部重新开辟内存空间存储的变量，但是其与arguments对象内存空间并不重叠。对于arguments和值都存在的情况下，两者值是同步的，但是针对其中">
-<meta property="og:updated_time" content="2015-12-18T10:02:23.070Z">
+<meta property="og:updated_time" content="2015-12-20T06:30:55.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript函数式编程 | 水朝宗于海">
 <meta name="twitter:description" content="arguments1. arguments在js中arguments是一个内置对象，所有主要的js函数库都利用了arguments对象。类似数组，但是实质上只是有些像数组的对象。arguments对象的长度是由实参个数而不是形参个数决定的。形参是函数内部重新开辟内存空间存储的变量，但是其与arguments对象内存空间并不重叠。对于arguments和值都存在的情况下，两者值是同步的，但是针对其中">
@@ -286,7 +286,73 @@ alert(b);            <span class="comment">//     function () {</span>
 
 b = <span class="literal">null</span>；  <span class="comment">//解除引用，等待垃圾回收(由于IE的js对象和DOM对象使用不同的垃圾收集方法，闭包在IE中会导致内存泄露问题)</span>
 </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>    
-</code></pre>
+</code></pre><h2 id="分支函数（解决兼容问题的更好方法）">分支函数（解决兼容问题的更好方法）</h2><p><em>分支函数的作用是：</em>可以解决兼容问题if或者else的重复判断的问题，我们一般的做法是：根据兼容的不同写<code>if</code>，<code>else</code>等，这些判断来实现兼容，但是这样明显就有一个缺点，每次执行这个函数的时候，都需要进行if和else的检测，效率明显不高，我们现在使用分支函数来实现当初始化的时候进行一些检测，在之后的运行代码过程中，代码就无需检测了；</p>
+<pre><code><span class="comment">// 我们先来看看传统的封装ajax请求的函数</span>
+<span class="comment">//创建XMLHttpRequest对象：</span>
+<span class="keyword">var</span> xmlhttp;
+<span class="function"><span class="keyword">function</span> <span class="title">createxmlhttp</span>(<span class="params"></span>)</span>{
+    <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest){
+        <span class="comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span>
+        xmlhttp=<span class="keyword">new</span> XMLHttpRequest();
+    }
+    <span class="keyword">else</span>{
+      <span class="comment">// code for IE6, IE5</span>
+      xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);
+    }
+}
+<span class="comment">// 下面我们看看分支函数代码如下：</span>
+<span class="keyword">var</span> XHR = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="keyword">var</span> standard = {
+        createXHR : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+            <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();
+        }
+    };
+    <span class="keyword">var</span> oldActionXObject = {
+        createXHR : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+            <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);
+        }
+    };
+    <span class="keyword">var</span> newActionXObject = {
+        createXHR : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+            <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">"Msxml2.XMLHTTP"</span>);
+        }
+    };
+    <span class="keyword">if</span>(standard.createXHR) {
+        <span class="keyword">return</span> standard;
+    }<span class="keyword">else</span> {
+        <span class="keyword">try</span>{
+            newActionXObject.createXHR();
+            <span class="keyword">return</span> newActionXObject;
+        }<span class="keyword">catch</span>(e){
+            oldActionXObject.createXHR();
+            <span class="keyword">return</span> oldActionXObject;
+        }
+    }
+})();
+<span class="built_in">console</span>.log(XHR.createXHR()); <span class="comment">//xmlHttpRequest对象</span>
+</code></pre><p>分支函数的原理即：声明几个不同名称的对象，并未他们声明一个相同的方法，再根据不同浏览器设计实现，然后进行浏览器检测，根据浏览器检测来返回哪一个对象，不论返回哪个对象，它的一致对外接口都是<code>createXHR</code>方法的。</p>
+<h2 id="惰性载入函数（解决兼容问题）">惰性载入函数（解决兼容问题）</h2><p>惰性载入函数也是函数内部改变自身的一种方式，只会在第一次调用的时候执行。其优点如下：</p>
+<h6 id="1-_要执行的适当代码只有在实际调用函数时执行。">1. 要执行的适当代码只有在实际调用函数时执行。</h6><h6 id="2-_第一次调用该函数时，紧接着内部函数也会执行，所以后续继续调用该函数的话，后续的调用速度会快很多，因此避免多重条件。">2. 第一次调用该函数时，紧接着内部函数也会执行，所以后续继续调用该函数的话，后续的调用速度会快很多，因此避免多重条件。</h6><h2 id="函数节流">函数节流</h2><p>即让某些代码可以在间断的情况下连续重复执行，实现该方法可以使用定时器对该函数进行节流操作。例如可应用于<code>mouseoer</code>,<code>click</code>等可能出现无限点击的事件，以避免浏览器变慢甚至崩溃。</p>
+<pre><code><span class="comment">// 如下简单函数节流代码演示</span>
+<span class="keyword">var</span> throttle = {
+    timeoutId: <span class="keyword">null</span>,
+    <span class="comment">// 需要执行的方法</span>
+    preformMethod: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+
+    },
+    <span class="comment">// 初始化需要调用的方法</span>
+    process: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        clearTimeout(this.timeoutId);
+        <span class="keyword">var</span> <span class="keyword">self</span> = this;
+        <span class="keyword">self</span>.timeoutId = setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+            <span class="keyword">self</span>.preformMethod();
+        },<span class="number">100</span>);
+    }
+};
+<span class="comment">// 执行操作</span>
+throttle.process();
+</code></pre><p><br><br>部分参见 <a href="http://web.jobbole.com/84592/" target="_blank" rel="external">涂根华</a></p>
+
   </section>
 
   
