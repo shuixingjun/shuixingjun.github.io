@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://shuixingjun.github.io/2015/12/17/arguments/index.html">
 <meta property="og:site_name" content="水朝宗于海">
 <meta property="og:description" content="arguments1. arguments在js中arguments是一个内置对象，所有主要的js函数库都利用了arguments对象。类似数组，但是实质上只是有些像数组的对象。arguments对象的长度是由实参个数而不是形参个数决定的。形参是函数内部重新开辟内存空间存储的变量，但是其与arguments对象内存空间并不重叠。对于arguments和值都存在的情况下，两者值是同步的，但是针对其中">
-<meta property="og:updated_time" content="2015-12-20T06:30:55.868Z">
+<meta property="og:updated_time" content="2015-12-22T07:31:54.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript函数式编程 | 水朝宗于海">
 <meta name="twitter:description" content="arguments1. arguments在js中arguments是一个内置对象，所有主要的js函数库都利用了arguments对象。类似数组，但是实质上只是有些像数组的对象。arguments对象的长度是由实参个数而不是形参个数决定的。形参是函数内部重新开辟内存空间存储的变量，但是其与arguments对象内存空间并不重叠。对于arguments和值都存在的情况下，两者值是同步的，但是针对其中">
@@ -235,7 +235,7 @@ f(<span class="number">1</span>, <span class="number">2</span>);
     }
 };
 <span class="keyword">test</span>();
-</code></pre><h2 id="闭包">闭包</h2><h3 id="定义及特性">定义及特性</h3><p>指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。其应用主要为：<em>设计私有的方法和变量</em></p>
+</code></pre><h2 id="闭包"><a href="http://web.jobbole.com/84456/" target="_blank" rel="external">闭包</a></h2><h3 id="定义及特性">定义及特性</h3><p>指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。其应用主要为：<em>设计私有的方法和变量</em></p>
 <h4 id="闭包结构的两个特性">闭包结构的两个特性</h4><h5 id="1-_封闭性">1. 封闭性</h5><p>外界无法访问闭包内部的数据，如果在闭包内声明变量，外界无法访问，除非闭包主动向外部提供访问接口。</p>
 <h5 id="2-_持久性">2. 持久性</h5><p>一般的函数，调用完毕后系统会销毁局部活动对象，而对于闭包来说，在外部函数被调用后闭包结构仍然存在，系统中闭包的数据仍存在，从而实现对数据的持久利用。</p>
 <ul>
