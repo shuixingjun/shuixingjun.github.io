@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      URL详解与URL编码 | 水朝宗于海 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="忍冬">
+    
+    
+
+    <meta name="description" content="URL与URI很多人会混淆这两个名词。URL：(Uniform/Universal Resource Locator 的缩写，统一资源定位符)。URI：(Uniform Resource Identifier 的缩写，统一资源标识符)。
+关系：URI属于URL更低层次的抽象，一种字符串文本标准。就是说，URI属于父类，而URL属于URI的子类。URL是URI的一个子集。二者的区别在于,URI表示请">
+<meta property="og:type" content="article">
+<meta property="og:title" content="URL详解与URL编码 | 水朝宗于海">
+<meta property="og:url" content="http://shuixingjun.github.io/2015/12/23/url/index.html">
+<meta property="og:site_name" content="水朝宗于海">
+<meta property="og:description" content="URL与URI很多人会混淆这两个名词。URL：(Uniform/Universal Resource Locator 的缩写，统一资源定位符)。URI：(Uniform Resource Identifier 的缩写，统一资源标识符)。
+关系：URI属于URL更低层次的抽象，一种字符串文本标准。就是说，URI属于父类，而URL属于URI的子类。URL是URI的一个子集。二者的区别在于,URI表示请">
+<meta property="og:updated_time" content="2015-12-23T07:32:39.926Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="URL详解与URL编码 | 水朝宗于海">
+<meta name="twitter:description" content="URL与URI很多人会混淆这两个名词。URL：(Uniform/Universal Resource Locator 的缩写，统一资源定位符)。URI：(Uniform Resource Identifier 的缩写，统一资源标识符)。
+关系：URI属于URL更低层次的抽象，一种字符串文本标准。就是说，URI属于父类，而URL属于URI的子类。URL是URI的一个子集。二者的区别在于,URI表示请">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/yu.jpg">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 水朝宗于海"><img src="/images/u.png" width="80" alt="水朝宗于海 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">水朝宗于海</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          君子终日乾乾，反复道也。
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/shuixingjun" title="shuixingjun">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+
+    
+
+  </ul>
+</nav>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">URL详解与URL编码</h1>
+
+    
+
+    <div class="post-meta">
+         <span class="arr">&nbsp;</span>
+         <time datetime="2015-12-23" class="post-meta__date date">2015-12-23</time> 
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Font-End/">Font-End</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/javascript/">javascript</a>
+            </font>
+          
+
+      </span>
+          <span id="busuanzi_container_page_pv"> &#8226; 阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+      
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="URL与URI">URL与URI</h2><p>很多人会混淆这两个名词。<br>URL：(Uniform/Universal Resource Locator 的缩写，统一资源定位符)。<br>URI：(Uniform Resource Identifier 的缩写，统一资源标识符)。</p>
+<h3 id="关系：">关系：</h3><p><code>URI</code>属于<code>URL</code>更低层次的抽象，一种字符串文本标准。<br>就是说，<code>URI</code>属于父类，而<code>URL</code>属于<code>URI</code>的子类。<code>URL</code>是<code>URI</code>的一个子集。<br>二者的区别在于,<code>URI</code>表示请求服务器的路径，定义这么一个资源。而<code>URL</code>同时说明要如何访问这个资源<code>（http://）</code>。</p>
+<h2 id="端口与URL标准格式">端口与URL标准格式</h2><h3 id="1-_何为端口？">1. 何为端口？</h3><p>端口<code>(Port)</code>，相当于一种数据的传输通道。用于接受某些数据，然后传输给相应的服务，而电脑将这些数据处理后，再将相应的回复通过开启的端口传给对方。<br>端口的作用：因为 IP 地址与网络服务的关系是一对多的关系。所以实际上因特网上是通过 IP 地址加上端口号来区分不同的服务的。<br>端口是通过端口号来标记的，端口号只有整数，范围是从0 到65535。</p>
+<h3 id="2-_URL标准格式。">2. URL标准格式。</h3><p>通常而言，我们所熟悉的<code>URL</code>的常见定义格式为：<br><code>scheme://host[:port#]/path/.../[;url-params][?query-string][#anchor]</code></p>
+<pre><code>scheme <span class="comment">//有我们很熟悉的http、https、ftp以及著名的ed2k，迅雷的thunder等。</span>
+host   <span class="comment">//HTTP服务器的IP地址或者域名</span>
+port<span class="preprocessor">#  <span class="comment">//HTTP服务器的默认端口是80，这种情况下端口号可以省略。如果使用了别的端口，必须指明，例如tomcat的默认端口是8080 http://localhost:8080/</span></span>
+path   <span class="comment">//访问资源的路径</span>
+url-params  <span class="comment">//所带参数</span>
+query-<span class="built_in">string</span>    <span class="comment">//发送给http服务器的数据</span>
+anchor <span class="comment">//锚点定位</span>
+</code></pre><p>　</p>
+<h2 id="利用_标签自动解析_url">利用 <a>标签自动解析 url</a></h2><p>开发当中一个很常见的场景是，需要从<code>URL</code>中提取一些需要的元素，譬如<code>host</code>、请求参数等等。<br>通常的做法是写正则去匹配相应的字段，当然，这里要安利下述这种方法，来自<a href="http://james.padolsey.com/javascript/parsing-urls-with-the-dom/" target="_blank" rel="external">James</a>的<code>blog</code>，原理是动态创建一个<code>a</code>标签，利用浏览器的一些原生方法及一些正则（为了健壮性正则还是要的），完美解析<code>URL</code>，获取我们想要的任意一个部分。<br>代码如下：</p>
+<pre><code><span class="comment">// This function creates a new anchor element and uses location</span>
+<span class="comment">// properties (inherent) to get the desired URL data. Some String</span>
+<span class="comment">// operations are used (to normalize results across browsers).</span>
+
+<span class="function"><span class="keyword">function</span> <span class="title">parseURL</span>(<span class="params">url</span>) </span>{
+    <span class="keyword">var</span> a =  <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);
+    a.href = url;
+    <span class="keyword">return</span> {
+        source: url,
+        protocol: a.protocol.replace(<span class="string">':'</span>,<span class="string">''</span>),
+        host: a.hostname,
+        port: a.port,
+        query: a.search,
+        params: (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+            <span class="keyword">var</span> ret = {},
+                seg = a.search.replace(<span class="regexp">/^\?/</span>,<span class="string">''</span>).split(<span class="string">'&amp;'</span>),
+                len = seg.length, i = <span class="number">0</span>, s;
+            <span class="keyword">for</span> (;i&lt;len;i++) {
+                <span class="keyword">if</span> (!seg[i]) { <span class="keyword">continue</span>; }
+                s = seg[i].split(<span class="string">'='</span>);
+                ret[s[<span class="number">0</span>]] = s[<span class="number">1</span>];
+            }
+            <span class="keyword">return</span> ret;
+        })(),
+        file: (a.pathname.match(<span class="regexp">/([^/?#]+)$/i</span>) || [,<span class="string">''</span>])[<span class="number">1</span>],
+        hash: a.hash.replace(<span class="string">'#'</span>,<span class="string">''</span>),
+        path: a.pathname.replace(<span class="regexp">/^([^/])/</span>,<span class="string">'/$1'</span>),
+        relative: (a.href.match(<span class="regexp">/tps?:\/[^/]+(.+)/</span>) || [,<span class="string">''</span>])[<span class="number">1</span>],
+        segments: a.pathname.replace(<span class="regexp">/^\//</span>,<span class="string">''</span>).split(<span class="string">'/'</span>)
+    };
+}
+</code></pre><h3 id="Usage_使用方法：">Usage 使用方法：</h3><pre><code>var myURL = parseURL(<span class="string">'http://abc.com:8080/dir/index.html?id=255&amp;m=hello#top'</span>);
+
+myURL.file;     <span class="regexp">//</span> = <span class="string">'index.html'</span>
+myURL.hash;     <span class="regexp">//</span> = <span class="string">'top'</span>
+myURL.host;     <span class="regexp">//</span> = <span class="string">'abc.com'</span>
+myURL.query;    <span class="regexp">//</span> = <span class="string">'?id=255&amp;m=hello'</span>
+myURL.params;   <span class="regexp">//</span> = <span class="constant">Object </span>= { <span class="symbol">id:</span> <span class="number">255</span>, <span class="symbol">m:</span> hello }
+myURL.path;     <span class="regexp">//</span> = <span class="string">'/dir/index.html'</span>
+myURL.segments; <span class="regexp">//</span> = <span class="constant">Array </span>= [<span class="string">'dir'</span>, <span class="string">'index.html'</span>]
+myURL.port;     <span class="regexp">//</span> = <span class="string">'8080'</span>
+myURL.protocol; <span class="regexp">//</span> = <span class="string">'http'</span>
+myURL.source;   <span class="regexp">//</span> = <span class="string">'http://abc.com:8080/dir/index.html?id=255&amp;m=hello#top'</span>
+</code></pre><p>利用上述方法，即可解析得到<code>URL</code>的任意部分。</p>
+<h2 id="URL编码">URL编码</h2><p>为什么要进行<code>URL</code>编码？通常如果一样东西需要编码，说明这样东西并不适合直接进行传输。</p>
+<ol>
+<li><p>会引起歧义：例如<code>URL</code>参数字符串中使用<code>key=value</code>这样的键值对形式来传参，键值对之间以<code>&amp;</code>符号分隔，如<code>?postid=5038412&amp;t=1450591802326</code>，服务器会根据参数串的<code>&amp;</code>和<code>=</code>对参数进行解析，如果<code>value</code>字符串中包含了<code>=</code>或者<code>&amp;</code>，如宝洁公司的简称为<code>P&amp;G</code>，假设需要当做参数去传递，那么可能URL所带参数可能会是这样<code>?name=P&amp;G&amp;t=1450591802326</code>，因为参数中多了一个<code>&amp;</code>势必会造成接收<code>URL</code>的服务器解析错误，因此必须将引起歧义的<code>&amp;</code>和<code>=</code>符号进行转义， 也就是对其进行编码。</p>
+</li>
+<li><p>非法字符：又如，<code>URL</code>的编码格式采用的是<code>ASCII</code>码，而不是<code>Unicode</code>，这也就是说你不能在<code>URL</code>中包含任何非<code>ASCII</code> 字符，例如中文。否则如果客户端浏览器和服务端浏览器支持的字符集不同的情况下，中文可能会造成问题。</p>
+</li>
+</ol>
+<h3 id="escape_、_encodeURI_、encodeURIComponent">escape 、 encodeURI 、encodeURIComponent</h3><h4 id="1-_escape()">1. escape()</h4><p>首先想声明的是，<code>W3C</code>把这个函数废弃了，身为一名前端如果还用这个函数是要打脸的。<br><code>escape</code>只是对字符串进行编码（而其余两种是对URL进行编码），与URL编码无关。编码之后的效果是以<code>%XX</code>或者<code>%uXXXX</code>这种形式呈现的。它不会对<code>ASCII</code>字符、数字 以及<code>@ * / +</code>进行编码。<br>根据<code>MDN</code>的说明，<code>escape</code>应当换用为<code>encodeURI</code>或<code>encodeURIComponent；unescape</code>应当换用为<code>decodeURI</code>或<code>decodeURIComponent</code>。<code>escape</code>应该避免使用。举例如下：</p>
+<pre><code>encodeURI(<span class="string">'https://www.baidu.com/ a b c'</span>)
+// <span class="string">"https://www.baidu.com/<span class="variable">%20a</span><span class="variable">%20b</span><span class="variable">%20c</span>"</span>
+encodeURIComponent(<span class="string">'https://www.baidu.com/ a b c'</span>)
+// <span class="string">"https<span class="variable">%3A</span><span class="variable">%2F</span><span class="variable">%2Fwww</span>.baidu.com<span class="variable">%2F</span><span class="variable">%20a</span><span class="variable">%20b</span><span class="variable">%20c</span>"</span>
+
+//而 escape 会编码成下面这样，eocode 了冒号却没 encode 斜杠，十分怪异，故废弃之
+escape(<span class="string">'https://www.baidu.com/ a b c'</span>)
+// <span class="string">"https<span class="variable">%3A</span>//www.baidu.com/<span class="variable">%20a</span><span class="variable">%20b</span><span class="variable">%20c</span>"</span>　
+</code></pre><h4 id="2-_encodeURI()">2. encodeURI()</h4><p><code>encodeURI()</code>是<code>Javascript</code>中真正用来对<code>URL</code>编码的函数。它着眼于对整个<code>URL</code>进行编码。</p>
+<pre><code>encodeURI(<span class="string">"http://www.cnblogs.com/season-huang/some other thing"</span>);
+<span class="regexp">//</span><span class="string">"http://www.cnblogs.com/season-huang/some<span class="variable">%20other</span><span class="variable">%20thing</span>"</span>;
+</code></pre><p>编码后变为上述结果，可以看到空格被编码成了<code>%20</code>，而斜杠<code>/</code> ，冒号<code>:</code>并没有被编码。<br>是的，它用于对整个<code>URL</code>直接编码，不会对<code>ASCII</code>字母 、数字 、<code>~ ! @ # $ &amp; * ( ) = : / , ; ? + &#39;</code>进行编码。</p>
+<pre><code><span class="function"><span class="title">encodeURI</span><span class="params">(<span class="string">"~!@#$&amp;*()=:/,;?+'"</span>)</span></span>
+<span class="comment">// ~!@#$&amp;*()=:/,;?+'</span>
+</code></pre><h4 id="3-_encodeURIComponent()">3. encodeURIComponent()</h4><p>嘿，有的时候，我们的<code>URL</code>长这样子，请求参数中带了另一个<code>URL</code>：</p>
+<pre><code><span class="variable"><span class="keyword">var</span> URL</span> = <span class="string">"http://www.a.com?foo=http://www.b.com?t=123&amp;s=456"</span>;
+</code></pre><p>直接对它进行<code>ncodeURI</code>显然是不行的。因为<code>encodeURI</code>不会对冒号<code>:</code>及斜杠<code>/</code>进行转义，那么就会出现上述所说的服务器接受到之后解析会有歧义。</p>
+<pre><code><span class="function"><span class="title">encodeURI</span><span class="params">(URL)</span></span>
+<span class="comment">// "http://www.a.com?foo=http://www.b.com?t=123&amp;b=456"</span>
+</code></pre><p>这个时候，就该用到<code>encodeURIComponent()</code>。它的作用是对 URL 中的参数进行编码，记住是对参数，而不是对整个<code>URL</code>进行编码。<br>因为它仅仅不对<code>ASCII</code>字母、数字<code>~ ! * ( ) &#39;</code>进行编码。</p>
+<ul>
+<li><h5 id="错误的用法：">错误的用法：</h5><p>   var URL = “<a href="http://www.a.com?foo=http://www.b.com?t=123&amp;s=456" target="_blank" rel="external">http://www.a.com?foo=http://www.b.com?t=123&amp;s=456</a>“;<br>   encodeURIComponent(URL);<br>   // “http%3A%2F%2Fwww.a.com%3Ffoo%3Dhttp%3A%2F%2Fwww.b.com%3Ft%3D123%26s%3D456”<br>   // 错误的用法，看到第一个 http 的冒号及斜杠也被 encode 了</p>
+</li>
+<li><h5 id="正确的用法：">正确的用法：</h5><p><code>encodeURIComponent()</code>着眼于对单个的参数进行编码：</p>
+<p>  var param = “<a href="http://www.b.com?t=123&amp;s=456" target="_blank" rel="external">http://www.b.com?t=123&amp;s=456</a>“; // 要被编码的参数<br>  URL = “<a href="http://www.a.com?foo=&quot;+encodeURIComponent(param" target="_blank" rel="external">http://www.a.com?foo=&quot;+encodeURIComponent(param</a>);<br>  //“<a href="http://www.a.com?foo=http%3A%2F%2Fwww.b.com%3Ft%3D123%26s%3D456" target="_blank" rel="external">http://www.a.com?foo=http%3A%2F%2Fwww.b.com%3Ft%3D123%26s%3D456</a>“</p>
+</li>
+</ul>
+<p>利用上述的使用<code>&lt;a&gt;</code>标签解析<code>URL</code>以及根据业务场景配合<code>encodeURI()</code>与<code>encodeURIComponent()</code>便能够很好的处理 URL 的编码问题。<br>应用场景最常见的一个是手工拼接<code>URL</code>的时候，对每对<code>key-value</code>用<code>encodeURIComponent</code>进行转义，再进行传输。</p>
+<p><br><br>转自 <a href="http://www.cnblogs.com/coco1s/p/5038412.html" target="_blank" rel="external">ChokCoco</a></p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2015/12/23/url/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"shuixingjun"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+	
+    <span class="footer__copyright">&copy; 2015. <a href="#about" class="rend">忍冬</a></span>
+
+    <p class="no-indent">
+	    <span>
+		    <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+	 	</span>&emsp;|&emsp;
+    	本页点击 <span id="busuanzi_value_page_pv"></span>次 &emsp;|&emsp;
+    	本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+		&emsp;|&emsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+    </p>
+    
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+     <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
