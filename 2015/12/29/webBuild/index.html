@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      关于高性能的网站建设 | 水朝宗于海 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="忍冬">
+    
+    
+
+    <meta name="description" content="线程处理
+确保响应速度  
+内存管理（垃圾回收GC）
+
+
+内存问题的疑难一旦确定内存有问题，应该再尚未开始清理内存的地方寻找解决问题的机会。可以通过两种方式做：
+
+使用delete关键字从内存中移除不再需要的js对象
+从网页的dom树上移除不再是必需的节点。拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞争状态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于高性能的网站建设 | 水朝宗于海">
+<meta property="og:url" content="http://shuixingjun.github.io/2015/12/29/webBuild/index.html">
+<meta property="og:site_name" content="水朝宗于海">
+<meta property="og:description" content="线程处理
+确保响应速度  
+内存管理（垃圾回收GC）
+
+
+内存问题的疑难一旦确定内存有问题，应该再尚未开始清理内存的地方寻找解决问题的机会。可以通过两种方式做：
+
+使用delete关键字从内存中移除不再需要的js对象
+从网页的dom树上移除不再是必需的节点。拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞争状态">
+<meta property="og:image" content="http://7xp5x8.com1.z0.glb.clouddn.com/img/qqqqaaaaa/zhongj2.png">
+<meta property="og:updated_time" content="2015-12-29T09:16:01.940Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于高性能的网站建设 | 水朝宗于海">
+<meta name="twitter:description" content="线程处理
+确保响应速度  
+内存管理（垃圾回收GC）
+
+
+内存问题的疑难一旦确定内存有问题，应该再尚未开始清理内存的地方寻找解决问题的机会。可以通过两种方式做：
+
+使用delete关键字从内存中移除不再需要的js对象
+从网页的dom树上移除不再是必需的节点。拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞争状态">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/yu.jpg">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 水朝宗于海"><img src="/images/u.png" width="80" alt="水朝宗于海 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">水朝宗于海</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          君子终日乾乾，反复道也。
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/shuixingjun" title="shuixingjun">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+
+    
+
+  </ul>
+</nav>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">关于高性能的网站建设</h1>
+
+    
+
+    <div class="post-meta">
+         <span class="arr">&nbsp;</span>
+         <time datetime="2015-12-29" class="post-meta__date date">2015-12-29</time> 
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Font-End/">Font-End</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/javascript/">javascript</a>
+            </font>
+          
+
+      </span>
+          <span id="busuanzi_container_page_pv"> &#8226; 阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+      
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="线程处理">线程处理</h2><ul>
+<li>确保响应速度  </li>
+<li>内存管理（垃圾回收GC）</li>
+</ul>
+<p><br></p>
+<h2 id="内存问题的疑难">内存问题的疑难</h2><p>一旦确定内存有问题，应该再尚未开始清理内存的地方寻找解决问题的机会。可以通过两种方式做：</p>
+<ul>
+<li>使用<code>delete</code>关键字从内存中移除不再需要的<code>js</code>对象</li>
+<li>从网页的<code>dom</code>树上移除不再是必需的节点。<br><br><h2 id="拆分初始化加载">拆分初始化加载</h2><h3 id="1-_通过拆分来节省下载量">1. 通过拆分来节省下载量</h3><h3 id="2-_未定义标识符和竞争状态">2. 未定义标识符和竞争状态</h3>例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞争状态。大多数情况下，js会赢得这个竞争状态。<br>在延迟加载的代码与用户界面元素相关联的情况下：</li>
+<li>可通过改变元素展现。如提示“加载中”来提醒用户功能未加载完成。</li>
+<li>或者在延迟加载的代码里绑定界面元素的时间处理程序。本栗中菜单会被初始化成静态文本，延迟加载的代码包括菜单的功能和时间的绑定。在ie中用<code>attachEvent</code>实现，其他浏览器用<code>addEventListener</code>。<br>在延迟加载的代码不与界面元素相关联的情况下，可以使用<code>stub</code>(桩)函数解决。该函数是一个与原函数名称相同但是函数体空的函数，或是用一些临时代码顶替原有内容的函数。加载完成时原函数再覆盖住<code>stub</code>函数。更简单的方法是给每一个被引用但又被降级为延迟下载的函数创建一个桩函数。如有需要桩函数可以返回一个桩值，例如一个空字符串。如用户在完整的函数下载完成前尝试使用这个功能，将没有反应。稍高级的解决方案是，用桩函数记录用户的请求，并在js完成加载时调用相应的代码。<br><br><h2 id="无阻塞加载脚本">无阻塞加载脚本</h2></li>
+<li><h3 id="脚本并行加载">脚本并行加载</h3></li>
+<li><h3 id="外部脚本技术">外部脚本技术</h3><h4 id="1-_XHR_Eval">1. XHR Eval</h4><p>从服务端获取脚本，响应完成时通过<code>eval</code>命令执行内容。缺陷是获取的脚本必须部署在和主页面相同的域中。</p>
+<h4 id="2-_XHR注入">2. XHR注入</h4><p>通过创建一个<code>script</code>的DOM元素，然后把XMR的响应注入<code>script</code>中执行<code>js</code>，在某些情况下使用<code>eval</code>比这种机制慢。缺陷是获取的脚本必须部署在和主页面相同的域中。</p>
+<h4 id="3-_Script_in_iframe">3. Script in iframe</h4><p>该技术利用<code>iframe</code>无阻塞加载js。如：</p>
+<pre><code>Script <span class="keyword">in</span> <span class="tag">iframe</span>
+    http:<span class="comment">//stevesouders.com/cuzillion/?ex=10012&amp;title=Script+in+iframe</span>
+实现过程完全在HTML中完成
+    &lt;<span class="tag">iframe</span> src<span class="string">'A.html'</span> <span class="attribute">width</span>=<span class="number">0</span> <span class="attribute">height</span>=<span class="number">0</span> frameborder=<span class="number">0</span> id=frame1&gt;&lt;/iframe&gt;
+</code></pre></li>
+</ul>
+<p>因为<code>iframe</code>返回的是<code>html</code>文档，所以要在<code>html</code>文档中把外部脚本转换成行内脚本，需要修改js来创建他们之间的关联。两种方法：</p>
+<h5 id="1-_通过frames数组活document-getElementById来获取引用iframe的js标识符。">1. 通过<code>frames</code>数组活<code>document.getElementById</code>来获取引用<code>iframe</code>的js标识符。</h5><pre><code><span class="comment">//使用frames来访问主页上的iframe</span>
+<span class="built_in">window</span>.frames[<span class="number">0</span>].createNesDiv();
+<span class="comment">//使用getElmentById访问主页上的iframe</span>
+<span class="built_in">document</span>.getEementById(<span class="string">'frame1'</span>).contentWindow.createNewDiv();
+</code></pre><h5 id="2-_iframe使用parent变量引用父页面：">2. <code>iframe</code>使用<code>parent</code>变量引用父页面：</h5><pre><code><span class="comment">//在iframe中使用"parent"访问主页面</span>
+<span class="function"><span class="keyword">function</span> <span class="title">createNewDiv</span><span class="params">()</span> </span>{
+    <span class="keyword">var</span> NewDiv = <span class="keyword">parent</span>.document.creatElement(<span class="string">'div'</span>);
+    <span class="keyword">parent</span>.document.body.appendChild(newDiv);
+}
+</code></pre><p>缺陷是要求<code>iframe URL</code>和主页面同域。<code>Iframe</code>存在自身的消耗，是开销最高的<code>dom</code>元素，至少比普通<code>dom</code>元素高出一个数量级。</p>
+<h4 id="4-_Script_DOM_Element">4. Script DOM Element</h4><p>动态创建<code>script DOM</code>元素并设置其src属性。该技术允许跨域获取脚本，且无需像<code>XHR Eval</code>或<code>Script in iframe</code>需要重构。</p>
+<pre><code><span class="keyword">var</span> se = <span class="built_in">document</span>.createElement(<span class="string">'sript'</span>);
+se.src = <span class="string">'js地址'</span>;
+<span class="built_in">document</span>.getElementByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(se);
+</code></pre><h4 id="5-_Script_Defer">5. Script Defer</h4><p><code>defer</code>属性是非常简单的防止脚本阻塞行为的方法，但只在ie，saf4，chr2，ff3.5中是并行加载脚本。跨域。</p>
+<pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">defer</span> <span class="attribute">src</span>=<span class="value">"A.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><h4 id="6-_document-write_Script_Tag">6. document.write Script Tag</h4><p>该技术只在ie，saf4，chr2，op中是并行加载脚本。跨域。（不推荐）</p>
+<h3 id="确保（避免）按顺序进行">确保（避免）按顺序进行</h3><p><code>Script DOM Element</code>技术能保证脚本按列出的顺序执行。<br><code>XHR</code>注入技术和<code>XHR Eval</code>技术加载顺序无所谓。</p>
+<h3 id="最佳方案">最佳方案</h3><p>可通过函数<code>function loadScript(url, bPreserveOrder, bShowBusy);</code>来实现，确保按最佳方案加载脚本。<br><img src="http://7xp5x8.com1.z0.glb.clouddn.com/img/qqqqaaaaa/zhongj2.png" alt=""> </p>
+<ul>
+<li>不同域、无序<br>例如广告和空间的脚本</li>
+<li>不同域、顺序<br>例如从不同的服务器中下载多个存在依赖关系的js文件的页面</li>
+<li>同域、无序、无忙指示器<br>推荐XHR注入，应用于希望在后台下载js文件的网页。</li>
+<li>同域、无序、有忙指示器<br>推荐XHR注入，需要额外的js来激活忙指示器，当XHR发出激活状态栏和光标，XHR返回时恢复。</li>
+<li>同域、顺序、无忙指示器<br>推荐XHR注入，适用于有多个存在内部依赖的脚本在后台下载的页面。</li>
+<li>同域、顺序、有忙指示器<br>ie的Script和ff的Script DOM Element技术是首选方案。</li>
+</ul>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2015/12/29/webBuild/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"shuixingjun"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+	
+    <span class="footer__copyright">&copy; 2015. <a href="#about" class="rend">忍冬</a></span>
+
+    <p class="no-indent">
+	    <span>
+		    <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+	 	</span>&emsp;|&emsp;
+    	本页点击 <span id="busuanzi_value_page_pv"></span>次 &emsp;|&emsp;
+    	本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+		&emsp;|&emsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+    </p>
+    
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+     <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
