@@ -24,7 +24,10 @@
 内存问题的疑难一旦确定内存有问题，应该再尚未开始清理内存的地方寻找解决问题的机会。可以通过两种方式做：
 
 使用delete关键字从内存中移除不再需要的js对象
-从网页的dom树上移除不再是必需的节点。拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞争状态">
+从网页的dom树上移除不再是必需的节点。
+
+
+拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于高性能的网站建设 | 水朝宗于海">
 <meta property="og:url" content="http://shuixingjun.github.io/2015/12/29/webBuild/index.html">
@@ -37,9 +40,12 @@
 内存问题的疑难一旦确定内存有问题，应该再尚未开始清理内存的地方寻找解决问题的机会。可以通过两种方式做：
 
 使用delete关键字从内存中移除不再需要的js对象
-从网页的dom树上移除不再是必需的节点。拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞争状态">
+从网页的dom树上移除不再是必需的节点。
+
+
+拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞">
 <meta property="og:image" content="http://7xp5x8.com1.z0.glb.clouddn.com/img/qqqqaaaaa/zhongj2.png">
-<meta property="og:updated_time" content="2015-12-29T09:16:01.940Z">
+<meta property="og:updated_time" content="2015-12-30T06:33:25.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于高性能的网站建设 | 水朝宗于海">
 <meta name="twitter:description" content="线程处理
@@ -50,7 +56,10 @@
 内存问题的疑难一旦确定内存有问题，应该再尚未开始清理内存的地方寻找解决问题的机会。可以通过两种方式做：
 
 使用delete关键字从内存中移除不再需要的js对象
-从网页的dom树上移除不再是必需的节点。拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞争状态">
+从网页的dom树上移除不再是必需的节点。
+
+
+拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞">
     
     
     
@@ -241,20 +250,28 @@ classes that you can use:
 <h2 id="内存问题的疑难">内存问题的疑难</h2><p>一旦确定内存有问题，应该再尚未开始清理内存的地方寻找解决问题的机会。可以通过两种方式做：</p>
 <ul>
 <li>使用<code>delete</code>关键字从内存中移除不再需要的<code>js</code>对象</li>
-<li>从网页的<code>dom</code>树上移除不再是必需的节点。<br><br><h2 id="拆分初始化加载">拆分初始化加载</h2><h3 id="1-_通过拆分来节省下载量">1. 通过拆分来节省下载量</h3><h3 id="2-_未定义标识符和竞争状态">2. 未定义标识符和竞争状态</h3>例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞争状态。大多数情况下，js会赢得这个竞争状态。<br>在延迟加载的代码与用户界面元素相关联的情况下：</li>
+<li>从网页的<code>dom</code>树上移除不再是必需的节点。</li>
+</ul>
+<p><br></p>
+<h2 id="拆分初始化加载">拆分初始化加载</h2><h3 id="1-_通过拆分来节省下载量">1. 通过拆分来节省下载量</h3><h3 id="2-_未定义标识符和竞争状态">2. 未定义标识符和竞争状态</h3><p>例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞争状态。大多数情况下，js会赢得这个竞争状态。</p>
+<p>在延迟加载的代码与用户界面元素相关联的情况下：</p>
+<ul>
 <li>可通过改变元素展现。如提示“加载中”来提醒用户功能未加载完成。</li>
-<li>或者在延迟加载的代码里绑定界面元素的时间处理程序。本栗中菜单会被初始化成静态文本，延迟加载的代码包括菜单的功能和时间的绑定。在ie中用<code>attachEvent</code>实现，其他浏览器用<code>addEventListener</code>。<br>在延迟加载的代码不与界面元素相关联的情况下，可以使用<code>stub</code>(桩)函数解决。该函数是一个与原函数名称相同但是函数体空的函数，或是用一些临时代码顶替原有内容的函数。加载完成时原函数再覆盖住<code>stub</code>函数。更简单的方法是给每一个被引用但又被降级为延迟下载的函数创建一个桩函数。如有需要桩函数可以返回一个桩值，例如一个空字符串。如用户在完整的函数下载完成前尝试使用这个功能，将没有反应。稍高级的解决方案是，用桩函数记录用户的请求，并在js完成加载时调用相应的代码。<br><br><h2 id="无阻塞加载脚本">无阻塞加载脚本</h2></li>
+<li>或者在延迟加载的代码里绑定界面元素的时间处理程序。本栗中菜单会被初始化成静态文本，延迟加载的代码包括菜单的功能和时间的绑定。在ie中用<code>attachEvent</code>实现，其他浏览器用<code>addEventListener</code>。<br>在延迟加载的代码不与界面元素相关联的情况下，可以使用<code>stub</code>(桩)函数解决。该函数是一个与原函数名称相同但是函数体空的函数，或是用一些临时代码顶替原有内容的函数。加载完成时原函数再覆盖住<code>stub</code>函数。更简单的方法是给每一个被引用但又被降级为延迟下载的函数创建一个桩函数。如有需要桩函数可以返回一个桩值，例如一个空字符串。如用户在完整的函数下载完成前尝试使用这个功能，将没有反应。稍高级的解决方案是，用桩函数记录用户的请求，并在js完成加载时调用相应的代码。</li>
+</ul>
+<p><br></p>
+<h2 id="无阻塞加载脚本">无阻塞加载脚本</h2><ul>
 <li><h3 id="脚本并行加载">脚本并行加载</h3></li>
-<li><h3 id="外部脚本技术">外部脚本技术</h3><h4 id="1-_XHR_Eval">1. XHR Eval</h4><p>从服务端获取脚本，响应完成时通过<code>eval</code>命令执行内容。缺陷是获取的脚本必须部署在和主页面相同的域中。</p>
+<li><h3 id="外部脚本技术">外部脚本技术</h3></li>
+</ul>
+<h4 id="1-_XHR_Eval">1. XHR Eval</h4><p>从服务端获取脚本，响应完成时通过<code>eval</code>命令执行内容。缺陷是获取的脚本必须部署在和主页面相同的域中。</p>
 <h4 id="2-_XHR注入">2. XHR注入</h4><p>通过创建一个<code>script</code>的DOM元素，然后把XMR的响应注入<code>script</code>中执行<code>js</code>，在某些情况下使用<code>eval</code>比这种机制慢。缺陷是获取的脚本必须部署在和主页面相同的域中。</p>
 <h4 id="3-_Script_in_iframe">3. Script in iframe</h4><p>该技术利用<code>iframe</code>无阻塞加载js。如：</p>
 <pre><code>Script <span class="keyword">in</span> <span class="tag">iframe</span>
     http:<span class="comment">//stevesouders.com/cuzillion/?ex=10012&amp;title=Script+in+iframe</span>
 实现过程完全在HTML中完成
     &lt;<span class="tag">iframe</span> src<span class="string">'A.html'</span> <span class="attribute">width</span>=<span class="number">0</span> <span class="attribute">height</span>=<span class="number">0</span> frameborder=<span class="number">0</span> id=frame1&gt;&lt;/iframe&gt;
-</code></pre></li>
-</ul>
-<p>因为<code>iframe</code>返回的是<code>html</code>文档，所以要在<code>html</code>文档中把外部脚本转换成行内脚本，需要修改js来创建他们之间的关联。两种方法：</p>
+</code></pre><p>因为<code>iframe</code>返回的是<code>html</code>文档，所以要在<code>html</code>文档中把外部脚本转换成行内脚本，需要修改js来创建他们之间的关联。两种方法：</p>
 <h5 id="1-_通过frames数组活document-getElementById来获取引用iframe的js标识符。">1. 通过<code>frames</code>数组活<code>document.getElementById</code>来获取引用<code>iframe</code>的js标识符。</h5><pre><code><span class="comment">//使用frames来访问主页上的iframe</span>
 <span class="built_in">window</span>.frames[<span class="number">0</span>].createNesDiv();
 <span class="comment">//使用getElmentById访问主页上的iframe</span>
@@ -282,6 +299,22 @@ se.src = <span class="string">'js地址'</span>;
 <li>同域、顺序、无忙指示器<br>推荐XHR注入，适用于有多个存在内部依赖的脚本在后台下载的页面。</li>
 <li>同域、顺序、有忙指示器<br>ie的Script和ff的Script DOM Element技术是首选方案。</li>
 </ul>
+<p><br></p>
+<h2 id="整合异步脚本">整合异步脚本</h2><h3 id="整合技术">整合技术</h3><p>整合行内代码和依赖行内代码的外部脚本。</p>
+<h4 id="1-_硬编码回调">1. 硬编码回调</h4><p>在外部脚本底部添加一个对<code>init</code>的调用。该方法改变回调接口时需要调整外部脚本，不灵活。</p>
+<h4 id="2-_window_Onload">2. window Onload</h4><p>该技术需要确保外部脚本在<code>window.onload</code>之前下载执行就能保持执行顺序。有两个缺点：</p>
+<ul>
+<li>首先必须确认异步脚本是通过阻塞<code>onload</code>事件的方式加载的。（首选Script in Iframe）</li>
+<li>其次，可能会导致行内代码延迟执行。</li>
+</ul>
+<h4 id="3-_定时器">3. 定时器</h4><p>可以使用<code>setTimeout</code>方法。<br>该方法会稍增加维护成本，因为需要通过外部脚本的特定标识符来判断脚本是否已经加载完毕，如果外部脚本的标识符变了，行内代码也需要同步更新。</p>
+<h4 id="4-_script_Onload">4. script Onload</h4><p>该技术是整合异步加载外部脚本和行内脚本的首选。</p>
+<h4 id="5-_Degrading_Script_Tags">5. Degrading Script Tags</h4><p>该方法更干净、清晰、安全，但需要修改外部脚本，在使用第三方js库的时候很难做到。</p>
+<h3 id="异步加载多个外部脚本">异步加载多个外部脚本</h3><h4 id="1-_Managed_XHR">1. Managed XHR</h4><p>该技术解决了跨主流浏览器的兼容性问题，但是由于<code>XMLHttpRequest</code>的同源规则，如果外部脚本部署在与主页面不同的域下，该技术就无法工作。</p>
+<h4 id="2-_DOM_Element_和_Doc_Write">2. DOM Element 和 Doc Write</h4><p>结合Script DOM Element和document.write Script Tag技术完成主要目标：外部脚本的执行顺序在所有浏览器下都能保持，行内代码和它依赖的外部脚本成功整合。但异步加载在各个浏览器中实现的程度有所有不同。</p>
+<p>没有简单的跨浏览器方案可以异步加载多个脚本，还同时保持执行顺序。</p>
+<h3 id="综合方案">综合方案</h3><h4 id="1-_单个脚本">1. 单个脚本</h4><p>整合异步加载单个脚本最佳技术Script Dom Element和用于整合行内代码和单个外部脚本的最好选择Scipt Onload。</p>
+<h4 id="2-_多个脚本">2. 多个脚本</h4><p>EFWS.Script.loadScripts函数。</p>
 
   </section>
 

@@ -1750,9 +1750,9 @@ blockquote:before {
     background-image: url("../images/quote-l.svg");
     border-top: 1px solid #ccc;
 }
-p {
+/* p {
   text-indent: 2em;
-}
+} */
 
 .categories .categories-link {
     color: #66B48E;
