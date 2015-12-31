@@ -45,7 +45,7 @@
 
 拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞">
 <meta property="og:image" content="http://7xp5x8.com1.z0.glb.clouddn.com/img/qqqqaaaaa/zhongj2.png">
-<meta property="og:updated_time" content="2015-12-30T06:33:25.629Z">
+<meta property="og:updated_time" content="2015-12-31T07:19:21.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于高性能的网站建设 | 水朝宗于海">
 <meta name="twitter:description" content="线程处理
@@ -311,10 +311,19 @@ se.src = <span class="string">'js地址'</span>;
 <h4 id="4-_script_Onload">4. script Onload</h4><p>该技术是整合异步加载外部脚本和行内脚本的首选。</p>
 <h4 id="5-_Degrading_Script_Tags">5. Degrading Script Tags</h4><p>该方法更干净、清晰、安全，但需要修改外部脚本，在使用第三方js库的时候很难做到。</p>
 <h3 id="异步加载多个外部脚本">异步加载多个外部脚本</h3><h4 id="1-_Managed_XHR">1. Managed XHR</h4><p>该技术解决了跨主流浏览器的兼容性问题，但是由于<code>XMLHttpRequest</code>的同源规则，如果外部脚本部署在与主页面不同的域下，该技术就无法工作。</p>
-<h4 id="2-_DOM_Element_和_Doc_Write">2. DOM Element 和 Doc Write</h4><p>结合Script DOM Element和document.write Script Tag技术完成主要目标：外部脚本的执行顺序在所有浏览器下都能保持，行内代码和它依赖的外部脚本成功整合。但异步加载在各个浏览器中实现的程度有所有不同。</p>
+<h4 id="2-_DOM_Element_和_Doc_Write">2. DOM Element 和 Doc Write</h4><p>结合<code>Script DOM Element</code>和<code>document.write Script</code>Tag技术完成主要目标：外部脚本的执行顺序在所有浏览器下都能保持，行内代码和它依赖的外部脚本成功整合。但异步加载在各个浏览器中实现的程度有所有不同。</p>
 <p>没有简单的跨浏览器方案可以异步加载多个脚本，还同时保持执行顺序。</p>
-<h3 id="综合方案">综合方案</h3><h4 id="1-_单个脚本">1. 单个脚本</h4><p>整合异步加载单个脚本最佳技术Script Dom Element和用于整合行内代码和单个外部脚本的最好选择Scipt Onload。</p>
-<h4 id="2-_多个脚本">2. 多个脚本</h4><p>EFWS.Script.loadScripts函数。</p>
+<h3 id="综合方案">综合方案</h3><h4 id="1-_单个脚本">1. 单个脚本</h4><p>整合异步加载单个脚本最佳技术<code>Script Dom Element</code>和用于整合行内代码和单个外部脚本的最好选择<code>Scipt Onload</code>。</p>
+<h4 id="2-_多个脚本">2. 多个脚本</h4><p><code>EFWS.Script.loadScripts</code>函数。</p>
+<p><br></p>
+<h2 id="布置行内脚本">布置行内脚本</h2><h3 id="避免行内脚本阻塞下载和渲染，有以下几种方式：">避免行内脚本阻塞下载和渲染，有以下几种方式：</h3><h4 id="1-_把行内脚本移动到底部">1. 把行内脚本移动到底部</h4><p>这种方式虽然会避免阻塞下载，但是依旧不能避免阻塞渲染的问题。故，只能解决执行脚本时间少于300毫秒的问题。</p>
+<h4 id="2-_异步启动执行脚本">2. 异步启动执行脚本</h4><p>简延迟值为0毫秒时用<code>setTimeout</code>，ie可以逐步渲染（最好的方法）。脚本时间过长，更好的选择是<code>onload</code>。<br>最佳方案是每300毫秒左右挂起或者使用<code>setTimeout</code>，但这种方法需要大规模的重新设计和重构代码。</p>
+<h4 id="3-使用script的defer属性">3.使用script的defer属性</h4><p>只有ie和ff3.1+支持，允许浏览器继续解析和渲染页面的同时延迟执行行内脚本。defer属性允许两张图片并行下载，页面总加载时间为5s，5<br>s后脚本执行完成时页面才开始渲染。（基准页面为6s）</p>
+<h3 id="样式表阻塞行内脚本">样式表阻塞行内脚本</h3><p>由于css和js的解析顺序。样式表阻塞行内脚本，因为行内脚本可能含有依赖于样式表中样式的代码。<br>这也就导致了<strong><em>在样式表后面的行内脚本会阻塞所有后续资源的下载</em></strong><br>所以，调整行内脚本的位置，使其不出现在样式表和任何其他资源之间。具体表现为，：</p>
+<ul>
+<li><h4 id="把行内脚本放在样式表之前">把行内脚本放在样式表之前</h4>如果其他资源是脚本，行内脚本和外部脚本之间可能会有代码依赖。</li>
+<li><h4 id="把行内脚本移到可见资源之后">把行内脚本移到可见资源之后</h4>如果确认没有代码依赖。</li>
+</ul>
 
   </section>
 
