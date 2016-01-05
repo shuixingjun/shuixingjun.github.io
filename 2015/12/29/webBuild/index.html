@@ -45,7 +45,7 @@
 
 拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞">
 <meta property="og:image" content="http://7xp5x8.com1.z0.glb.clouddn.com/img/qqqqaaaaa/zhongj2.png">
-<meta property="og:updated_time" content="2016-01-04T10:04:55.159Z">
+<meta property="og:updated_time" content="2016-01-05T10:06:55.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于高性能的网站建设 | 水朝宗于海">
 <meta name="twitter:description" content="线程处理
@@ -360,6 +360,32 @@ se.src = <span class="string">'js地址'</span>;
 <li>将循环变量递减到0<br>注意，一旦循环变量等于0，结束条件就会变为假<br>小心使用数组原生的<code>inDexOf</code>方法，这个方法遍历数组成员的耗时可能会比使用普通的循环还长。</li>
 <li>避免for-in循环<br>它的的结束条件无法改变，而且遍历属性的顺序也无法改变，需要从一个特定的对象中解析每个枚举的属性，故而更加耗时。<br>只有在已知需要遍历的对象属性集时才使用这种方法。<br>处理诸如JSON对象这样的未知属性集时，依然必须使用for-in循环。</li>
 <li>Duff策略<br>主要用于处理大数组，仅当性能瓶颈是由循环处理大量元素项所引起时才考虑。</li>
+</ul>
+<h3 id="字符串">字符串</h3><h4 id="1-_连接字符串">1. 连接字符串</h4><p>用户主要用ie6-7时，使用数组技术连接字符串才值得。<br>ie处理字符串链接的速度比其他浏览器慢很多，可以先将其存储到数组中，然后调用<code>join()</code>方法合并他们</p>
+<h4 id="2-_裁剪字符串">2. 裁剪字符串</h4><p>裁剪字符串的速度只有在整个执行过程中裁剪的频率足够大才重要。下面的栗子在处理长字符串时就明显更快。</p>
+<pre><code><span class="comment">//去除空白/^\s+|\s+$/g/</span>
+function <span class="keyword">trim</span>(<span class="keyword">text</span>) {
+    <span class="keyword">text</span> = <span class="keyword">text</span>.replace(^\s+/,<span class="string">''</span>);<span class="comment">//删除头部空白</span>
+    <span class="keyword">for</span>(var i = <span class="keyword">text</span>.length - <span class="number">1</span>;i &gt;= <span class="number">0</span>; i--) {<span class="comment">//清楚尾部空白后退出循环</span>
+        <span class="keyword">if</span> (/\S/.<span class="keyword">text</span>(<span class="keyword">text</span>.charAt(i))) {
+        <span class="keyword">text</span> = <span class="keyword">text</span>.<span class="keyword">substring</span>(<span class="number">0</span>, i + <span class="number">1</span>);
+        }
+    }
+    <span class="keyword">return</span> <span class="keyword">text</span>;
+}
+</code></pre><h3 id="避免运行时间过长的脚本">避免运行时间过长的脚本</h3><p>浏览器会限制js可以运行的最长时间，以下原因可能会影响js执行总时间</p>
+<ol>
+<li>过多的DOM交互</li>
+<li>过多的循环</li>
+<li>过多的递归</li>
+</ol>
+<h5 id="解决方法：">解决方法：</h5><ol>
+<li>定时器setTimeout</li>
+<li>用于挂起的定时器模式</li>
+</ol>
+<ul>
+<li>利用定时器拆分数组的函数chunk()</li>
+<li>利用定时器执行大型运算中小而有序的部分。</li>
 </ul>
 
   </section>
