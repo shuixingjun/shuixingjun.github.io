@@ -45,7 +45,7 @@
 
 拆分初始化加载1. 通过拆分来节省下载量2. 未定义标识符和竞争状态例如对下拉菜单的js延后加载，建立一个下载js和用户点击菜单之间的竞">
 <meta property="og:image" content="http://7xp5x8.com1.z0.glb.clouddn.com/img/qqqqaaaaa/zhongj2.png">
-<meta property="og:updated_time" content="2016-01-05T10:06:55.548Z">
+<meta property="og:updated_time" content="2016-01-07T00:58:40.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于高性能的网站建设 | 水朝宗于海">
 <meta name="twitter:description" content="线程处理
@@ -387,6 +387,99 @@ function <span class="keyword">trim</span>(<span class="keyword">text</span>) {
 <li>利用定时器拆分数组的函数chunk()</li>
 <li>利用定时器执行大型运算中小而有序的部分。</li>
 </ul>
+<h2 id="可伸缩的comet">可伸缩的comet</h2><h3 id="comet工作原理">comet工作原理</h3><p>Comet利用HTTP规范中不常用的特性来工作。通过更智能的长连接管理和减少每个连接占用的服务端资源，比传统的web服务更易于提供更多的同步连接，客户端与服务端之间的数据传输更快。</p>
+<h3 id="四中实现低延迟数据传输的方法">四中实现低延迟数据传输的方法</h3><h4 id="1-_轮询">1. 轮询</h4><p>解决连接限制问题，即网站或应用每X毫秒发出一个请求来检查是否有更新需要成仙到用户界面上。<br>简单轮询是效率最低但是却最简单的comet技术。但是可能造成浪费HTTP请求，服务端超负荷等问题。</p>
+<pre><code>setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{xhrRequest({<span class="string">"foo"</span>:<span class="string">"bar"</span>})},<span class="number">2000</span>);
+<span class="function"><span class="keyword">function</span> <span class="title">xhrRequest</span><span class="params">(data)</span> </span>{
+    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+    <span class="comment">//在发送请求的时候，处理的数据通过参数进行传递</span>
+    xhr.open(<span class="string">"get"</span>,<span class="string">"http://localhost/foo.php"</span>,<span class="literal">true</span>);
+    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span>) {
+        <span class="comment">//处理服务器返回的更新</span>
+        }
+    };
+    xhr.send(<span class="literal">null</span>);
+}
+</code></pre><h4 id="2-_长轮询">2. 长轮询</h4><p>浏览器发送一个请求到服务端，而服务端只在有可用的新数据时才相应。要支持长轮询，服务端要完全保持一个所有未响应请求和它们对应链接的大集合。<br>从浏览器角度看，该方法解决了最常见的使用情况：保持有效的请求。也避免了产生大量的无效请求，使用户感到更好的即时性。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">longPoll</span><span class="params">(url,callback)</span> </span>{
+    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span>) {
+        <span class="comment">//发送另一个请求，重新连接服务端    </span>
+            <span class="keyword">callback</span>(xhr.responseText);
+            xhr.open(<span class="string">'GET'</span>,url,<span class="literal">true</span>);
+            xhr.send(<span class="literal">null</span>);
+        }
+    };
+    <span class="comment">//连接到服务端以打开一个请求</span>
+    xhr.open(<span class="string">'POST'</span>,url,<span class="literal">true</span>);
+    xhr.send(<span class="literal">null</span>);
+}
+</code></pre><h4 id="3-_永久帧">3. 永久帧</h4><p>永久帧技术，打开一个隐藏的iframe，请求一个机遇http1.1块编码的文档。下面是一个简单的永久帧栗子：</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">foreverFrame</span><span class="params">(url, callback)</span> </span>{
+    <span class="keyword">var</span> iframe = body.appendChild(document.creatElement(<span class="string">"iframe"</span>));
+    iframe.style.display = <span class="string">"none"</span>;
+    iframe.src = url + <span class="string">"?callback = parent.foreverFrame.callback"</span>;
+    <span class="keyword">this</span>.<span class="keyword">callback</span> = <span class="keyword">callback</span>;
+}
+<span class="comment">//服务器会发送一系列信息到iframe中</span>
+&lt;script&gt;
+    parent.foreverFrame.<span class="keyword">callback</span>(<span class="string">"the first message"</span>);
+&lt;/script&gt;
+&lt;script&gt;
+    parent.foreverFrame.<span class="keyword">callback</span>(<span class="string">"the second message"</span>);
+&lt;/script&gt;
+</code></pre><p>在ie中使用永久帧在页面加载完成时会发出类似点击的响声,可以在函数中创建一个<code>htmlfile</code>对象，将<code>html</code>文档写入该对象中，并设置<code>document.domain</code>来解决该问题。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">foreverFrame</span><span class="params">(url,callback)</span> </span>{
+    htmlfile = <span class="keyword">new</span> ActiveXobject(<span class="string">"htmlfile"</span>);
+    htmlfile.open();
+    htmlfile.write(
+        <span class="string">"&lt;html&gt;&lt;script&gt;"</span> + <span class="string">"document.domain'"</span> + document.domain + <span class="string">"';"</span> + <span class="string">"&lt;/script&gt;&lt;/html&gt;"</span>);
+    htmlfile.close();
+    <span class="keyword">var</span> ifrDiv = tunnel.creatElement(<span class="string">'div'</span>);
+    htmlfile.body.appendChild(ifrDiv);
+    ifrDiv.innerHTML = <span class="string">"&lt;iframe src='"</span> +url +<span class="string">"'&gt;&lt;/iframe&gt;"</span>;
+    foreverFrame.<span class="keyword">callback</span> = <span class="keyword">callback</span>;
+    )
+}
+<span class="comment">//垃圾回收机制不能清除释放Comet链接，故显式执行垃圾回收：</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">foreverFrameClose</span><span class="params">()</span> </span>{
+    htmlfile = <span class="literal">null</span>;
+    CollectGarbage();
+}
+</code></pre><h4 id="4-XHR流">4.XHR流</h4><p>允许服务器连续地发送消息，无需每次响应后再去建立一个请求。<br>会引起一些潜在的性能问题。如果流的响应链接时间太长，浏览器会占用过多的内存。<br>需要增加对消息进行划分的操作。浏览器从服务器接收一个正文的流，但必须将其划分成一个个独立的信息。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">xhrStreaming</span><span class="params">(url,callback)</span> </span>{
+    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+    xhr.open(<span class="string">'POST'</span>,url,<span class="literal">true</span>);
+    <span class="keyword">var</span> lastSize;
+    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        <span class="keyword">var</span> newTextReceived;
+        <span class="keyword">if</span>(xhr.readyState &gt; <span class="number">2</span>) {
+            <span class="comment">//获取最新的响应正文   </span>
+            newTextReceived = 
+            xhr.responseText.substring(lastSize);
+            lastSize = xhr.responseText.length;
+            <span class="keyword">callback</span>(newTextReceived);
+        }
+        <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span>) {
+            xhrStreaming(url, <span class="keyword">callback</span>);
+        }
+    )
+    xhr.send(<span class="literal">null</span>);
+}
+</code></pre><h3 id="跨域">跨域</h3><h4 id="回调轮询（JSONP轮询）">回调轮询（JSONP轮询）</h4><p>依赖于JSONP，JSONP可以在不同的域之间建立一套隐式的信任机制。<br>JSONP将返回的数据封装在可执行的脚本中，函数名由服务器发送请求的<code>&lt;script&gt;</code>代码块指定，而不通过XHR。</p>
+<h4 id="支持跨域的Comet非常重要">支持跨域的Comet非常重要</h4><ol>
+<li>对不同域名进行请求可以突破浏览器最多同时打开两个链接的限制。</li>
+<li>可以用于从第三方服务中检索数据。</li>
+<li>Comet和HTTP可以运行在不同的服务器上，从而可以针对Comet服务器和HTTP服务器进行不同的优化。</li>
+</ol>
+<h3 id="Comet性能优化的目的">Comet性能优化的目的</h3><h4 id="客户端">客户端</h4><ol>
+<li>减少数据传输的延迟</li>
+<li>HTTP链接的保存和管理</li>
+<li>远程消息和处理跨域问题</li>
+</ol>
+<h4 id="服务端">服务端</h4><p>保存和共享HTTP连接数，并尽量减少每个链接所消耗的内存、CPU、I/O和带宽。</p>
 
   </section>
 
