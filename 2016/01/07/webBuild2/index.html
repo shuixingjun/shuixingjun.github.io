@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      关于高性能的网站建设2 | 水朝宗于海 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="忍冬">
+    
+    
+
+    <meta name="description" content="压缩浏览器通过增加Accept-Encoding HTTP头来向Web服务器声明支持压缩：Accept-Encoding: gzip, deflate然而Web代理和PC安全软件却会对该头造成损坏，使得大量的请求收到未经压缩的响应。他们都需要对Web服务器发送的响应进行监听，监听未经过压缩的响应会占用更少的CPU资源，但是增加的网络响应时间却远远超过监听程序对响应进行解压缩所消耗的CPU时间。
+解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于高性能的网站建设2 | 水朝宗于海">
+<meta property="og:url" content="http://shuixingjun.github.io/2016/01/07/webBuild2/index.html">
+<meta property="og:site_name" content="水朝宗于海">
+<meta property="og:description" content="压缩浏览器通过增加Accept-Encoding HTTP头来向Web服务器声明支持压缩：Accept-Encoding: gzip, deflate然而Web代理和PC安全软件却会对该头造成损坏，使得大量的请求收到未经压缩的响应。他们都需要对Web服务器发送的响应进行监听，监听未经过压缩的响应会占用更少的CPU资源，但是增加的网络响应时间却远远超过监听程序对响应进行解压缩所消耗的CPU时间。
+解">
+<meta property="og:updated_time" content="2016-01-07T07:04:20.339Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于高性能的网站建设2 | 水朝宗于海">
+<meta name="twitter:description" content="压缩浏览器通过增加Accept-Encoding HTTP头来向Web服务器声明支持压缩：Accept-Encoding: gzip, deflate然而Web代理和PC安全软件却会对该头造成损坏，使得大量的请求收到未经压缩的响应。他们都需要对Web服务器发送的响应进行监听，监听未经过压缩的响应会占用更少的CPU资源，但是增加的网络响应时间却远远超过监听程序对响应进行解压缩所消耗的CPU时间。
+解">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/yu.jpg">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 水朝宗于海"><img src="/images/u.png" width="80" alt="水朝宗于海 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">水朝宗于海</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          君子终日乾乾，反复道也。
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/shuixingjun" title="shuixingjun">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+
+    
+
+  </ul>
+</nav>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">关于高性能的网站建设2</h1>
+
+    
+
+    <div class="post-meta">
+         <span class="arr">&nbsp;</span>
+         <time datetime="2016-01-07" class="post-meta__date date">2016-01-07</time> 
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Font-End/">Font-End</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/javascript/">javascript</a>
+            </font>
+          
+
+      </span>
+          <span id="busuanzi_container_page_pv"> &#8226; 阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+      
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="压缩">压缩</h2><p>浏览器通过增加<code>Accept-Encoding HTTP</code>头来向Web服务器声明支持压缩：<br><code>Accept-Encoding: gzip, deflate</code><br>然而Web代理和PC安全软件却会对该头造成损坏，使得大量的请求收到未经压缩的响应。他们都需要对Web服务器发送的响应进行监听，监听未经过压缩的响应会占用更少的CPU资源，但是增加的网络响应时间却远远超过监听程序对响应进行解压缩所消耗的CPU时间。</p>
+<h3 id="解决方法">解决方法</h3><h4 id="1-_最小化未压缩文件的尺寸">1. 最小化未压缩文件的尺寸</h4><p>发送更小的响应会使得页面加载速度更快。</p>
+<h5 id="1-_使用事件委托">1. 使用事件委托</h5><p>当多个元素都需要响应某个事件时，我们把这个时间的处理程序绑定到它们的父元素上，这项技术即事件委托。</p>
+<h5 id="2-_使用相对URL">2. 使用相对URL</h5><h5 id="3-_移除空白">3. 移除空白</h5><h5 id="4-_移除属性的引号">4. 移除属性的引号</h5><p>不应移除引号的两种情况</p>
+<ul>
+<li>网页是一句XHTML规则编写</li>
+<li>HTML的属性值应始终包含在引号内。</li>
+</ul>
+<p>当属性中只包含字母、数字、连字符、句号、下划线和冒号（正则表达）时，包含属性值的引号是可以省略的。</p>
+<h5 id="5-_避免行内样式">5. 避免行内样式</h5><h5 id="6-_位js变量设置别名">6. 位js变量设置别名</h5><h4 id="2-_对Gzip的支持进行直接探测">2. 对Gzip的支持进行直接探测</h4><h5 id="1-_执行测试">1. 执行测试</h5><p>请求中没有<code>Accept-Encoding</code>头，会自动在<code>&lt;body&gt;</code>的末尾增加一个隐藏的<code>iframe</code>，并在文档中需要设置以下内容：</p>
+<ol>
+<li>禁用缓存，保证所有连接都会被测试到。</li>
+<li>无论请求头包含什么内容，都要对内容进行压缩。</li>
+<li>使用js建立一个<code>session-only</code>的<code>cookie</code>，标记浏览器支持Gzip压缩。</li>
+</ol>
+<h5 id="2-_利用测试结果">2. 利用测试结果</h5><h5 id="3-_对效果进行量化">3. 对效果进行量化</h5><ul>
+<li>没有通过<code>Accept-Encoding</code>头声明支持压缩的请求比例如果太低，直接探测压缩支持的技术没有意义。</li>
+<li>有通过<code>Accept-Encoding</code>头，但实际支持压缩的请求比例，只能通过直接探测测得，只有比例很高时，直接探测才有必要使用。</li>
+</ul>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2016/01/07/webBuild2/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"shuixingjun"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+	
+    <span class="footer__copyright">&copy; 2015. <a href="#about" class="rend">忍冬</a></span>
+
+    <p class="no-indent">
+	    <span>
+		    <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+	 	</span>&emsp;|&emsp;
+    	本页点击 <span id="busuanzi_value_page_pv"></span>次 &emsp;|&emsp;
+    	本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+		&emsp;|&emsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+    </p>
+    
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+     <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
