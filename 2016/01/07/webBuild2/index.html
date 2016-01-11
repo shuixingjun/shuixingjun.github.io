@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="水朝宗于海">
 <meta property="og:description" content="压缩浏览器通过增加Accept-Encoding HTTP头来向Web服务器声明支持压缩：Accept-Encoding: gzip, deflate然而Web代理和PC安全软件却会对该头造成损坏，使得大量的请求收到未经压缩的响应。他们都需要对Web服务器发送的响应进行监听，监听未经过压缩的响应会占用更少的CPU资源，但是增加的网络响应时间却远远超过监听程序对响应进行解压缩所消耗的CPU时间。
 解">
-<meta property="og:updated_time" content="2016-01-07T07:04:20.339Z">
+<meta property="og:updated_time" content="2016-01-11T10:01:51.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于高性能的网站建设2 | 水朝宗于海">
 <meta name="twitter:description" content="压缩浏览器通过增加Accept-Encoding HTTP头来向Web服务器声明支持压缩：Accept-Encoding: gzip, deflate然而Web代理和PC安全软件却会对该头造成损坏，使得大量的请求收到未经压缩的响应。他们都需要对Web服务器发送的响应进行监听，监听未经过压缩的响应会占用更少的CPU资源，但是增加的网络响应时间却远远超过监听程序对响应进行解压缩所消耗的CPU时间。
@@ -229,6 +229,19 @@ classes that you can use:
 <h5 id="2-_利用测试结果">2. 利用测试结果</h5><h5 id="3-_对效果进行量化">3. 对效果进行量化</h5><ul>
 <li>没有通过<code>Accept-Encoding</code>头声明支持压缩的请求比例如果太低，直接探测压缩支持的技术没有意义。</li>
 <li>有通过<code>Accept-Encoding</code>头，但实际支持压缩的请求比例，只能通过直接探测测得，只有比例很高时，直接探测才有必要使用。</li>
+</ul>
+<h2 id="图片优化">图片优化</h2><h3 id="1-_简单优化">1. 简单优化</h3><h3 id="2-_选择图片格式">2. 选择图片格式</h3><h3 id="3-_自动无损图片优化">3. 自动无损图片优化</h3><ul>
+<li>png/gif优化工具</li>
+<li>剥离jpeg元数据</li>
+<li>渐进jpeg格式存储大图像<br>渐进编码所带来的收益随着文件大小递增。</li>
+</ul>
+<h3 id="4-_alphaImageLoader">4. alphaImageLoader</h3><ul>
+<li><h4 id="使用alpha滤镜增加维护成本且会造成直接的性能损耗。">使用<code>alpha</code>滤镜增加维护成本且会造成直接的性能损耗。</h4><h5 id="1-_代码分支">1. 代码分支</h5>使用<code>alpha</code>滤镜后，<code>background-position</code>将不被支持，这种情况下，通常会使用clip属性来模拟ie下的背景位置。<h5 id="2-_冻结浏览器">2. 冻结浏览器</h5>使用滤镜后，页面不会支持渐进渲染。因为如果一个页面设计了几个<code>alphaImageLoader</code>滤镜，他们的处理过程是串行的，浏览器冻结时间会更长。<h5 id="3-_增加内存消耗">3. 增加内存消耗</h5>处理应用滤镜会增加内存占用。</li>
+<li><h4 id="使用渐进增强的PNG8">使用渐进增强的PNG8</h4></li>
+<li><h4 id="高度优化sprite">高度优化sprite</h4></li>
+<li><h4 id="避免对图像进行缩放">避免对图像进行缩放</h4></li>
+<li><h4 id="对生成的图像优化">对生成的图像优化</h4>文件一旦生成，就应该被缓存尽可能长时间，例如将图像转化png8格式，判断256种颜色是否可接受。</li>
+<li><h4 id="favicon">favicon</h4><h5 id="1-_确定简历的favicon">1. 确定简历的favicon</h5><h5 id="2-_增加Expires头">2. 增加Expires头</h5><h5 id="3-_head中增加标签包含favicon，同时控制浏览器请求的url，可以和预定义的/favicon-ico完全不同。">3. head中增加<link>标签包含favicon，同时控制浏览器请求的url，可以和预定义的/favicon.ico完全不同。</h5><strong><em> 注意：</em></strong> 这种方法，ff会在瀑布图的最开始请求这个favicon，而不是在其他组件都下载完成之后才下载的，而且，如果从/favicon.ico调用这个文件，没有必要增加link标签 <h5 id="4-_保持较小的图标大小">4. 保持较小的图标大小</h5><h5 id="5-_实用工具对文件进行优化">5. 实用工具对文件进行优化</h5></li>
 </ul>
 
   </section>
