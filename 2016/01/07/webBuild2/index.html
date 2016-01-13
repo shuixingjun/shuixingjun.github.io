@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="水朝宗于海">
 <meta property="og:description" content="压缩浏览器通过增加Accept-Encoding HTTP头来向Web服务器声明支持压缩：Accept-Encoding: gzip, deflate然而Web代理和PC安全软件却会对该头造成损坏，使得大量的请求收到未经压缩的响应。他们都需要对Web服务器发送的响应进行监听，监听未经过压缩的响应会占用更少的CPU资源，但是增加的网络响应时间却远远超过监听程序对响应进行解压缩所消耗的CPU时间。
 解">
-<meta property="og:updated_time" content="2016-01-12T02:26:40.547Z">
+<meta property="og:updated_time" content="2016-01-12T05:37:30.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于高性能的网站建设2 | 水朝宗于海">
 <meta name="twitter:description" content="压缩浏览器通过增加Accept-Encoding HTTP头来向Web服务器声明支持压缩：Accept-Encoding: gzip, deflate然而Web代理和PC安全软件却会对该头造成损坏，使得大量的请求收到未经压缩的响应。他们都需要对Web服务器发送的响应进行监听，监听未经过压缩的响应会占用更少的CPU资源，但是增加的网络响应时间却远远超过监听程序对响应进行解压缩所消耗的CPU时间。
@@ -256,6 +256,13 @@ classes that you can use:
 <li>TE<br>请求首部。告诉服务器自己可以接受的编码方式。</li>
 </ul>
 <p>HTTP分块编码的响应报文结构大概是这样的：以HTTP响应首部块开始，随后是一系列的分块。每个分块包含一个长度值和该分块的数据，长度值是十六进制形式并将CRLF与数据分隔开。分块中数据的大小以字节计算，不包括长度值和数据之间的CRLF序列。最后是长度为0的结束块，表示分块编码传输结束。</p>
+<ol>
+<li>刷新输出和Gzip压缩</li>
+</ol>
+<ul>
+<li>可能受代理影响 </li>
+<li>浏览器自身影响</li>
+</ul>
 
   </section>
 
