@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="水朝宗于海">
 <meta property="og:description" content="压缩浏览器通过增加Accept-Encoding HTTP头来向Web服务器声明支持压缩：Accept-Encoding: gzip, deflate然而Web代理和PC安全软件却会对该头造成损坏，使得大量的请求收到未经压缩的响应。他们都需要对Web服务器发送的响应进行监听，监听未经过压缩的响应会占用更少的CPU资源，但是增加的网络响应时间却远远超过监听程序对响应进行解压缩所消耗的CPU时间。
 解">
-<meta property="og:updated_time" content="2016-01-12T05:37:30.609Z">
+<meta property="og:updated_time" content="2016-01-13T06:01:17.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于高性能的网站建设2 | 水朝宗于海">
 <meta name="twitter:description" content="压缩浏览器通过增加Accept-Encoding HTTP头来向Web服务器声明支持压缩：Accept-Encoding: gzip, deflate然而Web代理和PC安全软件却会对该头造成损坏，使得大量的请求收到未经压缩的响应。他们都需要对Web服务器发送的响应进行监听，监听未经过压缩的响应会占用更少的CPU资源，但是增加的网络响应时间却远远超过监听程序对响应进行解压缩所消耗的CPU时间。
@@ -248,18 +248,13 @@ classes that you can use:
 <li><h4 id="favicon">favicon</h4><h5 id="1-_确定简历的favicon">1. 确定简历的favicon</h5><h5 id="2-_增加Expires头">2. 增加Expires头</h5><h5 id="3-_head中增加标签包含favicon，同时控制浏览器请求的url，可以和预定义的/favicon-ico完全不同。">3. head中增加<link>标签包含favicon，同时控制浏览器请求的url，可以和预定义的/favicon.ico完全不同。</h5><strong><em> 注意：</em></strong> 这种方法，ff会在瀑布图的最开始请求这个favicon，而不是在其他组件都下载完成之后才下载的，而且，如果从/favicon.ico调用这个文件，没有必要增加link标签 <h5 id="4-_保持较小的图标大小">4. 保持较小的图标大小</h5><h5 id="5-_实用工具对文件进行优化">5. 实用工具对文件进行优化</h5></li>
 </ul>
 <h2 id="划分主域">划分主域</h2><p>内容分配到两个域较好</p>
-<h2 id="分块传输编码">分块传输编码</h2><ol>
-<li>块编码<br>html文档被分成多个数据块返回，每个响应的数据块都以标识其大小的指示符为开头。使得浏览器在下载数据包后马上进行解析，使得页面加载速度更快。<br>不使用块编码，响应必须包好一个content-length的头信息，这就意味着服务器在整个响应组合在一起，并计算出大小之前，是不会开始发送响应信息的。通过快编码，服务器可以今早发送响应，它只需要知道每个发送块大小。<br>HTTP协议中只定义了两个首部来描述传输编码：</li>
-</ol>
+<h2 id="分块传输编码">分块传输编码</h2><h3 id="1-_块编码">1. 块编码</h3><p>html文档被分成多个数据块返回，每个响应的数据块都以标识其大小的指示符为开头。使得浏览器在下载数据包后马上进行解析，使得页面加载速度更快。<br>不使用块编码，响应必须包好一个content-length的头信息，这就意味着服务器在整个响应组合在一起，并计算出大小之前，是不会开始发送响应信息的。通过快编码，服务器可以今早发送响应，它只需要知道每个发送块大小。<br>HTTP协议中只定义了两个首部来描述传输编码：</p>
 <ul>
-<li>Transfer-Encoding<br>响应首部。告诉浏览器传输编码方式，一般为分块编码。 <code>Transfer-Encoding: chunked</code></li>
-<li>TE<br>请求首部。告诉服务器自己可以接受的编码方式。</li>
+<li><h4 id="Transfer-Encoding">Transfer-Encoding</h4>响应首部。告诉浏览器传输编码方式，一般为分块编码。 <code>Transfer-Encoding: chunked</code></li>
+<li><h4 id="TE">TE</h4>请求首部。告诉服务器自己可以接受的编码方式。</li>
 </ul>
 <p>HTTP分块编码的响应报文结构大概是这样的：以HTTP响应首部块开始，随后是一系列的分块。每个分块包含一个长度值和该分块的数据，长度值是十六进制形式并将CRLF与数据分隔开。分块中数据的大小以字节计算，不包括长度值和数据之间的CRLF序列。最后是长度为0的结束块，表示分块编码传输结束。</p>
-<ol>
-<li>刷新输出和Gzip压缩</li>
-</ol>
-<ul>
+<h3 id="2-_刷新输出和Gzip压缩">2. 刷新输出和Gzip压缩</h3><ul>
 <li>可能受代理影响 </li>
 <li>浏览器自身影响</li>
 </ul>
