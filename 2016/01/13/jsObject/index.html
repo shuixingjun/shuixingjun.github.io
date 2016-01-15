@@ -7,7 +7,7 @@
     
 
     <title>
-      js高级程序设计-面向对象 | 水朝宗于海 
+      面向对象 | 水朝宗于海 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,16 +16,31 @@
     
     
 
-    <meta name="description" content="虚寂恒诚。">
+    <meta name="description" content="创建对象1. 工厂模式在函数内创建一个对象，给对象赋予属性及方法，再将对象返回，能够解决创建多个相似对象的问题。 
+//父构造函数
+function CarMaker() {}
+//a method of the parent
+CarMaker.prototype.drive = function() {
+    return &quot;Vroom,I have &quot; + this.doors + &quot; do">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js高级程序设计-面向对象 | 水朝宗于海">
+<meta property="og:title" content="面向对象 | 水朝宗于海">
 <meta property="og:url" content="http://shuixingjun.github.io/2016/01/13/jsObject/index.html">
 <meta property="og:site_name" content="水朝宗于海">
-<meta property="og:description" content="虚寂恒诚。">
-<meta property="og:updated_time" content="2016-01-13T05:59:07.018Z">
+<meta property="og:description" content="创建对象1. 工厂模式在函数内创建一个对象，给对象赋予属性及方法，再将对象返回，能够解决创建多个相似对象的问题。 
+//父构造函数
+function CarMaker() {}
+//a method of the parent
+CarMaker.prototype.drive = function() {
+    return &quot;Vroom,I have &quot; + this.doors + &quot; do">
+<meta property="og:updated_time" content="2016-01-15T08:39:58.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js高级程序设计-面向对象 | 水朝宗于海">
-<meta name="twitter:description" content="虚寂恒诚。">
+<meta name="twitter:title" content="面向对象 | 水朝宗于海">
+<meta name="twitter:description" content="创建对象1. 工厂模式在函数内创建一个对象，给对象赋予属性及方法，再将对象返回，能够解决创建多个相似对象的问题。 
+//父构造函数
+function CarMaker() {}
+//a method of the parent
+CarMaker.prototype.drive = function() {
+    return &quot;Vroom,I have &quot; + this.doors + &quot; do">
     
     
     
@@ -178,7 +193,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">js高级程序设计-面向对象</h1>
+    <h1 class="post-title">面向对象</h1>
 
     
 
@@ -211,7 +226,130 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    
+    <h2 id="创建对象">创建对象</h2><h3 id="1-_工厂模式">1. 工厂模式</h3><p>在函数内创建一个对象，给对象赋予属性及方法，再将对象返回，能够解决创建多个相似对象的问题。 </p>
+<pre><code><span class="comment">//父构造函数</span>
+<span class="function"><span class="keyword">function</span> <span class="title">CarMaker</span><span class="params">()</span> </span>{}
+<span class="comment">//a method of the parent</span>
+CarMaker.prototype.drive = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> <span class="string">"Vroom,I have "</span> + <span class="keyword">this</span>.doors + <span class="string">" doors"</span>;
+}
+<span class="comment">//静态工厂方法</span>
+CarMaker.factory = <span class="function"><span class="keyword">function</span><span class="params">(type)</span> </span>{
+    <span class="keyword">var</span> constr = type,
+    newcar;
+    <span class="comment">//如果构造函数不存在 ，则发生错误</span>
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> CarMaker[constr] !== <span class="string">'function'</span>) {
+        <span class="keyword">throw</span> {
+            name:<span class="string">"Error"</span>,
+            message:constr + <span class="string">" doesn't exist"</span>
+        }
+    };
+    <span class="comment">//在这里，构造函数是已知存在的，使原型继承父类，但只继承一次</span>
+    <span class="keyword">if</span> (<span class="keyword">typeof</span> CarMaker[constr].prototype.drive !== <span class="string">'function'</span>) {
+        CarMaker[constr].prototype = <span class="keyword">new</span> CarMaker();
+    };
+    <span class="comment">//创建一个新的实例</span>
+    newcar = <span class="keyword">new</span> CarMaker[constr]();
+    <span class="comment">//可选择行的调用一些方法然后返回</span>
+    <span class="keyword">return</span> newcar;
+}
+<span class="comment">//定义特定的汽车制造商</span>
+CarMaker.Compact = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.doors = <span class="number">4</span>;
+};
+CarMaker.Convertible = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.doors = <span class="number">2</span>;
+};
+CarMaker.SUV = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.doors = <span class="number">24</span>;
+};
+<span class="comment">//实现</span>
+<span class="keyword">var</span> corolla = CarMaker.factory(<span class="string">'Compact'</span>);
+<span class="keyword">var</span> solstice = CarMaker.factory(<span class="string">'Convertible'</span>);
+<span class="keyword">var</span> cherokee = CarMaker.factory(<span class="string">'SUV'</span>);
+corolla.drive(); <span class="comment">// Vroom,I have 4 doors</span>
+solstice.drive(); <span class="comment">// Vroom,I have 2 doors</span>
+cherokee.drive(); <span class="comment">// Vroom,I have 24 doors</span>
+</code></pre><h4 id="工厂模式使用场合">工厂模式使用场合</h4><ol>
+<li>动态实现<br>例如例子，创建一些用不同方式实现统一接口的对象，那么可以使用一个工厂方法或者简单工厂对象来简化实现过程。选择可以是明确进行的也可以是隐含的。</li>
+<li>节省设置开销<br>如果对象要进行复杂的并且彼此相关的设置的时候，那么工厂模式可以很显著的减少每种对象的代码量。将特定的设置代码提取出来会使得代码有极大地提升。并且能优化结构便于维护。</li>
+<li>用于许多小型对象组成一个大对象。</li>
+<li>工厂模式之利<br>主要好处就是可以消除对象间的耦合，通过使用工程方法而不是new关键字。将所有实例化的代码集中在一个位子防止代码重复。</li>
+<li>工厂模式之弊<br>大多数类最好使用new关键字和构造函数，可以让代码更加简单易读。而不必去查看工厂方法来知道。</li>
+</ol>
+<p>由于无从识别对象的类型，因为全部都是<code>Object</code>，不像<code>Date</code>，<code>Array</code>等，因此可以在内置的全局<code>Object()</code>构造函数。在这种内置对象工厂模式下，无论使用<code>new</code>操作符与否，都可以调用<code>Object()</code>。</p>
+<pre><code><span class="keyword">var</span> <span class="number">0</span> = <span class="keyword">new</span> <span class="built_in">Object</span>(),
+    n = <span class="keyword">new</span> <span class="built_in">Object</span>(<span class="number">1</span>),
+    s = <span class="built_in">Object</span>(<span class="string">'1'</span>),
+    b = <span class="built_in">Object</span>(<span class="literal">true</span>);
+<span class="comment">//test</span>
+o.constructor === <span class="built_in">Object</span>;    <span class="comment">//true</span>
+n.constructor === <span class="built_in">Number</span>;    <span class="comment">//true</span>
+s.constructor === <span class="built_in">String</span>;    <span class="comment">//true</span>
+b.constructor === <span class="built_in">Boolean</span>;    <span class="comment">//true</span>
+</code></pre><h3 id="2-_构造函数模式">2. 构造函数模式</h3><p>构造函数模式用于定义实例属性。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age)</span></span>{
+
+         <span class="keyword">this</span>.name = name;
+
+         <span class="keyword">this</span>.age = age;
+
+         <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+
+                   alert(<span class="keyword">this</span>.name);
+
+         }
+
+}
+
+<span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(‘almoye’, <span class="number">29</span>);
+
+person.sayName() <span class="comment">//output almoye</span>
+</code></pre><p>创建自定义的构造函数意味着将来可以将它的实例标识为一种特定的类型，这也正是构造函数模式胜过工厂模式的地方。</p>
+<ul>
+<li>构造函数与其他函数的唯一区别，就在于调用他们的方式不同，任何函数通过<code>new</code>操作符来调用，那它就可以作为构造函数。</li>
+<li>构造函数的主要问题<br>每个方法都要在每个实例上重新创建一遍</li>
+</ul>
+<h3 id="3-_原型模式">3. 原型模式</h3><p><code>prototype</code>就是通过调用构造函数而创建的那个对象的原型对象,用于定义方法和共享的属性。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span></span>{}
+
+    Person.prototype.name = ‘almoye’;
+
+    Person.prototype.age = <span class="number">29</span>;
+
+    Person.prorotype.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+
+             alert(<span class="keyword">this</span>.name);
+
+}
+
+<span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();
+
+person1.sayName(); <span class="comment">// output almoye</span>
+</code></pre><ul>
+<li>通过hasOwnProperty()方法检测属性是存在于实例中还是原型中,只有在实例中才是<code>true</code>。</li>
+<li><p>原型与in操作符<br>单独使用<code>in</code>时，<code>in</code>操作符会在通过对象能够访问给定属性时返回<code>true</code>，无论该属性存在于实例中还是与原型中。<br>故，同事使用<code>hasOwnProperty()</code>和<code>in</code>操作符，就可以确定该属性时存在于对象中还是原型中。</p>
+<pre><code>function hasPrototypeProperty(<span class="class"><span class="keyword">object</span>, <span class="title">name</span>) {</span>
+    <span class="keyword">return</span> !<span class="class"><span class="keyword">object</span>.<span class="title">hasOwnProperty</span>(</span>name) &amp;&amp; (name in <span class="class"><span class="keyword">object</span>)
+</span>} 
+</code></pre></li>
+<li>原型的动态性<br>重写原型会切断现有原型与任何之前已经存在的对象实例之间的联系，虽然它们引用的仍然是最初的原型<br>使用<code>for-in</code>循环时，返回的是所有能够通过对象访问的，可枚举属性。屏蔽了原型中不可枚举属性的实例属性也会在该循环中返回（ie9及以上）。</li>
+</ul>
+<h3 id="4-_组合使用构造函数模式和原型模式">4. 组合使用构造函数模式和原型模式</h3><p>该模式是用来定义引用类型的一种默认模式。</p>
+<h3 id="5-_动态原型模式">5. 动态原型模式</h3><p>使用该方法后，不能使用对象字面量重写原型。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>{
+         <span class="keyword">this</span>.name = name;
+         <span class="keyword">this</span>.age = age;
+         <span class="keyword">this</span>.job = job;
+         <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName != <span class="function"><span class="keyword">function</span>)</span>{
+                   Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+                            alert(<span class="keyword">this</span>.name);
+                   }
+        }        
+}
+</code></pre><h3 id="6-_寄生构造函数模式">6. 寄生构造函数模式</h3><p>作用仅是封装创建对象的代码，然后再返回新创建的对象。<br>返回的对象与构造函数或者与构造函数的原型属性之前没有关系。</p>
+<h3 id="7-_稳妥构造函数模式">7. 稳妥构造函数模式</h3><p>没有公共属性，而且其方法不引用this的对象，不用<code>new</code>操作符构造函数。<br>返回的对象与构造函数或者与构造函数的原型属性之前没有关系。</p>
+
   </section>
 
   
