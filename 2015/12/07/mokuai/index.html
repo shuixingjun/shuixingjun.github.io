@@ -16,37 +16,31 @@
     
     
 
-    <meta name="description" content="以下是模式的组合：
-命名空间
-即时函数
-私有和特权成员
-声明依赖
+    <meta name="description" content="私有变量严格来说js中没有私有成员的概念，在js中私有变量包括函数的参数，局部变量和函数内部定义的其他函数。特权方法:有权访问私有变量和私有函数的共有方法。静态私有变量来实现特权方法可以避免构造函数模式针对每个实例都会创建同样一族新方法的缺点。
 
-1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。MYAPP.namespace(&apos;MYAPP.utilities.array&apos;);
-2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周期的私有和状态。MYA">
+模块模式在必须创建一个对象并以某些数据对其进行初始化，同时还要公开一些能够访问这些私有数据的方法，就可以使用模块模式。
+以下是模式的组合：
+命名空间
+即">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模块模式 | 水朝宗于海">
 <meta property="og:url" content="http://shuixingjun.github.io/2015/12/07/mokuai/index.html">
 <meta property="og:site_name" content="水朝宗于海">
-<meta property="og:description" content="以下是模式的组合：
-命名空间
-即时函数
-私有和特权成员
-声明依赖
+<meta property="og:description" content="私有变量严格来说js中没有私有成员的概念，在js中私有变量包括函数的参数，局部变量和函数内部定义的其他函数。特权方法:有权访问私有变量和私有函数的共有方法。静态私有变量来实现特权方法可以避免构造函数模式针对每个实例都会创建同样一族新方法的缺点。
 
-1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。MYAPP.namespace(&apos;MYAPP.utilities.array&apos;);
-2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周期的私有和状态。MYA">
-<meta property="og:updated_time" content="2016-01-15T06:34:41.744Z">
+模块模式在必须创建一个对象并以某些数据对其进行初始化，同时还要公开一些能够访问这些私有数据的方法，就可以使用模块模式。
+以下是模式的组合：
+命名空间
+即">
+<meta property="og:updated_time" content="2016-01-20T07:17:23.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模块模式 | 水朝宗于海">
-<meta name="twitter:description" content="以下是模式的组合：
-命名空间
-即时函数
-私有和特权成员
-声明依赖
+<meta name="twitter:description" content="私有变量严格来说js中没有私有成员的概念，在js中私有变量包括函数的参数，局部变量和函数内部定义的其他函数。特权方法:有权访问私有变量和私有函数的共有方法。静态私有变量来实现特权方法可以避免构造函数模式针对每个实例都会创建同样一族新方法的缺点。
 
-1. 建立一个命名空间。本例中使用namespace()函数，并启动可以提供有用数组方法的工具模块。MYAPP.namespace(&apos;MYAPP.utilities.array&apos;);
-2. 定义该模块。也就是即时函数，该即时函数返回了一个对象，即具有公共接口的实际模块。所有的代码都在闭包内，它提供了整个生命周期的私有和状态。MYA">
+模块模式在必须创建一个对象并以某些数据对其进行初始化，同时还要公开一些能够访问这些私有数据的方法，就可以使用模块模式。
+以下是模式的组合：
+命名空间
+即">
     
     
     
@@ -235,7 +229,10 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="以下是模式的组合：">以下是模式的组合：</h3><ul>
+    <h2 id="私有变量">私有变量</h2><p>严格来说js中没有私有成员的概念，在js中私有变量包括函数的参数，局部变量和函数内部定义的其他函数。<br>特权方法:有权访问私有变量和私有函数的共有方法。<br>静态私有变量来实现特权方法可以避免构造函数模式针对每个实例都会创建同样一族新方法的缺点。</p>
+<p><br></p>
+<h2 id="模块模式">模块模式</h2><p>在必须创建一个对象并以某些数据对其进行初始化，同时还要公开一些能够访问这些私有数据的方法，就可以使用模块模式。</p>
+<h3 id="以下是模式的组合：">以下是模式的组合：</h3><ul>
 <li>命名空间</li>
 <li>即时函数</li>
 <li>私有和特权成员</li>

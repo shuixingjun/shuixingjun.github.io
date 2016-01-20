@@ -1765,6 +1765,9 @@ blockquote:before {
 /* .post-meta__date:hover {
   background: #e7d9ba;
 } */
+/* .navigation--social a .icon_dou {
+  font-size: 1.5em;
+} */
 .arr {
     border-right-color: #F7F3EE;
     position: absolute;
