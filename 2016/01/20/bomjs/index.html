@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      js高级程序设计-BOM | 水朝宗于海 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="忍冬">
+    
+    
+
+    <meta name="description" content="BOMBOM(浏览器对象模型)的核心对象是window，表示浏览器的一个实例。
+全局作用域1. 窗口关系及框架如果页面中有frames，则每个frames都拥有自己的window对象，并且保存在frames对象中。可以用window.frames[0]或者window.frames[framesName]来引用框架
+2. 窗口位置
+moveTo():接收新位置的x,y坐标值moveBy():接收在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js高级程序设计-BOM | 水朝宗于海">
+<meta property="og:url" content="http://shuixingjun.github.io/2016/01/20/bomjs/index.html">
+<meta property="og:site_name" content="水朝宗于海">
+<meta property="og:description" content="BOMBOM(浏览器对象模型)的核心对象是window，表示浏览器的一个实例。
+全局作用域1. 窗口关系及框架如果页面中有frames，则每个frames都拥有自己的window对象，并且保存在frames对象中。可以用window.frames[0]或者window.frames[framesName]来引用框架
+2. 窗口位置
+moveTo():接收新位置的x,y坐标值moveBy():接收在">
+<meta property="og:updated_time" content="2016-01-20T08:51:43.065Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js高级程序设计-BOM | 水朝宗于海">
+<meta name="twitter:description" content="BOMBOM(浏览器对象模型)的核心对象是window，表示浏览器的一个实例。
+全局作用域1. 窗口关系及框架如果页面中有frames，则每个frames都拥有自己的window对象，并且保存在frames对象中。可以用window.frames[0]或者window.frames[framesName]来引用框架
+2. 窗口位置
+moveTo():接收新位置的x,y坐标值moveBy():接收在">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/yu.jpg">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 水朝宗于海"><img src="/images/u.png" width="80" alt="水朝宗于海 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">水朝宗于海</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          君子终日乾乾，反复道也。
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/links" title="" class="">链接</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/shuixingjun" title="shuixingjun">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://www.douban.com/people/134846687/" title="豆瓣">
+          <i class='icon icon-social-rdio'></i>
+          <span class="label">豆瓣</span>
+        </a>
+      </li>
+    
+
+  </ul>
+</nav>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+<article class="post-container post-container--single">
+  <header class="post-header">
+    
+    <h1 class="post-title">js高级程序设计-BOM</h1>
+
+    
+
+    <div class="post-meta">
+         <span class="arr">&nbsp;</span>
+         <time datetime="2016-01-20" class="post-meta__date date">2016-01-20</time> 
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Font-End/">Font-End</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/javascript/">javascript</a>
+            </font>
+          
+
+      </span>
+          <span id="busuanzi_container_page_pv"> &#8226; 阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+      
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="BOM">BOM</h2><p>BOM(浏览器对象模型)的核心对象是<code>window</code>，表示浏览器的一个实例。</p>
+<h3 id="全局作用域">全局作用域</h3><h4 id="1-_窗口关系及框架">1. 窗口关系及框架</h4><p>如果页面中有<code>frames</code>，则每个<code>frames</code>都拥有自己的<code>window</code>对象，并且保存在<code>frames</code>对象中。<br>可以用<code>window.frames[0]</code>或者<code>window.frames[framesName]</code>来引用框架</p>
+<h4 id="2-_窗口位置">2. 窗口位置</h4><ul>
+<li><code>moveTo()</code>:接收新位置的x,y坐标值<br><code>moveBy()</code>:接收在水平和垂直方向上移动的像素数</li>
+<li>window对象位置的属性和方法：<br><code>screenLeft</code>,<code>screenTop</code>:opera,ie.<br><code>screenX</code>,<code>screenY</code>:ff,saf,chrome</li>
+</ul>
+<h4 id="3-_窗口大小">3. 窗口大小</h4><ul>
+<li>调整浏览器窗口大小<br><code>resizeTo()</code>:接收浏览器窗口的新宽度和新高度<br><code>resizeBy()</code>:接收新窗口与原窗口的宽度和高度之差<br>op和ie7及最高中默认禁用，不适用于框架，只能对最外层的<code>window</code>对象使用。</li>
+<li>窗口大小<br><code>innerWidth</code>,<code>innerHeight</code>,该容器中页面视图区的大小（减去边框宽度）。<br><code>outerWidth</code>,<code>outerHeight</code>,浏览器窗口本身的尺寸。在opera中则表示页面试图容器（单个标签页对应的浏览器窗口）大小。<br>chorme中，2对属性返回相同的值，即视口大小而非浏览器窗口大小。</li>
+</ul>
+<h4 id="4-_导航和打开窗口">4. 导航和打开窗口</h4><p><code>window.open()</code></p>
+<h3 id="location对象">location对象</h3><p>提供与当前窗口中加载的文档有关的信息，还提供了一些导航功能。</p>
+<h4 id="1-_查询字符串参数。">1. 查询字符串参数。</h4><p><code>location.search</code>返回从问号到<code>URL</code>末尾的所有内容，但却没有办法逐个访问其中的每个查询字符串参数。<br>故，可以创建一个函数，用以解析查询字符串，然后返回包含所有参数的一个对象。</p>
+<h4 id="2-_位置操作">2. 位置操作</h4><p>一般使用<code>location.href()</code><br>但是通过<code>location.href</code>会是浏览器中生成一条新记录，因此用户单击“后退”按钮都会导航到前一个页面，要禁用这种行为，可以使用<code>location.replace</code>方法。</p>
+<pre><code><span class="built_in">location</span>.<span class="built_in">reload</span>();    <span class="comment">//重新加载(有可能从缓存中加载)最好放在代码的最后一行。</span>
+<span class="built_in">location</span>.<span class="built_in">reload</span>(<span class="literal">true</span>); <span class="comment">//重新加载(从服务器重新加载);</span>
+</code></pre><h4 id="3-_navigator对象">3. navigator对象</h4><p>识别客户端浏览器的事实标准。</p>
+<h4 id="4-_检测插件">4. 检测插件</h4><h5 id="1-_检测检查">1. 检测检查</h5><p><code>plugins</code>数组</p>
+<h5 id="2-_注册处理程序">2. 注册处理程序</h5><p>FireFox 2.0为<code>navigator</code>新增<code>registerContentHandler</code>和 <code>registerProtocolHandler</code> 的方法。(这两个方法在html5中有定义)。这两个方法可以让一个站点指明它可以处理特定类型的信息。<br><code>registerContentHandler</code>是<code>RSS</code>源的<code>MIME</code>类型。接受三个参数：要处理的<code>MIME</code>类型、可以处理该<code>MIME</code>类型的页面的<code>URL</code>以及应用程序的名字。</p>
+<pre><code>navigat<span class="subst">or</span><span class="built_in">.</span>registerContentHandler(‘application/rss+<span class="built_in">xml</span>’, ‘http:<span class="comment">//www.sohu.com?feed=%s’, ‘some Reader’);</span>
+</code></pre><p><code>registerProtocolHandler</code>：接受三个参数：要处理的协议（例如， mailto 或 ftp）、处理该协议的页面的 URL 和应用程序的名称。<br>FireFox 2.0 虽然实现了<code>registerProtocolHandler</code>，但该方法还不能用。</p>
+<h4 id="5-_history对象">5. history对象</h4><pre><code><span class="keyword">history</span>.<span class="keyword">go</span>(-<span class="number">1</span>) | <span class="keyword">history</span>.back(); //后退一页
+<span class="keyword">history</span>.<span class="keyword">go</span>(<span class="number">1</span>) | <span class="keyword">history</span>.forward();//前进一页
+<span class="keyword">history</span>.<span class="keyword">go</span>(<span class="keyword">n</span>);//前进<span class="keyword">n</span>页
+<span class="keyword">history</span>.<span class="keyword">go</span>(‘sohu.<span class="keyword">com</span>’);//跳转到最后的sohu页面
+</code></pre><p><code>history.length</code>属性，保存着历史记录的数量。如果<code>history.lenght</code>等于 0,那么应该是用户打开窗口后的第一个页面。</p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2016/01/20/bomjs/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"shuixingjun"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+	
+    <span class="footer__copyright">&copy; 2015. <a href="../about" class="rend">忍冬</a></span>
+
+    <p class="no-indent">
+	   
+    	本页点击 <span id="busuanzi_value_page_pv"></span>次 &emsp;|&emsp;
+    	本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+		&emsp;|&emsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客 &emsp;&emsp;<span>
+		    <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+	 	</span>
+    </p>
+    
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+     <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
