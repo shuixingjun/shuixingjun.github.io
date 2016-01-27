@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Dom启蒙，关于dom的一些接 | 水朝宗于海 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="忍冬">
+    
+    
+
+    <meta name="description" content="节点使用js字符串创建并向Dom中添加元素和文本节点document.write()，write()方法会在阻塞正在加载的html文档的解析。innerHTML调用了一个沉重且高消耗的HTML解析器。insertAjacentHTML和insetAdjacentText()火狐不支持outerHTML和outerText会替换到原有的节点元素
+转换类数组列表成真正的js数组1. call(),ap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dom启蒙，关于dom的一些接 | 水朝宗于海">
+<meta property="og:url" content="http://shuixingjun.github.io/2016/01/27/domqm/index.html">
+<meta property="og:site_name" content="水朝宗于海">
+<meta property="og:description" content="节点使用js字符串创建并向Dom中添加元素和文本节点document.write()，write()方法会在阻塞正在加载的html文档的解析。innerHTML调用了一个沉重且高消耗的HTML解析器。insertAjacentHTML和insetAdjacentText()火狐不支持outerHTML和outerText会替换到原有的节点元素
+转换类数组列表成真正的js数组1. call(),ap">
+<meta property="og:updated_time" content="2016-01-27T09:35:33.575Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dom启蒙，关于dom的一些接 | 水朝宗于海">
+<meta name="twitter:description" content="节点使用js字符串创建并向Dom中添加元素和文本节点document.write()，write()方法会在阻塞正在加载的html文档的解析。innerHTML调用了一个沉重且高消耗的HTML解析器。insertAjacentHTML和insetAdjacentText()火狐不支持outerHTML和outerText会替换到原有的节点元素
+转换类数组列表成真正的js数组1. call(),ap">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/yu.jpg">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+    <link rel="stylesheet" href="/css/china-social-icon.css" type="text/css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 水朝宗于海"><img src="/images/u.png" width="80" alt="水朝宗于海 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">水朝宗于海</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          君子终日乾乾，反复道也。
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/links" title="" class="">链接</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/shuixingjun" title="shuixingjun">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://www.douban.com/people/134846687/" title="豆瓣">
+          <i class='icon icon-social-rdio'></i>
+          <span class="label">豆瓣</span>
+        </a>
+      </li>
+    
+
+  </ul>
+</nav>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+<article class="post-container post-container--single">
+  <header class="post-header">
+    
+    <h1 class="post-title">Dom启蒙，关于dom的一些接</h1>
+
+    
+
+    <div class="post-meta">
+         <span class="arr">&nbsp;</span>
+         <time datetime="2016-01-27" class="post-meta__date date">2016-01-27</time> 
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Font-End/">Font-End</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/javascript/">javascript</a>
+            </font>
+          
+
+      </span>
+          <span id="busuanzi_container_page_pv"> &#8226; 阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+      
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="节点">节点</h2><h3 id="使用js字符串创建并向Dom中添加元素和文本节点">使用js字符串创建并向Dom中添加元素和文本节点</h3><p><code>document.write()</code>，<code>write()</code>方法会在阻塞正在加载的<code>html</code>文档的解析。<br><code>innerHTML</code>调用了一个沉重且高消耗的HTML解析器。<br><code>insertAjacentHTML</code>和<code>insetAdjacentText()</code>火狐不支持<br><code>outerHTML</code>和<code>outerText</code>会替换到原有的节点元素</p>
+<h3 id="转换类数组列表成真正的js数组">转换类数组列表成真正的js数组</h3><h4 id="1-_call(),apply()调用">1. call(),apply()调用</h4><h4 id="2-_slice()">2. slice()</h4><p><code>slice</code>有两个用法，1是<code>String.slice</code>返回字符串，第二个就是<code>Array.slice</code>返回数组。在这里我们看第二个：</p>
+<h4 id="3-_Array-prototype-slice-call(arguments)">3. Array.prototype.slice.call(arguments)</h4><p>该方法能够将具有<code>length</code>属性的对象转成数组，即<code>arguments.toArray().slice()。</code><br>除了ie下的节点集合（因为ie下的dom对象是以com对象的形式事项的，js对象与com对象不能进行转换)。如：</p>
+<pre><code><span class="keyword">var</span> a={length:<span class="number">2</span>,<span class="number">0</span>:<span class="string">'first'</span>,<span class="number">1</span>:<span class="string">'second'</span>};
+<span class="built_in">Array</span>.prototype.slice.call(a);<span class="comment">//  ["first", "second"]</span>
+
+<span class="keyword">var</span> a={length:<span class="number">2</span>};
+<span class="built_in">Array</span>.prototype.slice.call(a);<span class="comment">//  [undefined, undefined]  </span>
+</code></pre><h2 id="文档节点">文档节点</h2><h3 id="1-_文档子节点">1. 文档子节点</h3><p><code>window.document</code>对象与<code>document</code>对象不同，前者为<code>dom</code>接口的起始，包含一个<code>documentType</code>节点对象与一个<code>element</code>节点对象，在<code>&lt;html lang=&quot;en&quot;&gt;</code>对象之外的注释节点会成为<code>window.document</code>的子节点，会导致ie发生一些错误。    </p>
+<h3 id="2-_取得文档中聚焦，激活状态的元素">2. 取得文档中聚焦，激活状态的元素</h3><p><code>document.activeElement</code></p>
+<h3 id="3-_访问顶部对象（全局对象）作用域">3. 访问顶部对象（全局对象）作用域</h3><p><code>document.defaultView</code></p>
+<h3 id="4-_从某元素取得文档的引用">4. 从某元素取得文档的引用</h3><p><code>document.body.ownerElement</code></p>
+<h3 id="元素节点几何量和滚动节点几何量">元素节点几何量和滚动节点几何量</h3><h4 id="1-_获取元素在视区中的尺寸">1. 获取元素在视区中的尺寸</h4><ul>
+<li><p>边框+填充+内容<br><code>getBoundingClientRect().height</code>,<code>getBoundingClientRect().width</code>分别与<code>offsetHeight</code>和<code>offsetWidth</code>获取相同的属性值。</p>
+</li>
+<li><p>填充+内容<br><code>clientHeight</code>,<code>clientWidth</code></p>
+</li>
+</ul>
+<h4 id="2-_滚动元素到可视区">2. 滚动元素到可视区</h4><p><code>scrollIntoView(true)</code><br>滚动到元素的底部，则传<code>false</code>参数</p>
+<h2 id="文本节点">文本节点</h2><h3 id="1-_文本对象与属性">1. 文本对象与属性</h3><p>不考虑继承：<br><code>textCont</code>,<code>splitText()</code>,<code>appendData()</code>,<code>deleData()</code>,<code>inserData()</code>,<code>replaceData()</code>,<code>subStringData()</code>,<br><code>normalize()</code>,<code>data</code>,<code>document.creatTextNode()</code></p>
+<h3 id="2-_Text节点的文本值/数据">2. Text节点的文本值/数据</h3><p>data或者nodeValue，且两者都返回Text节点中的文本。</p>
+<h3 id="3-_textContent与innerText区别">3. textContent与innerText区别</h3><ul>
+<li><h4 id="textContent">textContent</h4>可获取所有元素的内容。<br>设置某个节点所含文本时，会先移除所有子节点，替换它们为单个<code>Text</code>节点。<br>返回文本标准化，完全按照文档所含返回，仅移除标记。字符串包括空白符，换行符和回车。<br>依据<code>Dom</code>规范实现。</li>
+<li><h4 id="innerText">innerText</h4>关心<code>css</code>，会触发<code>css</code>重排。<br>意识到样式，无视隐藏文本。<br><code>html</code>转义，剔除格式信息，无视<code>&lt;script&gt;</code>与<code>&lt;style&gt;</code>所含的<code>Text</code>节点。<br>非标准，且是特定浏览器ie的，ff会不兼容。</li>
+</ul>
+<h3 id="4-合并兄弟节点为单个节点">4.合并兄弟节点为单个节点</h3><p><code>normalize()</code></p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2016/01/27/domqm/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"shuixingjun"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+	
+    <span class="footer__copyright">&copy; 2015. <a href="../about" class="rend">忍冬</a></span>
+
+    <p class="no-indent">
+	   
+    	本页点击 <span id="busuanzi_value_page_pv"></span>次 &emsp;|&emsp;
+    	本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+		&emsp;|&emsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客 &emsp;&emsp;<span>
+		    <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+	 	</span>
+    </p>
+    
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+     <script type="text/javascript">
+		    	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		   		 document.write(unescape("%3Cspan id='cnzz_stat_icon_1256883561'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256883561' type='text/javascript'%3E%3C/script%3E"));
+		 	 </script>
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
