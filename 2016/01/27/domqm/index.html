@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="水朝宗于海">
 <meta property="og:description" content="节点使用js字符串创建并向Dom中添加元素和文本节点document.write()，write()方法会在阻塞正在加载的html文档的解析。innerHTML调用了一个沉重且高消耗的HTML解析器。insertAjacentHTML和insetAdjacentText()火狐不支持outerHTML和outerText会替换到原有的节点元素
 转换类数组列表成真正的js数组1. call(),ap">
-<meta property="og:updated_time" content="2016-02-01T02:13:57.216Z">
+<meta property="og:updated_time" content="2016-02-01T02:17:07.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dom启蒙，关于dom的一些接口 | 水朝宗于海">
 <meta name="twitter:description" content="节点使用js字符串创建并向Dom中添加元素和文本节点document.write()，write()方法会在阻塞正在加载的html文档的解析。innerHTML调用了一个沉重且高消耗的HTML解析器。insertAjacentHTML和insetAdjacentText()火狐不支持outerHTML和outerText会替换到原有的节点元素
@@ -238,7 +238,7 @@ classes that you can use:
 </ul>
 <h4 id="2-_滚动元素到可视区">2. 滚动元素到可视区</h4><p><code>scrollIntoView(true)</code><br>滚动到元素的底部，则传<code>false</code>参数</p>
 <h2 id="文本节点">文本节点</h2><h3 id="1-_文本对象与属性">1. 文本对象与属性</h3><p>不考虑继承：<br><code>textCont</code>,<code>splitText()</code>,<code>appendData()</code>,<code>deleData()</code>,<code>inserData()</code>,<code>replaceData()</code>,<code>subStringData()</code>,<br><code>normalize()</code>,<code>data</code>,<code>document.creatTextNode()</code></p>
-<h3 id="2-_Text节点的文本值/数据">2. Text节点的文本值/数据</h3><p>data或者nodeValue，且两者都返回Text节点中的文本。</p>
+<h3 id="2-_Text节点的文本值/数据">2. Text节点的文本值/数据</h3><p><code>data</code>或者<code>nodeValue</code>，且两者都返回<code>Text</code>节点中的文本。</p>
 <h3 id="3-_textContent与innerText区别">3. textContent与innerText区别</h3><ul>
 <li><h4 id="textContent">textContent</h4>可获取所有元素的内容。<br>设置某个节点所含文本时，会先移除所有子节点，替换它们为单个<code>Text</code>节点。<br>返回文本标准化，完全按照文档所含返回，仅移除标记。字符串包括空白符，换行符和回车。<br>依据<code>Dom</code>规范实现。</li>
 <li><h4 id="innerText">innerText</h4>关心<code>css</code>，会触发<code>css</code>重排。<br>意识到样式，无视隐藏文本。<br><code>html</code>转义，剔除格式信息，无视<code>&lt;script&gt;</code>与<code>&lt;style&gt;</code>所含的<code>Text</code>节点。<br>非标准，且是特定浏览器ie的，ff会不兼容。</li>
@@ -246,15 +246,15 @@ classes that you can use:
 <h3 id="4-合并兄弟节点为单个节点">4.合并兄弟节点为单个节点</h3><p><code>normalize()</code></p>
 <h2 id="文档片段与直接在内存创建的区别">文档片段与直接在内存创建的区别</h2><ul>
 <li>前者包含除<code>&lt;body&gt;</code>,<code>&lt;html&gt;</code>外任意节点。</li>
-<li>前者附加文档片段到DOM时，自身并不会被添加。</li>
-<li>前者被附加到DOM中时，从其传输内容至其被附加的位置，自身不再存在于创始位置。</li>
+<li>前者附加文档片段到<code>DOM</code>时，自身并不会被添加。</li>
+<li>前者被附加到<code>DOM</code>中时，从其传输内容至其被附加的位置，自身不再存在于创始位置。</li>
 </ul>
 <h2 id="dom中的js">dom中的js</h2><h4 id="1-_defer推迟外部脚本下载执行">1. defer推迟外部脚本下载执行</h4><h4 id="2-_async异步下载执行">2. async异步下载执行</h4><ul>
 <li>放弃顺序加载。</li>
-<li>ie9及以下不支持。同时使用defer，会压过它。</li>
-<li>使用前提是没有再异步加载的脚本中使用document.write()</li>
+<li>ie9及以下不支持。同时使用<code>defer</code>，会压过它。</li>
+<li>使用前提是没有再异步加载的脚本中使用<code>document.write()</code></li>
 </ul>
-<h4 id="3-_动态元素强制异步加载解析js">3. 动态<script>元素强制异步加载解析js</h4></script></h4>
+<h4 id="3-_动态&lt;script&gt;元素强制异步加载解析js">3. 动态<code>&lt;script&gt;</code>元素强制异步加载解析js</h4>
   </section>
 
   
